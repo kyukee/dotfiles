@@ -93,7 +93,7 @@
 + **cmatrix**  matrix style terminal
 + **mongoclock**  terminal clock
 
-### included scripts and tools
+### scripts and tools
 + **feh_browser**  cycle between images in a folder with feh
 + **tiles**  display the current terminal colors and colored text over colored tiles
 + **colorz**  generate a color pallete from any image (useful for creating themes)

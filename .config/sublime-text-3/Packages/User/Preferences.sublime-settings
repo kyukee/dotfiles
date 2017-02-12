@@ -1,0 +1,11 @@
+{
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+	"font_face": "Terminus (TTF)",
+	"font_size": 14,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"material_theme_accent_pink": true,
+	"theme": "Material-Theme-Darker.sublime-theme"
+}

@@ -1,0 +1,38 @@
+
+rofi.font: Terminus (TTF) 13
+
+rofi.terminal: urxvt
+rofi.hide-scrollbar: true
+rofi.disable-history: true
+rofi.lines: 16
+rofi.padding: 710
+rofi.line-margin: 2
+
+!border width
+rofi.bw: 0
+
+!matching algorithm (normal, regex, glob, fuzzy)
+rofi.regex:	true
+
+!line height (has to be int)
+rofi.eh: 1
+
+!(0-100): percentage	(>100): pixel value
+rofi.width: 100
+
+
+rofi.modi: run,ssh,window,file:fmenu-rofi.sh
+
+rofi.run-list-command: /Scripts/rofi-alias.sh
+
+rofi.run-command: /bin/bash -i -c '{cmd}'
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: argb:5e000000, #ffffff, argb:0000000
+rofi.color-normal: #211B1C, #adad95, #211B1C, #822b45, #eeeecc
+rofi.color-active: #211B1C, #95a5c6, #211B1C, #7280af, #eeeecc
+rofi.color-urgent: #211B1C, #bf006c, #211B1C, #bf006c, #eeeecc

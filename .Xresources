@@ -1,0 +1,54 @@
+URxvt.font: xft:Terminus (TTF):size=14
+URxvt.letterSpace: +1
+URxvt.scrollBar: false
+
+URxvt*fading: 30
+
+! special
+*.foreground:   #eeeecc
+*.background:   #211b1c
+*.cursorColor:  #deded6
+
+! black
+*.color0:       #33303b
+*.color8:       #4f4b58
+
+! red
+*.color1:       #F7155C
+*.color9:       #c44444
+
+! green
+*.color2:       #7280af
+*.color10:      #7280af
+
+! yellow
+*.color3:       #95a5c6
+*.color11:      #95a5c6
+
+! blue
+*.color4:       #7f62b2
+*.color12:      #7f62b2
+
+! magenta
+*.color5:       #bf006c
+*.color13:      #bf006c
+
+! cyan
+*.color6:       #670672
+*.color14:      #670672
+
+! white
+*.color7:       #d8d8d8
+*.color15:      #f8f8f8
+
+
+URxvt.perl-ext-common:     resize-font
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+
+URxvt.url-launcher:        /lib/firefox/run-mozilla.sh
+URxvt.colorUL: #7780a1
+
+! xrdb ~/.Xresources  >>  update terminal
+! pacman-key --refresh-keys  >>  refresh keys

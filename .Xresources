@@ -11,7 +11,9 @@ URxvt*fading: 30
 
 ! black
 *.color0:       #33303b
-*.color8:       #4f4b58
+*.color8:       #211b1c
+
+!#4f4b58 for actual black in color 8
 
 ! red
 *.color1:       #F7155C
@@ -26,16 +28,16 @@ URxvt*fading: 30
 *.color11:      #95a5c6
 
 ! blue
-*.color4:       #7f62b2
-*.color12:      #7f62b2
+*.color4:       #8c55af
+*.color12:      #8c55af
 
 ! magenta
 *.color5:       #bf006c
 *.color13:      #bf006c
 
 ! cyan
-*.color6:       #670672
-*.color14:      #670672
+*.color6:       #7d2088
+*.color14:      #7d2088
 
 ! white
 *.color7:       #d8d8d8
@@ -52,3 +54,4 @@ URxvt.colorUL: #7780a1
 
 ! xrdb ~/.Xresources  >>  update terminal
 ! pacman-key --refresh-keys  >>  refresh keys
+! chsh -s $(which zsh)  >>  change shell (replace zsh with shell name for other shell)

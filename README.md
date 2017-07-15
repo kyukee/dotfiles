@@ -68,6 +68,7 @@
   + **teiler-alt.sh**  personal modified version of teiler. captures screenshots and screencasts
 + **thunar** _file manager_  main file manager
   + **thunar volman**  automatic management of removable devices
+  + **djmount**  upnp client. mounts the media content as a linux filesystem
 + **ranger** _file manager_  lightweight terminal file manager. use w3m for image previews
 + **yaourt** _aur helper_  browsing aur made easy
 + **htop** _task manager_  interactive process viewer

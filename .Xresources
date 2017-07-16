@@ -55,3 +55,9 @@ URxvt.colorUL: #7780a1
 ! xrdb ~/.Xresources  >>  update terminal
 ! pacman-key --refresh-keys  >>  refresh keys
 ! chsh -s $(which zsh)  >>  change shell (replace zsh with shell name for other shell)
+! cat /sys/class/backlight/intel_backlight/brightness  >> check current brightness
+! cat /sys/class/backlight/intel_backlight/max_brightness  >> check max brightness
+! num=0; for i in *; do mv "$i" "$(printf 'bnr%02d' $num).${i#*.}"; ((num++)); done  >> 
+!   rename every file in a folder to bnr00, bnr01, bnr02, etc.
+! sudo kbd_mode -s  >>  set keyboard input mode to scancode
+! yaourt -Syua  >>  update aur packages

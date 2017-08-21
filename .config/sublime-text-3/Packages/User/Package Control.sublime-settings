@@ -5,12 +5,18 @@
 	],
 	"installed_packages":
 	[
+		"BracketHighlighter",
 		"ColorSchemeEditor",
+		"Colorsublime",
 		"FindKeyConflicts",
 		"Git",
 		"GitGutter",
 		"Material Theme",
 		"Package Control",
-		"SideBarEnhancements"
+		"Prolog",
+		"SideBarEnhancements",
+		"SubNotify",
+		"Terminality",
+		"TerminalView"
 	]
 }

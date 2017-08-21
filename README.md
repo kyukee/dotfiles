@@ -5,6 +5,8 @@
 + **i3-gaps-git** _window manager_  a fork of i3wm with more features, including gaps
   + **i3lock-fancy-git**  _lockscreen_  blurs background, adds lock icon and text
   + **i3status** _status bar_  generates status bar to use with i3bar
++ **sddm** _display manager_  customizable with qml
+  + **sddm-deepin-theme**  personal modified version, very minimal
 + **rxvt-unicode** _terminal emulator_  lightweight, extensible with perl
   + **urxvt-clipboard**  makes urxvt play nice with the x clipboard
   + **urxvt-resize-font**  enables on the fly font resizing.  very useful for small screens
@@ -32,6 +34,7 @@
   + **custom new tab**  custumize new tab url
   + **single star button**  just personal preference
   + **dom inspector**  inspect and edit live web documents
+  + **black elegance theme**  works well with the css
 + **w3m** _web browser_  console web browser, used for image previews in ranger
 + **qbittorrent**  bittorrent client
 + **openssh**  ssh client
@@ -54,9 +57,16 @@
 
 ### programming
 + **sublime text 3** _text editor_  install 'package control' with (Ctrl + shift + p) for addons and themes
-  + **side bar enhancements**  my list of plugins
+  + **bracket highlighter**  my list of plugins
   + **color scheme editor**
+  + **color sublime themes**
+  + **find key conflicts**
+  + **git**
+  + **git gutter**
   + **material theme**
+  + **side bar enhancements**
+  + **sub notify**
+  + **terminal view**
 + **python**  allows for easy scripting
 + **lua**  another scripting language
 + **jre**  java runtime environment

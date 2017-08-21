@@ -67,16 +67,16 @@ set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
 set $workspace9 "9 "
-set $workspace0 "0"
+set $workspace0 "10 "
 
 
 ##### workspace assignment #####
-assign [class="Firefox"] $workspace2
+assign [class="Firefox" instance="Navigator"] $workspace2
 assign [class="Subl3"] $workspace3
 assign [class="Qt_utils.pyo"] $workspace4
 assign [class="Zathura"] $workspace5
-assign [class="ist-ac-simulador-application-AppSimulador"] $workspace6
-assign [class="Thunar"] $workspace7
+assign [class="qBittorrent"] $workspace6
+assign [class="Thunar" title="File Manager"] $workspace7
 assign [class="mpv"] $workspace8
 assign [class="URxvt" instance="ncmpcpp"] $workspace9
 

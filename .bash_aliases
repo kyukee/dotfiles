@@ -11,4 +11,5 @@ alias clock='mongoclock'
 alias pipes='pipes -f 30  -p 4  -s 12  -r 1600  -p 4 -R'
 alias lock='i3lock-fancy'
 alias gitdir='cd Development/git/ && ls'
-
+alias diff='colordiff'
+alias calculator='gnome-calculator'

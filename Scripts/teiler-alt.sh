@@ -109,7 +109,7 @@ screenshotMenu () {
         exit
     elif [[ $val -eq 10 || $val -eq 0 ]]; then
         delayPrompt
-        maimCmd delay $mode "${filename}" && notify-send -a "teiler" -t 1 "teiler" "Screenshot taken" && exit
+        maimCmd delay $mode "${filename}" && notify-send -a "teiler" -t "1500" "teiler" "Screenshot taken" && exit
     fi
 }
 
@@ -194,7 +194,7 @@ stopRecording () {
         res=$(cat $XDG_RUNTIME_DIR/teiler_res)
     fi
     [[ -f $SCREENCAST_PIDFILE ]] && { pid=$(cat "$SCREENCAST_PIDFILE"); isRecording && kill "$pid"; rm "$SCREENCAST_PIDFILE"; }
-    notify-send -a "teiler" -t "1" "teiler" "Stopped recording"
+    notify-send -a "teiler" -t "1500" "teiler" "Stopped recording"
     if [[ -z $rate ]]; then
         output=$(xininfo -name); xrandr --output "$output" --mode "$res"; rm -f $XDG_RUNTIME_DIR/teiler_res; return 0
     else
@@ -249,7 +249,7 @@ ffmpegCmd () {
         else ffmpeg -f x11grab ${border} -s $res -i $ffmpeg_display+$ffmpeg_offset $ffaudio $encopts "${vid_path}/${filename}" &
         fi
         echo "$!" > "$SCREENCAST_PIDFILE"
-        notify-send -a "teiler" -t "1" "teiler" "Screencast started"
+        notify-send -a "teiler" -t "1500" "teiler" "Screencast started"
     elif [[ $1 == "area" ]]; then
         read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
         X=$(round $X)
@@ -263,7 +263,7 @@ ffmpegCmd () {
         else ffmpeg -f x11grab ${border} -s "$W"x"$H" -i $ffmpeg_display+$X,$Y $ffaudio $rect_encopts "${vid_path}/${filename}" &
         fi
         echo "$!" > "$SCREENCAST_PIDFILE"
-        notify-send -a "teiler" -t "1" "teiler" "Screencast started"
+        notify-send -a "teiler" -t "1500" "teiler" "Screencast started"
     fi
 }
 

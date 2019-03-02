@@ -26,8 +26,8 @@ DMENU="-i -l 20"
 TIME="+5"
 INPUT=$HOME
 
-EXCLUDE='.*\.cache.*\|.*\.local.*\|.*\.mozilla.*\|.*sublime-text-3.*\|.*adapta-gtk-theme.*\|.*Font-Awesome.*'
-#   See emacs regular expression for syntax 
+EXCLUDE='.*\.cache.*\|.*\.local.*\|.*\.mozilla.*\|.*sublime-text-3.*\|.*adapta-gtk-theme.*\|.*Font-Awesome.*\|.*Java\/docs.*\|.*\.wine.*windows.*\|.*wineprefix.*\|.*\.git\/objects.*'
+#   See 'emacs regular expression' for syntax
 
 DRY=false
 while getopts "ht:fd:o:i:x:u" OPTION

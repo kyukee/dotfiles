@@ -36,6 +36,7 @@ bindsym $mod+t exec --no-startup-id thunar
 bindsym $mod+Shift+t exec --no-startup-id urxvt -name ranger -e ranger
 bindsym $mod+b exec --no-startup-id firefox
 bindsym $mod+u exec --no-startup-id subl3
+bindsym $mod+o exec --no-startup-id libreoffice
 
 
 ##### program launcher #####
@@ -61,23 +62,25 @@ font pango:Terminus (TTF) 14
 set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
-set $workspace4 "4 "
+set $workspace4 "4 "
 set $workspace5 "5 "
 set $workspace6 "6 "
-set $workspace7 "7 "
-set $workspace8 "8 "
-set $workspace9 "9 "
+set $workspace7 "7 "
+set $workspace8 "8 "
+set $workspace9 "9 "
 set $workspace0 "10 "
 
 
 ##### workspace assignment #####
 assign [class="Firefox" instance="Navigator"] $workspace2
 assign [class="Subl3"] $workspace3
-assign [class="Qt_utils.pyo"] $workspace4
+assign [class="Thunar" title="File Manager"] $workspace4
+assign [class="Eclipse"] $workspace5
 assign [class="Zathura"] $workspace5
-assign [class="qBittorrent"] $workspace6
-assign [class="Thunar" title="File Manager"] $workspace7
+assign [class="libreoffice"] $workspace6
+assign [class="qBittorrent"] $workspace7
 assign [class="mpv"] $workspace8
+assign [class="VirtualBox Machine"] $workspace8
 assign [class="URxvt" instance="ncmpcpp"] $workspace9
 
 
@@ -92,6 +95,8 @@ exec --no-startup-id compton -f
 exec --no-startup-id mpd
 exec --no-startup-id "dunst -c ~/.config/dunst/dunstrc"
 exec --no-startup-id "sh -c 'sleep 2; exec urxvt'"
+exec --no-startup-id http-server ./.startpage -p 9000
+
 
 
 ##### floating windows #####
@@ -106,6 +111,8 @@ for_window [class="Hachoir-metadata-gtk"] floating enable
 for_window [class="Firefox" instance="Toplevel"] floating enable
 for_window [class="Redshiftgui.elf"] floating enable
 for_window [class="Gcolor3"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [title="PlayOnLinux"] floating enable
 #for_window [class="Ddd"] floating enable
 
 

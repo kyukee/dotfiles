@@ -16,7 +16,7 @@ URxvt*fading: 30
 !#4f4b58 for actual black in color 8
 
 ! red
-*.color1:       #F7155C
+*.color1:       #f7155c
 *.color9:       #c44444
 
 ! green
@@ -51,7 +51,3 @@ URxvt.resize-font.bigger:  C-Up
 
 URxvt.url-launcher:        /lib/firefox/run-mozilla.sh
 URxvt.colorUL: #7780a1
-
-! xrdb ~/.Xresources  >>  update terminal
-! pacman-key --refresh-keys  >>  refresh keys
-! chsh -s $(which zsh)  >>  change shell (replace zsh with shell name for other shell)

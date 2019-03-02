@@ -1,5 +1,5 @@
 #
-# ~/.bashrc
+# ~/.zshrc
 #
 
 #--------------------------------------------------
@@ -18,16 +18,24 @@ source ~/.bash_aliases
 
 
 # add a directory to $path (Scripts folder in this case)
-# directory to add to path
-NEWPATH="$HOME/Scripts"
+# add it only if it doesn't exist already
+PATH_TO_ADD="$HOME/Scripts"
 
-# add it only if required
 case ":${PATH}:" in
-  *:${NEWPATH}:*) ;;
-  *) PATH=${PATH}:$NEWPATH ;;
+  *:${PATH_TO_ADD}:*) ;;
+  *) PATH=${PATH}:$PATH_TO_ADD ;;
 esac
 
+PATH_TO_ADD="$HOME/Scripts/linux64"
+
+case ":${PATH}:" in
+  *:${PATH_TO_ADD}:*) ;;
+  *) PATH=${PATH}:$PATH_TO_ADD ;;
+esac
+
+
 export PATH
+
 
 
 # turn off bell in xorg
@@ -46,6 +54,12 @@ export DISPLAY=:0
 export LANG=en_US.UTF-8
 export TERM='rxvt-unicode'
 export EDITOR='subl3'
+export VISUAL='subl3'
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export MYSQL_HOME=/usr/bin/mysql
+export M2_HOME=/usr/bin/mvn
+export ECLIPSE_HOME=/usr/bin/eclipse
 
 
 #--------------------------------------------------
@@ -65,6 +79,7 @@ setopt correct
 
 # when searching history, don't do not display duplicates
 setopt hist_find_no_dups
+setopt hist_ignore_all_dups
 
 # type the name of directory to cd to it
 setopt autocd
@@ -151,8 +166,6 @@ unset highlights
 #--------------------------------------------------
 # prompt settings
 #--------------------------------------------------
-# enable git status in prompt
-source ~/.zsh/zshrc.sh
 
 # add an empty line before every prompt
 #precmd() { print "" }
@@ -168,5 +181,12 @@ source ~/.zsh/zshrc.sh
 # original prompt from a theme
 #PROMPT="%F{000}%K{002} %T %F{002}%K{006}%F{000}%K{006} %F{006}%K{001}%F{000}%K{001} %~ %F{001}%K{000}"$'\n'"%F{000}%K{003} %n ➜ %F{003}%K{000} %F{015}"
 
+# enable git status in prompt
+source ~/.zsh/zshrc.sh
+
 # same prompt as bash
 PROMPT='%F{red}>>> %f[%~ ]$(git_super_status)$ '
+
+# git package prompt script
+# source /usr/share/git/completion/git-prompt.sh
+# PROMPT='%F{red}>>> %f[%~ ]$(__git_ps1 " (%s)")$ '

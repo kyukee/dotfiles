@@ -11,6 +11,7 @@ rofi.line-margin: 2
 rofi.bw: 0
 
 ! matching algorithm (normal, regex, glob, fuzzy)
+rofi.matching: normal
 rofi.regex:	true
 
 ! line height (has to be int)
@@ -21,14 +22,15 @@ rofi.width: 100
 
 
 ! note: another possibility for modi is window
-rofi.modi: run,ssh,file:fmenu-rofi.sh
+rofi.modi: run,ssh,file:Scripts/fmenu-rofi.sh
 
 rofi.run-list-command: /home/kyukee/Scripts/rofi-alias.sh
 
 rofi.run-command: /bin/bash -c -i '{cmd}'
 
-rofi.sort: true
-!rofi.levenshtein_sort: true
+rofi.no-sort: false
+rofi.levenshtein-sort: false
+
 
 
 ! ------------------------------------------------------------------------------

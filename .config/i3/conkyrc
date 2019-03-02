@@ -4,10 +4,10 @@ out_to_x          no
 update_interval   1
 total_run_times   0
 short_units       yes
-pad_percents      3
+use_spacer        left
+pad_percents      2
 use_xft yes
 xftfont Terminus (TTF):size=14
- 
 override_utf8_locale yes
  
 TEXT
@@ -22,34 +22,32 @@ TEXT
 #  {"full_text": "no connection","color":"\#EEEECC"},\
 #  ${endif}
   
-  ${if_running ncmpcpp} {"full_text": " ♬  ${mpd_smart} ","color": "\#EEEECC", "separator": false },${endif} 
+  ${if_running ncmpcpp} {"full_text": "♬  ${mpd_smart}  ","color": "\#EEEECC", "separator": false },${endif} 
 
-  {"full_text": " ▣  ${cpu}% ","color": "\#EEEECC", "separator": false },
-  {"full_text": "   ${acpitemp}°C ","color": "\#EEEECC", "separator": false, "min_width": 20 },
-  {"full_text": "   ${wireless_essid}  ","color": "\#EEEECC", "separator": false },
- #{"full_text": " MEM  ${mem}","color": "\#EEEECC", "separator": false },
-
+  {"full_text": "▣ ${cpu}%  ","color": "\#EEEECC", "separator": false },
+  {"full_text": " ${acpitemp}°C  ","color": "\#EEEECC", "separator": false, "min_width": 20 },
+  {"full_text": "  ${wireless_essid wlo1}  ","color": "\#EEEECC", "separator": false },
+ #{"full_text": "MEM  ${mem}","color": "\#EEEECC", "separator": false },
 
   {"full_text": "","color":"\"859900","separator": false},\
-  {"full_text": "${if_match ${battery_percent BAT0}<20}   ${battery_percent BAT0}% ","color":"\#F7155C", "separator": false },\
+  {"full_text": "${if_match ${battery_percent BAT0}<20}  ${battery_percent BAT0}%  ","color":"\#F7155C", "separator": false },\
   {"full_text":"${else}"},\
-  {"full_text":"${if_match ${battery_percent BAT0}<50}   ${battery_percent BAT0}% ","color":"\#b58900", "separator": false },\
+  {"full_text":"${if_match ${battery_percent BAT0}<50}  ${battery_percent BAT0}%  ","color":"\#b58900", "separator": false },\
   {"full_text":"${else}"},\
-  {"full_text":"${if_match ${battery_percent BAT0}==100}   ${battery_percent BAT0}% ","color":"\#eeeecc", "separator": false },\
+  {"full_text":"${if_match ${battery_percent BAT0}==100}  ${battery_percent BAT0}%  ","color":"\#eeeecc", "separator": false },\
   {"full_text":"${else}"},\
-  {"full_text":"${if_match ${battery_percent BAT0}>80}   ${battery_percent BAT0}% ","color":"\#eeeecc", "separator": false },\
+  {"full_text":"${if_match ${battery_percent BAT0}>80}  ${battery_percent BAT0}%  ","color":"\#eeeecc", "separator": false },\
   {"full_text":"${else}"},\
-  {"full_text":"${if_match ${battery_percent BAT0}>=50}   ${battery_percent BAT0}% ","color":"\#eeeecc", "separator": false },\
+  {"full_text":"${if_match ${battery_percent BAT0}>=50}  ${battery_percent BAT0}%  ","color":"\#eeeecc", "separator": false },\
   {"full_text":"${else}"},\
   {"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
 
-  ${if_match "${acpiacadapter AC}" == "on-line"}{ "full_text" : "  AC", "color" :"\#F7155C", "separator": false, "min_width": 50 },${endif}
+  ${if_match "${acpiacadapter AC}" == "on-line"}{ "full_text" : " AC ", "color" :"\#F7155C", "separator": false, "min_width": 50 },${endif}
 
+ #{"full_text": " ${execpi 60 python ~/bin/gmail.py}  ","color":"\#00FF00"},
 
- #{"full_text": "  ${execpi 60 python ~/bin/gmail.py}","color":"\#00FF00"},
+  {"full_text": "\u2800${time %Y-%m-%d } ","color": "\#EEEECC", "separator": false },
+  {"full_text": "\uf2f2\u2800${time %H:%M}  ","color": "\#F7155C", "separator": false }
 
-  {"full_text": "   ${time %Y-%m-%d } ","color": "\#EEEECC", "separator": false },
-  {"full_text": "   ${time %H:%M} ","color": "\#F7155C", "separator": false }
-
-#  temp  membar  wireless  network  mail  battery  date ♬ music  video
+#  temp  membar  wireless  network  mail  battery  date ♬ music  video \u2800 blank
 ]

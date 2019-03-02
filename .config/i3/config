@@ -92,10 +92,11 @@ exec_always --no-startup-id feh --bg-fill /home/kyukee/Pictures/wallpapers/image
 exec_always --no-startup-id setxkbmap pt &
 exec_always --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id compton -f
-exec --no-startup-id mpd
-exec --no-startup-id "dunst -c ~/.config/dunst/dunstrc"
+exec --no-startup-id xflux -l 38.7:-9.1 -k 4500
 exec --no-startup-id "sh -c 'sleep 2; exec urxvt'"
 exec --no-startup-id http-server ./.startpage -p 9000
+exec --no-startup-id mpd
+exec --no-startup-id "dunst -c ~/.config/dunst/dunstrc"
 
 
 

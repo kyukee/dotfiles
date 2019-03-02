@@ -50,6 +50,7 @@ path_alterations = {
 excluded_files = {
     '.config/sublime-text-3/Packages/User/Package Control.cache',
     '.config/sublime-text-3/Packages/User/Package Control.last-run',
+    'Scripts/linux64',
     'dotfiles.py',
     'keymap.map',
     'README.md',

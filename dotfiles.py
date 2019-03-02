@@ -12,17 +12,25 @@ file_list = {
     '.config/mpv/mpv.conf',
     '.config/neofetch',
     '.config/rofi',
-    '.config/sublime-text-3/Packages/Colorsublime - Themes',
+    '.config/yay/',
+    '.config/sublime-text-3/Packages/Colorsublime - Themes/DinkDonk.tmTheme',
+    '.config/sublime-text-3/Packages/Colorsublime - Themes/rainbow.tmTheme',
     '.config/sublime-text-3/Packages/Material Theme',
     '.config/sublime-text-3/Packages/User',
     '.config/teiler/profiles',
-    '.config/teiler/config',
     '.config/compton.conf',
+    '.config/teiler/config',
     '.fonts',
     '.ncmpcpp/config',
     '.zsh',
+    'root/etc/acpi/actions',
+    'root/etc/default/grub',
     'root/etc/sddm.conf',
-    'root/usr/share/sddm',
+    'root/etc/systemd/journald.conf',
+    'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
+    'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
+    'root/usr/share/sddm/faces',
+    'root/usr/share/sddm/themes/deepin',
     'Scripts',
     '.bash_aliases',
     '.bash_profile',
@@ -35,12 +43,13 @@ file_list = {
 
 # for files that are not in $HOME
 path_alterations = {
-    'root/etc/sddm.conf' : '',
-    'root/usr/share/sddm' : ''}
+    'example.txt' : '/new/path',}
 
 
 # the script doesn't do anything with these files
 excluded_files = {
+    '.config/sublime-text-3/Packages/User/Package Control.cache',
+    '.config/sublime-text-3/Packages/User/Package Control.last-run',
     'dotfiles.py',
     'keymap.map',
     'README.md',
@@ -54,44 +63,75 @@ home = os.path.expanduser('~')
 
 
 '''
+    check if any item in a list is excluded
+'''
+def any_excluded(items):
+    for item in items:
+        for ex_item in excluded_files:
+            if item.endswith(ex_item):
+                return True
+    return False
+
+
+'''
+    function used to copy a single file
+'''
+def copy_file(src, dest):
+
+    if any_excluded([src, dest]):
+        return
+
+    dirname = os.path.dirname(dest)
+
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+        print( 'copying ', src, 'to ',  dest)
+        shutil.copy2(src, dest) 
+
+    else:
+
+        if os.path.exists(dest):
+            # check time of last modification
+            if ((os.stat(src).st_mtime - os.stat(dest).st_mtime) < 1): 
+                return
+
+        print( 'copying ', src, 'to ',  dest)
+        shutil.copy2(src, dest)
+
+
+'''
     recursive function used to copy folders
 '''
-def recursive_copy(src, dst):
+def copy_folder(src, dest):
+
+    if any_excluded([src, dest]):
+        return
+
+    if os.path.isdir(src):
+        if not os.path.exists(dest):
+            os.makedirs(dest)
 
     for item in os.listdir(src):
         s = os.path.join(src, item)
-        d = os.path.join(dst, item)
+        d = os.path.join(dest, item)
 
         if os.path.isdir(s):
-
-            if not os.path.exists(d):
-                os.makedirs(d)
-
-            recursive_copy(s, d)
-
-        else:
-            print( 'copying ', s, 'to ',  d)
-            shutil.copy2(s, d)
+            copy_folder(s, d)
+        else:            
+            copy_file(s, d)
 
 
 '''
-    Executes 'mv src dest'
+    copy an item, which can be a file or folder
 '''
-def copyFile(src, dest):
+def copyItem(src, dest):
     try:
         if (os.path.isdir(src)):
-
-            if not os.path.exists(dest):
-                os.makedirs(dest)
-
-            recursive_copy(src, dest)
+            copy_folder(src, dest)
         else:
-            shutil.copy2(src, dest)
+            copy_file(src, dest)
 
-    except shutil.Error as e:
-        print( 'Error: ' ,  e)
-
-    except IOError as e:
+    except Exception as e:
         print( 'Error: ' , e)
 
 
@@ -101,24 +141,30 @@ if sys.argv[1] == 'install':
         src = thisDir + '/' + item
 
         path = home
+        if (item.startswith('root')):
+            path = ''
+            item = item.replace('root/', '')
+
         if (item in path_alterations):
             path = path_alterations[item]
 
         dest = path + '/' + item
-        print( 'copying ', src, 'to ',  dest)
-        copyFile(src, dest)
+        copyItem(src, dest)
 
 elif sys.argv[1] == 'backup':
     for item in file_list:
         dest = thisDir + '/' + item
 
         path = home
+        if (item.startswith('root')):
+            path = ''
+            item = item.replace('root/', '')
+
         if (item in path_alterations):
             path = path_alterations[item]
 
         src = path + '/' + item
-        print( 'copying ', src, 'to ',  dest)
-        copyFile(src, dest)
+        copyItem(src, dest)
 
 else:
     print( 'Possible arguments are \'install\' or \'backup\'')

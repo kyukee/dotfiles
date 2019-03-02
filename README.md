@@ -13,8 +13,7 @@
 + **conky** _status bar_ lightweight system monitor used to configure the system bar
 + **feh** _background setter_  it's simple and does everything you need
 + **ahoviewer** _image viewer_  gtk2 image viewer, manga reader and booru browser (also supports .gif)
-+ **redshift-minimal** _screen temperature daemon_  reduces eye strain in reduced light
-  + **redshiftgui-bin**  provides a minimal gui for redshift
++ **xflux** _screen temperature daemon_  reduces eye strain in reduced light
 + **dunst**  notification daemon
 
 ### internet
@@ -27,14 +26,15 @@
     + **4chan x**  make 4chan more usable
     + **kissanime/cartoon downloader**  when there isn't a decent torrent for it
     + **youtube +**  add useful some features to youtube
-  + **stylish**  user styles manager
+  + **stylus**  user styles manager
   + **https everywhere**  force https where possible
   + **ublock origin**  ad and nuisance blocker
-  + **private tab**  easily open or convert into a private tab
-  + **custom new tab**  custumize new tab url
-  + **single star button**  just personal preference
-  + **dom inspector**  inspect and edit live web documents
+  + **new tab homepage**  custumize new tab url
   + **black elegance theme**  works well with the css
+  + **easy screenshot**  easily capture screenshots
+  + **imagus**  show images/videos from links with a mouse hover
+  + **simple translate**  quickly translate selected text on web page
+  + **tab session manager**  save and restore the state of windows and tabs
 + **w3m** _web browser_  console web browser, used for image previews in ranger
 + **qbittorrent**  bittorrent client
 + **openssh**  ssh client
@@ -50,6 +50,7 @@
   + note: create a 'thunar custom action' to be able to open any media file metadata
 
 ### office
++ **libreoffice** _office suite_  word processor, spreadsheet and presentation graphics software
 + **zathura** _document viewer_  lightweight extensible document viewer with a vim-like interface
   + **mupdf** _pdf rendering lib_  alternative to poppler
   + **zathura-cb** _comic book plugin_  for reading manga with zathura
@@ -66,7 +67,9 @@
   + **material theme**
   + **side bar enhancements**
   + **sub notify**
+  + **terminality**
   + **terminal view**
+  + **unicode escape**
 + **python**  allows for easy scripting
 + **lua**  another scripting language
 + **jre**  java runtime environment
@@ -79,12 +82,13 @@
 + **thunar** _file manager_  main file manager
   + **thunar volman**  automatic management of removable devices
 + **ranger** _file manager_  lightweight terminal file manager. use w3m for image previews
-+ **yaourt** _aur helper_  browsing aur made easy
++ **yay** _aur helper_  browsing aur made easy, better replacement for yaourt
 + **htop** _task manager_  interactive process viewer
 + **tlp** _power management_  fire and forget power manager
 + **gnome-calculator** _power management_  gnome scientific calculator
 + **ca-certificates-utils**  useful for wifi connections
 + **zip**  compressor/archiver
++ **p7zip**  compressor/archiver
 + **unzip**  extract and view files in zip archives
 + **neofetch**  cli system information tool
 + **gcolor3**  simple gtk color selection dialog
@@ -112,5 +116,7 @@
 + **youtube+ settings**  just import it to easily customiza all settings
 
 ## notes
-This is not a list of programs you have to install. It's just a list of things I like to use.
-Consider it my checklist of things to have when installing a new os.
+Consider this my checklist of things that i want when installing a new os.  
+dotfiles.py can be used to install all the necesssary config files in their directories or to make a backup of the config files.  
+Run it by using _python dotfiles.py arg_, where arg can be _install_ or _backup_.  
+There's also a list for excluded files, among others. Look at the code for more info.

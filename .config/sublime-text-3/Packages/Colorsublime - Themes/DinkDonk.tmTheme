@@ -295,6 +295,59 @@
 				<string>#F8F8F0</string>
 			</dict>
 		</dict>
+
+		<dict>
+         <key>name</key>
+         <string>diff.header</string>
+         <key>scope</key>
+         <string>meta.diff, meta.diff.header</string>
+         <key>settings</key>
+         <dict>
+            <key>foreground</key>
+            <string>#6583D5</string>
+         </dict>
+     </dict>
+     <dict>
+         <key>name</key>
+         <string>diff.deleted</string>
+         <key>scope</key>
+         <string>markup.deleted</string>
+         <key>settings</key>
+         <dict>
+            <!-- <key>foreground</key>
+            <string>#FB5E65</string> -->
+            <key>foreground</key>
+            <string>#E9B4B5</string>
+            <key>background</key>
+            <string>#57272b</string>
+         </dict>
+     </dict>
+     <dict>
+         <key>name</key>
+         <string>diff.inserted</string>
+         <key>scope</key>
+         <string>markup.inserted</string>
+         <key>settings</key>
+         <dict>
+            <!-- <key>foreground</key>
+            <string>#7FC686</string> -->
+            <key>foreground</key>
+            <string>#ADE1B2</string>
+            <key>background</key>
+            <string>#214d35</string>
+         </dict>
+     </dict>
+     <dict>
+         <key>name</key>
+         <string>diff.changed</string>
+         <key>scope</key>
+         <string>markup.changed</string>
+         <key>settings</key>
+         <dict>
+            <key>foreground</key>
+            <string>#E6DB74</string>
+         </dict>
+     </dict>
 	</array>
 	<key>uuid</key>
 	<string>044AE9D1-D7AB-4010-9C90-0957DADA3408</string>

@@ -1,4 +1,5 @@
 {
+	"auto_complete_delay": 150,
 	"color_scheme": "Packages/Colorsublime - Themes/DinkDonk.tmTheme",
 	"font_face": "Terminus (TTF)",
 	"font_size": 15,
@@ -7,7 +8,6 @@
 	[
 		"Vintage"
 	],
-	"auto_complete_delay": 150,
 	"match_brackets": false,
 	"match_brackets_angle": false,
 	"match_brackets_braces": false,
@@ -18,5 +18,6 @@
 	"overlay_scroll_bars": "enabled",
 	"preview_on_click": true,
 	"tab_size": 3,
-	"theme": "Material-Theme-Darker.sublime-theme"
+	"theme": "Material-Theme-Darker.sublime-theme",
+	"update_check": false
 }

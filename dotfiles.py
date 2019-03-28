@@ -136,36 +136,50 @@ def copyItem(src, dest):
         print( 'Error: ' , e)
 
 
+'''
+    displays helpful information
+'''
+def help():
+    print( 'Possible arguments are \'install\' or \'backup\'')
+
+
 ### main code ###
-if sys.argv[1] == 'install':
-    for item in file_list:
-        src = thisDir + '/' + item
 
-        path = home
-        if (item.startswith('root')):
-            path = ''
-            item = item.replace('root/', '')
+# sys.argv[0] is the filename
+if len(sys.argv) > 1:
 
-        if (item in path_alterations):
-            path = path_alterations[item]
+    if sys.argv[1] == 'install':
+        for item in file_list:
+            src = thisDir + '/' + item
 
-        dest = path + '/' + item
-        copyItem(src, dest)
+            path = home
+            if (item.startswith('root')):
+                path = ''
+                item = item.replace('root/', '')
 
-elif sys.argv[1] == 'backup':
-    for item in file_list:
-        dest = thisDir + '/' + item
+            if (item in path_alterations):
+                path = path_alterations[item]
 
-        path = home
-        if (item.startswith('root')):
-            path = ''
-            item = item.replace('root/', '')
+            dest = path + '/' + item
+            copyItem(src, dest)
 
-        if (item in path_alterations):
-            path = path_alterations[item]
+    elif sys.argv[1] == 'backup':
+        for item in file_list:
+            dest = thisDir + '/' + item
 
-        src = path + '/' + item
-        copyItem(src, dest)
+            path = home
+            if (item.startswith('root')):
+                path = ''
+                item = item.replace('root/', '')
+
+            if (item in path_alterations):
+                path = path_alterations[item]
+
+            src = path + '/' + item
+            copyItem(src, dest)
+
+    else:
+        help()
 
 else:
-    print( 'Possible arguments are \'install\' or \'backup\'')
+    help()

@@ -30,3 +30,6 @@
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
+[alias]
+	st = status
+	ck = checkout

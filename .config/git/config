@@ -33,3 +33,5 @@
 [alias]
 	st = status
 	ck = checkout
+[diff]
+	tool = vimdiff3

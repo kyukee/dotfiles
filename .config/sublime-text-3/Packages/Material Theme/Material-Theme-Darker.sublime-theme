@@ -538,7 +538,7 @@
     {
       "class": "sidebar_tree",
       "row_padding": [24, 8],
-      "indent": 16,
+      "indent": 12,
       "indent_offset": 0,
       "indent_top_level": false,
       "layer0.tint": [48, 39, 40],
@@ -1113,8 +1113,8 @@
      {
         "class": "label_control",
         "parents": [{"class": "status_bar"}],
-        "color": [97, 97, 97, 200],
-        "font.bold": false
+        "color": [147, 147, 147, 200],
+        "font.bold": false,
     },
   
       // Text field labels

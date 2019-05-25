@@ -22,7 +22,7 @@ rofi.width: 100
 
 
 ! note: another possibility for modi is window
-rofi.modi: run,ssh,file:Scripts/fmenu-rofi.sh
+rofi.modi: run,ssh,file:/home/kyukee/Scripts/fmenu-rofi.sh
 
 rofi.run-list-command: /home/kyukee/Scripts/rofi-alias.sh
 

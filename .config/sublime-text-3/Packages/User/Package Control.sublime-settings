@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Bison",
 		"BracketHighlighter",
 		"ColorSchemeEditor",
 		"Colorsublime",
@@ -12,10 +13,12 @@
 		"FindKeyConflicts",
 		"Git",
 		"GitGutter",
+		"GitStatusBar",
 		"Material Theme",
 		"Package Control",
 		"Prolog",
 		"SideBarEnhancements",
+		"Statusbar Path",
 		"SubNotify",
 		"Terminality",
 		"TerminalView",

@@ -357,6 +357,7 @@ mode "$mode_inner.gaps" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_outer.gaps" {
         bindsym plus  gaps outer current plus 2
         bindsym minus gaps outer current minus 2

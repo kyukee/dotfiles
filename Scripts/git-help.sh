@@ -13,6 +13,7 @@ printf "\n"
 
 printf "status                             current directory status\n"
 printf "reset --hard HEAD~n                discard the previous n commits\n"
+printf "git push origin HEAD --force       the reset command for deleting commits is only local. this updates the remote repository\n"
 
 printf "\n"
 

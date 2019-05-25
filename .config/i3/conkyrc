@@ -1,12 +1,12 @@
 background        no
 out_to_console    yes
 out_to_x          no
-update_interval   1
+update_interval   2
 total_run_times   0
 short_units       yes
 use_spacer        left
 pad_percents      2
-use_xft yes
+use_xft yes1
 xftfont Terminus (TTF):size=14
 override_utf8_locale yes
  
@@ -15,6 +15,8 @@ TEXT
 
 ,[
 
+# Feather font cheatsheet:
+# Documents/icomoon-feather/cheatsheet.html
 
 #  ${if_up wlo1}{ "full_text" : " \u2193${downspeedf wlo1}k \u2191${upspeedf wlo1}k", 
 #"color" : "\#EEEECC"},  
@@ -22,12 +24,32 @@ TEXT
 #  {"full_text": "no connection","color":"\#EEEECC"},\
 #  ${endif}
   
-  ${if_running ncmpcpp} {"full_text": "♬  ${mpd_smart}  ","color": "\#EEEECC", "separator": false },${endif} 
+  ${if_running ncmpcpp}
+    {"full_text": "\ue9a4  ${mpd_smart}  ","color": "\#EEEECC", "separator": false },\
+  ${endif} 
 
-  {"full_text": "▣ ${cpu}%  ","color": "\#EEEECC", "separator": false },
-  {"full_text": " ${acpitemp}°C  ","color": "\#EEEECC", "separator": false, "min_width": 20 },
-  {"full_text": "  ${wireless_essid wlo1}  ","color": "\#EEEECC", "separator": false },
- #{"full_text": "MEM  ${mem}","color": "\#EEEECC", "separator": false },
+  {"full_text": "\ue94e ${cpu}%  ","color": "\#EEEECC", "separator": false },
+  {"full_text": "\ue9e6${acpitemp}°C  ","color": "\#EEEECC", "separator": false, "min_width": 20 },
+
+  ${if_up wlo1}
+    {"full_text": "\uea09 ${wireless_essid wlo1}  ","color": "\#EEEECC", "separator": false },\
+  ${else}
+    ${if_up wlan0}
+      {"full_text": "\uea09 ${wireless_essid wlan0}  ","color": "\#EEEECC", "separator": false },\
+    ${else}
+      {"full_text": "\uea08 off/any  ","color": "\#EEEECC", "separator": false },\
+    ${endif}
+  ${endif}
+
+
+  ${if_match "${exec pacmd list-sinks 0 | grep muted | cut -d ' ' -f 2}" == "no"}
+    {"full_text": "\uea04 ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | sed 's/[][]//g'}  ","color": "\#EEEECC", "separator": false },
+  ${else}
+    {"full_text": "\uea05 muted  ","color": "\#EEEECC", "separator": false },
+  ${endif}
+
+
+  #{"full_text": "MEM  ${mem}  ","color": "\#EEEECC", "separator": false },
 
   {"full_text": "","color":"\"859900","separator": false},\
   {"full_text": "${if_match ${battery_percent BAT0}<20}  ${battery_percent BAT0}%  ","color":"\#F7155C", "separator": false },\
@@ -42,12 +64,14 @@ TEXT
   {"full_text":"${else}"},\
   {"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
 
-  ${if_match "${acpiacadapter AC}" == "on-line"}{ "full_text" : " AC ", "color" :"\#F7155C", "separator": false, "min_width": 50 },${endif}
+  ${if_match "${acpiacadapter AC}" == "on-line"}
+    { "full_text" : "  AC ", "color" :"\#F7155C", "separator": false, "min_width": 50 },\
+  ${endif}
 
- #{"full_text": " ${execpi 60 python ~/bin/gmail.py}  ","color":"\#00FF00"},
+  #{"full_text": " ${execpi 60 python ~/bin/gmail.py}  ","color":"\#00FF00"},
 
   {"full_text": "\u2800${time %Y-%m-%d } ","color": "\#EEEECC", "separator": false },
-  {"full_text": "\uf2f2\u2800${time %H:%M}  ","color": "\#F7155C", "separator": false }
+  {"full_text": "\ue939 ${time %H:%M}  ","color": "\#F7155C", "separator": false }
 
 #  temp  membar  wireless  network  mail  battery  date ♬ music  video \u2800 blank
 ]

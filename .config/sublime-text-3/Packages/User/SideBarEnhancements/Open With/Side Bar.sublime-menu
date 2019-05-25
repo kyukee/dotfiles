@@ -18,16 +18,16 @@
 				"open_automatically" : false // will close the view/tab and launch the application
 			},
 
-			//application 1
+			//application 2
 			{
-				"caption": "Photoshop",
-				"id": "side-bar-files-open-with-photoshop",
+				"caption": "Zathura",
+				"id": "side-bar-files-open-with-zathura",
 
 				"command": "side_bar_files_open_with",
 				"args": {
-									"paths": [],
-									"application": "Adobe Photoshop CS5.app", // OSX
-									"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
+									"paths": ["usr/bin/zathura"],
+									"application": "zathura", 
+									"extensions":"pdf",  //any file with these extensions
 									"args":[]
 								},
 				"open_automatically" : false // will close the view/tab and launch the application

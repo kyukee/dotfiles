@@ -21,6 +21,7 @@ file_list = {
     '.config/compton.conf',
     '.config/teiler/config',
     '.fonts',
+    'Documents/icomoon-feather',
     '.ncmpcpp/config',
     '.zsh',
     'root/etc/acpi/actions',

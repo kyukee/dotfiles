@@ -1,0 +1,66 @@
+{
+    // a list of available shells to execute
+    // the shell marked as "default" will the default shell
+    "shell_configs": [
+        {
+            "name": "Bash",
+            "cmd": ["bash", "-i", "-l"],
+            "env": {},
+            "enable": true,
+            "default": false,
+            "platforms": ["linux", "osx"]
+        },
+        {
+            "name": "Zsh",
+            "cmd": ["zsh", "-i", "-l"],
+            "env": {},
+            "enable": true,
+            "default": true,
+            "platforms": ["linux", "osx"]
+        },
+        {
+            "name": "Command Prompt",
+            "cmd": "cmd.exe",
+            "env": {},
+            "enable": true,
+            "default": false,
+            "platforms": ["windows"]
+        },
+        {
+            "name": "Power Shell",
+            "cmd": "powershell.exe",
+            "env": {},
+            "enable": true,
+            "default": false,
+            "platforms": ["windows"]
+        },
+        {
+            "name": "WSL Login Shell",
+            "cmd": "wsl.exe",
+            "env": {},
+            "enable": true,
+            "default": false,
+            "platforms": ["windows"]
+        }
+    ],
+
+    // Note: for unix users, you will get better 256 color experience
+    // if you also set "unix_term" to "xterm-256color"
+    // 256 color is not working on Windows because of upstream winpty's issue
+    // https://github.com/rprichard/winpty/issues/108
+    "256color": true,
+
+    // the default TERM variable of unix system. Possible values are
+    // "linux", "xterm" and "xterm-256color".
+    // However, please aware that not all xterm features are supported.
+    "unix_term": "xterm-256color",
+
+
+    // number of lines kept in scrollback history
+    // decreasing this value may improve performance
+    "scrollback_history_size": 2000,
+
+    // the name of the theme
+    // change it to "user" if you want to use customized theme
+    "theme": "Material-Theme-Darker"
+}

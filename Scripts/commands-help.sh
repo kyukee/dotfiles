@@ -48,3 +48,12 @@ egrep 'pacman -Syu' /var/log/pacman.log
 
 ## check for date of last pacman update
 awk 'END{sub(/\[/,""); print $1}' /var/log/pacman.log
+
+## zip to a directory
+zip -r squash.zip dir1
+
+## start a service
+systemctl start unit
+
+## enable a service at bootup and also start now
+systemctl enable --now unit

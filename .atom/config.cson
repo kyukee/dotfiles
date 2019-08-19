@@ -1,0 +1,56 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui":
+      showDirectoryColumn: true
+  "atom-material-ui":
+    colors:
+      abaseColor: "#8336c9"
+    fonts: {}
+    tabs:
+      compactTabs: true
+    ui:
+      useAnimations: false
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    automaticallyUpdate: false
+    disabledPackages: [
+      "linter"
+      "linter-python"
+      "linter-gcc"
+    ]
+    projectHome: "/home/kyukee/atom-projects"
+    reopenProjectMenuCount: 10
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "dark-pastel-eighties-syntax"
+    ]
+  editor:
+    preferredLineLength: 120
+    scrollPastEnd: true
+    showInvisibles: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "46d642ae-a234-458a-9a1f-6b68fc0cea58"
+  "goto-definition":
+    performanceMode: true
+  "ide-java":
+    javaHome: "/usr/lib/jvm/java-12-jdk"
+    virtualMachine: {}
+  "java-generator":
+    toggles:
+      generateMethodComments: false
+  "open-terminal-here":
+    command: "urxvt"
+  "platformio-ide-terminal":
+    core:
+      shell: "/bin/bash"
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    savePathsRelativeToHome: true
+    sortBy: "title"
+  "tree-view":
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false

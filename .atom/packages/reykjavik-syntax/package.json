@@ -1,0 +1,55 @@
+{
+  "_from": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball",
+  "_id": "reykjavik-syntax@0.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-lvXX5slLPON4TOJnwI/aHETlws4wsT7Vqw6kbraUFulL1v/RsUt7bKERWDdEkaxNwZ7ley8IVEvLhpQ8WXZDWw==",
+  "_location": "/reykjavik-syntax",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball",
+  "_shasum": "07a45d175ffe9ac95e48136e8dc2b2d72a4a74ba",
+  "_spec": "https://www.atom.io/api/packages/reykjavik-syntax/versions/0.2.0/tarball",
+  "_where": "/tmp/apm-install-dir-11977-882-1qi0sjw.rsne",
+  "bugs": {
+    "url": "https://github.com/mswift42/reykjavik-syntax/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Atom syntax theme with a dark background and low saturated colors.",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/mswift42/reykjavik-syntax#readme",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "license": "MIT",
+  "name": "reykjavik-syntax",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mswift42/reykjavik-syntax.git"
+  },
+  "theme": "syntax",
+  "version": "0.2.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

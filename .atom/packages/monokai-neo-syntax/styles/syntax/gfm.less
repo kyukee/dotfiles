@@ -1,0 +1,33 @@
+.syntax--source.syntax--gfm {
+  .syntax--markup {
+    -webkit-font-smoothing: auto;
+
+    &.syntax--heading {
+      color: @green;
+      font-weight: bold;
+    }
+
+    &.syntax--raw {
+      background-color: @dark-gray;
+    }
+  }
+
+  .syntax--link {
+    .syntax--entity {
+      color: @yellow;
+    }
+
+    .syntax--link {
+      color: @cyan;
+    }
+  }
+
+  .syntax--quote {
+    font-style: italic;
+  }
+
+  .syntax--variable.syntax--list {
+    color: @red;
+    font-weight: bold;
+  }
+}

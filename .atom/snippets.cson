@@ -1,0 +1,4 @@
+'.source.java':
+    'Print Line':
+      'prefix': 'sysout'
+      'body':'System.out.println($1);$2'

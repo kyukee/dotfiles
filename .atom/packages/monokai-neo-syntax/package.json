@@ -1,0 +1,57 @@
+{
+  "_from": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball",
+  "_id": "monokai-neo-syntax@1.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-35j+iWgHki0QMLOerS7GkibnDkTtjfINW/t3JsVQSj4oNwZKdEKQXGoifHOmT7WvmmFL4SKYGXuvp3H9UFOeCw==",
+  "_location": "/monokai-neo-syntax",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball",
+  "_shasum": "1dd7bf44a4c9cf9c45483dc503259ae68dc61fce",
+  "_spec": "https://www.atom.io/api/packages/monokai-neo-syntax/versions/1.3.2/tarball",
+  "_where": "/tmp/apm-install-dir-11976-28499-1h3s2o6.ifci",
+  "bugs": {
+    "url": "https://github.com/skylerlee/monokai-neo-syntax/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A brighter monokai theme variant for Atom",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/skylerlee/monokai-neo-syntax#readme",
+  "keywords": [
+    "monokai",
+    "bright",
+    "syntax",
+    "theme"
+  ],
+  "license": "MIT",
+  "name": "monokai-neo-syntax",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skylerlee/monokai-neo-syntax.git"
+  },
+  "theme": "syntax",
+  "version": "1.3.2",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

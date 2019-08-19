@@ -1,0 +1,86 @@
+{
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/command.coffee",
+        "lib/java-generator.coffee",
+        "lib/parser.coffee",
+        "lib/variable.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  },
+  "_from": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball",
+  "_id": "java-generator@2.2.3",
+  "_inBundle": false,
+  "_integrity": "sha512-VJ8jjUg7/wvQKl/qkWIzyc8Jt/gYqhQyTr78BSmgcWs+596QoHAd6AXIroWauFNwlprVQcr5Pa57npTqAGi9MQ==",
+  "_location": "/java-generator",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball",
+  "_shasum": "45dde0e7c4caf6f0c61b03ecc79977d661eb2b0b",
+  "_spec": "https://www.atom.io/api/packages/java-generator/versions/2.2.3/tarball",
+  "_where": "/tmp/apm-install-dir-11975-16544-1is4bj4.zk6p",
+  "activationCommands": {
+    "atom-workspace": [
+      "java-generator:generate-constructor",
+      "java-generator:generate-to-string",
+      "java-generator:generate-builder",
+      "java-generator:generate-getters-setters"
+    ]
+  },
+  "author": {
+    "name": "Tom Delebo",
+    "url": "https://github.com/delebota"
+  },
+  "bugs": {
+    "url": "https://github.com/delebota/java-generator/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Generates getter, setter, toString, constructor, and builder methods for java classes.",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/delebota/java-generator#readme",
+  "keywords": [
+    "atom",
+    "java",
+    "get",
+    "getter",
+    "set",
+    "setter",
+    "constructor",
+    "toString",
+    "generate",
+    "format",
+    "auto",
+    "automatic",
+    "builder"
+  ],
+  "license": "Apache 2.0",
+  "main": "./lib/java-generator",
+  "name": "java-generator",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delebota/java-generator.git"
+  },
+  "version": "2.2.3"
+}

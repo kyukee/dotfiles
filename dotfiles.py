@@ -25,6 +25,7 @@ file_list = {
     '.atom/keymap.cson',
     '.atom/snippets.cson',
     '.atom/styles.less',
+    '.config/micro',
     'Documents/icomoon-feather',
     'root/etc/acpi/actions',
     'root/etc/default/grub',
@@ -44,8 +45,7 @@ file_list = {
     '.Xresources',
     '.zprofile',
     '.zsh',
-    '.zshrc',
-    'zshrc.sh',}
+    '.zshrc',}
 
 
 # for files that are not in $HOME

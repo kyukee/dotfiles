@@ -80,5 +80,6 @@
     // },
 
     "content_highlight_bar": true,
-    "align_content_highlight_bar": false
+    "align_content_highlight_bar": true,
+    "search_threshold": 15000
 }

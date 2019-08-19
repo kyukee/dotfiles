@@ -20,10 +20,7 @@ file_list = {
     '.config/teiler/profiles',
     '.config/compton.conf',
     '.config/teiler/config',
-    '.fonts',
     'Documents/icomoon-feather',
-    '.ncmpcpp/config',
-    '.zsh',
     'root/etc/acpi/actions',
     'root/etc/default/grub',
     'root/etc/sddm.conf',
@@ -33,18 +30,22 @@ file_list = {
     'root/usr/share/sddm/faces',
     'root/usr/share/sddm/themes/deepin',
     'Scripts',
+    '.fonts',
+    '.ncmpcpp/config',
     '.bash_aliases',
     '.bash_profile',
     '.bashrc',
     '.redshiftgrc',
     '.Xresources',
     '.zprofile',
-    '.zshrc',}
+    '.zsh',
+    '.zshrc',
+    'zshrc.sh',}
 
 
 # for files that are not in $HOME
 path_alterations = {
-    'example.txt' : '/new/path',}
+    'example.txt' : '/new/path/example.txt',}
 
 
 # the script doesn't do anything with these files

@@ -23,11 +23,14 @@ EOF
 FORCE=false
 INDEX="/tmp/fmenu_index"
 DMENU="-i -l 20"
-TIME="+5"
+TIME="+300"
 INPUT=$HOME
 
-EXCLUDE='.*\.cache.*\|.*\.local.*\|.*\.mozilla.*\|.*sublime-text-3.*\|.*adapta-gtk-theme.*\|.*Font-Awesome.*\|.*Java\/docs.*\|.*\.wine.*windows.*\|.*wineprefix.*\|.*\.git\/objects.*'
+#EXCLUDE='.*\.cache.*\|.*\.local.*\|.*\.mozilla.*\|.*sublime-text-3.*\|.*adapta-gtk-theme.*\|.*Font-Awesome.*\|.*Java\/docs.*\|.*\.wine.*windows.*\|.*wineprefix.*\|.*\.git\/objects.*\|.*\.docker.*\|.*\.thumbnail.*'
 #   See 'emacs regular expression' for syntax
+
+EXCLUDE=''
+# apparently, the regex actually makes it slower
 
 DRY=false
 while getopts "ht:fd:o:i:x:u" OPTION
@@ -69,9 +72,12 @@ done
 
 function index_files {
     find "$INPUT" \( ! -regex "$EXCLUDE" \) | sed 's/ /\\ /g' | sort -f > "$INDEX"
+
+    # fd -H . "$HOME" | sed 's/ /\\ /g' | sort -f > "$INDEX"
 }
 
-if [[ ! -a "$INDEX" ]] ||  ( test `find $INDEX -mmin $TIME` ) || ($FORCE)
+# if [[ ! -a "$INDEX" ]] ||  ( test `find $INDEX -mmin $TIME` ) || ($FORCE)
+if [[ ! -a "$INDEX" ]] || ($FORCE)
 then
     index_files
 fi

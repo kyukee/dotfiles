@@ -17,49 +17,109 @@ SAVEHIST=$HISTSIZE
 source ~/.bash_aliases
 
 
-# add a directory to $path (Scripts folder in this case)
-# add it only if it doesn't exist already
-PATH_TO_ADD="$HOME/Scripts"
-
-case ":${PATH}:" in
-  *:${PATH_TO_ADD}:*) ;;
-  *) PATH=${PATH}:$PATH_TO_ADD ;;
-esac
-
-PATH_TO_ADD="$HOME/Scripts/linux64"
-
-case ":${PATH}:" in
-  *:${PATH_TO_ADD}:*) ;;
-  *) PATH=${PATH}:$PATH_TO_ADD ;;
-esac
-
-
-export PATH
-
-
-
 # turn off bell in xorg
 if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
-# home and end key behaviour fixed
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+
+# configure ssh agent through Keychain
+eval $(keychain --quiet --agents ssh --eval id_rsa_no_pass)
+
+
+
+# fix crlf instead of lf in the enter key
+stty icrnl
+
+
+# used to recover pacman local database restore
+recovery-yay() {
+    yay "$@"  \
+    --dbonly          \
+    --nodeps          \
+    --needed			\
+}
+
+#    --noscriptlet     \
+#    --overwrite       \
+
+
 
 #--------------------------------------------------
-# eviornment variables
+# Remap Keybindings
+#--------------------------------------------------
+typeset -A key
+
+key[Home]=${terminfo[khome]}
+key[End]=${terminfo[kend]}
+key[Insert]=${terminfo[kich1]}
+key[Delete]=${terminfo[kdch1]}
+key[Up]=${terminfo[kcuu1]}
+key[Down]=${terminfo[kcud1]}
+key[Left]=${terminfo[kcub1]}
+key[Right]=${terminfo[kcuf1]}
+key[PageUp]=${terminfo[kpp]}
+key[PageDown]=${terminfo[knp]}
+
+# setup key accordingly
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[PageUp]}"  ]]  && bindkey  "${key[PageUp]}"  up-line-or-history
+[[ -n "${key[PageDown]}" ]] && bindkey  "${key[PageDown]}" down-line-or-history
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      history-beginning-search-backward
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    history-beginning-search-forward
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+
+bindkey "^[Od" backward-word     # ctrl+left
+bindkey "^[Oc" forward-word     # ctrl+right
+
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+function zle-line-init () {
+    echoti smkx
+}
+function zle-line-finish () {
+    echoti rmkx
+}
+zle -N zle-line-init
+zle -N zle-line-finish 
+
+
+#--------------------------------------------------
+# environment variables
 #--------------------------------------------------
 export DISPLAY=:0
 export LANG=en_US.UTF-8
 export TERM='rxvt-unicode'
+export TERMINAL='urxvt'
 export EDITOR='subl3'
 export VISUAL='subl3'
 
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-12-jdk
 export MYSQL_HOME=/usr/bin/mysql
 export M2_HOME=/usr/bin/mvn
 export ECLIPSE_HOME=/usr/bin/eclipse
+
+
+# add a directory to $path
+# but only if it doesn't exist already
+add_to_path_if_not_exists(){
+	case ":${PATH}:" in
+	  *:${1}:*) ;;
+	  *) PATH=${PATH}:${1} ;;
+	esac
+}
+
+add_to_path_if_not_exists "$HOME/Scripts"
+add_to_path_if_not_exists "$HOME/Scripts/linux64"
+add_to_path_if_not_exists "$JAVA_HOME/bin"
+
+export PATH
 
 
 #--------------------------------------------------
@@ -162,15 +222,24 @@ unset highlights
 # change folders color
 #zstyle ':completion:*:local-directories' list-colors '=*=0;34'
 
+# add completion to kubernetes
+source <(kubectl completion zsh)
 
 #--------------------------------------------------
 # prompt settings
 #--------------------------------------------------
 
-# add an empty line before every prompt
-#precmd() { print "" }
+precmd() {
+	# Print a newline before the prompt, unless it's the
+	# first prompt in the process.
+	if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+	  NEW_LINE_BEFORE_PROMPT=1
+	elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+	  printf "\n"
+	fi
+}
 
-# prompts to choose from
+# prompts to choose from:
 
 # colored path
 #PROMPT='%F{008}%K{green}%F{green}%K{008}%F{008}%K{magenta}%F{magenta}%K{008}%F{008}%K{red}%F{black}%K{red} %~ %F{red}%K{none}$ %{$reset_color%}'
@@ -184,9 +253,12 @@ unset highlights
 # enable git status in prompt
 source ~/.zsh/zshrc.sh
 
-# same prompt as bash
-PROMPT='%F{red}>>> %f[%~ ]$(git_super_status)$ '
-
 # git package prompt script
 # source /usr/share/git/completion/git-prompt.sh
 # PROMPT='%F{red}>>> %f[%~ ]$(__git_ps1 " (%s)")$ '
+
+# same prompt as bash
+#PROMPT='%F{red}>>> %f[%~ ]$(git_super_status)$ '
+
+# two line prompt
+PROMPT='%F{008}%K{green}%F{green}%K{008}%F{008}%K{magenta}%F{magenta}%K{008}%F{008}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status)'$'\n'' %F{red}$ %{$reset_color%}%f'

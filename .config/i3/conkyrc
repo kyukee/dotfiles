@@ -9,6 +9,9 @@ pad_percents      2
 use_xft yes1
 xftfont Terminus (TTF):size=14
 override_utf8_locale yes
+
+# Network interface must have an ip address to be considered up
+if_up_strictness address
  
 TEXT
 
@@ -31,14 +34,24 @@ TEXT
   {"full_text": "\ue94e ${cpu}%  ","color": "\#EEEECC", "separator": false },
   {"full_text": "\ue9e6${acpitemp}°C  ","color": "\#EEEECC", "separator": false, "min_width": 20 },
 
+
+
+
   ${if_up wlo1}
     {"full_text": "\uea09 ${wireless_essid wlo1}  ","color": "\#EEEECC", "separator": false },\
   ${else}
     ${if_up wlan0}
       {"full_text": "\uea09 ${wireless_essid wlan0}  ","color": "\#EEEECC", "separator": false },\
     ${else}
-      {"full_text": "\uea08 off/any  ","color": "\#EEEECC", "separator": false },\
+      {"full_text": "\uea08 off  ","color": "\#EEEECC", "separator": false },\
     ${endif}
+  ${endif}
+
+  
+  ${if_up enp0s25}
+    {"full_text": "\uea09 wired  ","color": "\#EEEECC", "separator": false },\
+  ${else}
+    {"full_text": "\uea08 no wired  ","color": "\#EEEECC", "separator": false },\
   ${endif}
 
 
@@ -54,7 +67,9 @@ TEXT
   {"full_text": "","color":"\"859900","separator": false},\
   {"full_text": "${if_match ${battery_percent BAT0}<20}  ${battery_percent BAT0}%  ","color":"\#F7155C", "separator": false },\
   {"full_text":"${else}"},\
-  {"full_text":"${if_match ${battery_percent BAT0}<50}  ${battery_percent BAT0}%  ","color":"\#b58900", "separator": false },\
+  {"full_text":"${if_match ${battery_percent BAT0}<40}  ${battery_percent BAT0}%  ","color":"\#b58900", "separator": false },\
+  {"full_text":"${else}"},\
+  {"full_text":"${if_match ${battery_percent BAT0}<50}  ${battery_percent BAT0}%  ","color":"\#eeeecc", "separator": false },\
   {"full_text":"${else}"},\
   {"full_text":"${if_match ${battery_percent BAT0}==100}  ${battery_percent BAT0}%  ","color":"\#eeeecc", "separator": false },\
   {"full_text":"${else}"},\

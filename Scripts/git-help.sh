@@ -1,5 +1,6 @@
 #!/bin/bash
 
+printf "############################################################################"
 printf "\n"
 printf "init /path/to/directory            create local repo\n"
 
@@ -36,6 +37,12 @@ printf "checkout -b 'remote branch' 'name of remote'/'remote branch'            
 printf "checkout -t 'name of remote'/'remote branch'                            shorter alternative\n"
 
 printf "\n"
+
+printf "git fetch --all                    for resetting a file to HEAD when there are conflicts\n"
+printf "git reset --hard origin/master     now you can discard the local changes\n"
+
+printf "\n"
+
 
 printf "pull 'label' 'repo branch'         pull current github repo to local repo\n"
 printf "push 'label' 'repo branch'         push local changes to github repo\n"

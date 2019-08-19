@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# set default rofi options
+_rofi () {
+    rofi -kb-accept-entry "!Return" "$@"
+}
 
 if [ -z "$XDG_RUNTIME_DIR" ]; then
     TMPDIR=$(mktemp -d)
@@ -6,14 +11,14 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
     trap 'rm -rf $TMPDIR; exit' INT QUIT HUP TERM 0
 fi
 
-source /etc/teiler/teiler.conf
+source /etc/teiler/config
 
 if [[ ! -d $HOME/.config/teiler ]]; then
     mkdir $HOME/.config/teiler
 fi
 
 if [[ ! -f $HOME/.config/teiler/config ]]; then
-    cp /etc/teiler/teiler.conf $HOME/.config/teiler/config
+    cp /etc/teiler/config $HOME/.config/teiler/config
 fi
 
 export ext=${ext}; source $HOME/.config/teiler/config
@@ -21,6 +26,8 @@ export ext=${ext}; source $HOME/.config/teiler/config
 if [[ ! -d $HOME/.config/teiler/profiles ]]; then
     mkdir $HOME/.config/teiler/profiles
 fi
+
+dir=$(pwd)
 cd /etc/teiler/profiles
 for i in *; do
     if [[ ! -f $HOME/.config/teiler/profiles/"$i" ]]; then
@@ -29,6 +36,7 @@ for i in *; do
         cmp "$i" $HOME/.config/teiler/profiles/"$i" || cp -f /etc/teiler/profiles/"$i" $HOME/.config/teiler/profiles
     fi
 done
+cd ${dir}
 
 check_img_path () {
   if [[ ! -d $img_path ]]; then
@@ -71,14 +79,14 @@ mainMenu () {
     fi
     isRecording && STATE_RECORDING="1 Stop Recording Screencast"
     if [[ "$STATE_RECORDING" == "1 Stop Recording Screencast" ]]; then
-        menu=$(echo -e "< Exit\n---\n"$STATE_RECORDING"" | roficmd -u 2 -p "teiler > ")
+        menu=$(echo -e "< Exit\n---\n"$STATE_RECORDING"" | _rofi -dmenu -u 2 -p "teiler > ")
         val=$?
         if [[ $val -eq 1 ]]; then exit;
         elif [[ $val -eq 0 ]]; then askPrompt;
         fi
 
     elif [[ -z "$STATE_RECORDING" ]]; then
-        menu=$(echo -e "< Exit\n---\n1 [ Screenshots ]>\n2 [ Screencasts ]>\n3 [ History ]>\n---" | roficmd -p "teiler > ")
+        menu=$(echo -e "< Exit\n---\n1 [ Screenshots ]>\n2 [ Screencasts ]>\n3 [ History ]>\n---" | _rofi -dmenu -p "teiler > ")
         val=$?
         if [[ $menu == "1 [ Screenshots ]>" ]]; then screenshotMenu;
         elif [[ $menu == "2 [ Screencasts ]>" ]]; then screencastMenu;
@@ -90,7 +98,7 @@ mainMenu () {
 
 screenshotMenu () {
     export filename="${img_filemask}"
-    menu=$(echo -e "< Return to Main Menu\n---\n1 Monitor\n2 Fullscreen\n3 Area" | roficmd -p "Screenshot > ")
+    menu=$(echo -e "< Return to Main Menu\n---\n1 Monitor\n2 Fullscreen\n3 Area" | _rofi -dmenu -p "Screenshot > ")
     rofi_exit=$?
     if [[ $menu == "1 Monitor" ]]; then
         mode="fullscreen"
@@ -124,7 +132,7 @@ screencastMenu () {
     isRecording && STATE_RECORDING="1 Stop Recording Screencast"
     if [[ "$STATE_RECORDING" == "1 Stop Recording Screencast" ]]; then
         filename="$(cat $XDG_RUNTIME_DIR/__teiler_cast_name)"
-        menu=$(echo -e "< Exit\n---\n"$STATE_RECORDING"" | roficmd  -p "teiler > ")
+        menu=$(echo -e "< Exit\n---\n"$STATE_RECORDING"" | _rofi -dmenu  -p "teiler > ")
 
         if [[ "$menu" == "< Exit" ]]; then
             exit
@@ -135,7 +143,7 @@ screencastMenu () {
         fi
 
     elif [[ -z "$STATE_RECORDING" ]]; then
-        menu=$(echo -e "< Return to Main Menu\n---\n1 Fullscreen\n2 Area" | roficmd -p "Screencast > ")
+        menu=$(echo -e "< Return to Main Menu\n---\n1 Fullscreen\n2 Area" | _rofi -dmenu -p "Screencast > ")
         val=$?
         filename="${vid_filemask}"
         echo "${filename}" > $XDG_RUNTIME_DIR/__teiler_cast_name
@@ -148,7 +156,7 @@ screencastMenu () {
 }
 
 uploadMenu () {
-    menu=$(echo -e "< Return to Main Menu\n---\n1 Images\n2 Videos" | roficmd -p "History > ")
+    menu=$(echo -e "< Return to Main Menu\n---\n1 Images\n2 Videos" | _rofi -dmenu -p "History > ")
     if [[ $menu == "1 Images" ]]; then imageMenu;
     elif [[ $menu == "2 Videos" ]]; then videoMenu;
     elif [[ $menu == "< Return to Main Menu" ]]; then mainMenu;
@@ -159,7 +167,7 @@ uploadMenu () {
 imageMenu () {
     cd "${img_path}"
     HELP="<span color='$help_color'>${edit}: Edit</span>"
-    imagemenu=$(echo -e "< Return to Upload Menu\n---\n$(ls -1 -r)" | roficmd -select "${entry}" -kb-custom-1 "${view}" -kb-custom-2 "${historyupload}" -kb-custom-3 "${edit}" -kb-custom-4 "${clip}" -mesg "${HELP}" -p "Choose > ")
+    imagemenu=$(echo -e "< Return to Upload Menu\n---\n$(ls -1 -r)" | _rofi -dmenu -select "${entry}" -kb-custom-1 "${view}" -kb-custom-2 "${historyupload}" -kb-custom-3 "${edit}" -kb-custom-4 "${clip}" -mesg "${HELP}" -p "Choose > ")
     val=$?
 
     imagemenu2="${imagemenu%.*}"
@@ -177,7 +185,7 @@ imageMenu () {
 
 videoMenu () {
         cd "${vid_path}"
-    videomenu=$(echo -e "< Return to Upload Menu\n---\n$(ls -1)" | roficmd -select "${entry}" -p "Choose > ")
+    videomenu=$(echo -e "< Return to Upload Menu\n---\n$(ls -1)" | _rofi -dmenu -select "${entry}" -p "Choose > ")
     val=$?
     videomenu2="${videomenu%.*}"
     if [[ "${videomenu}" == "< Return to Upload Menu" ]]; then uploadMenu; fi
@@ -299,7 +307,7 @@ askPrompt () {
     if [[ -z "$STATE_RECORDING" ]]; then
         filename="${vid_filemask}"
         echo "${filename}" > $XDG_RUNTIME_DIR/__teiler_cast_name
-        menu=$(echo -e "< Exit\n---\n1 Fullscreen\n2 Area" | roficmd -p "> ")
+        menu=$(echo -e "< Exit\n---\n1 Fullscreen\n2 Area" | _rofi -dmenu -p "> ")
         if [[ $menu == "1 Fullscreen" ]]; then isRecording && stopRecording && sleep 2 || ffmpegCmd fullscreen;
         elif [[ $menu == "2 Area" ]]; then isRecording && stopRecording && sleep 2 || ffmpegCmd area;
         elif [[ $menu == "" ]]; then exit
@@ -313,7 +321,7 @@ askPrompt () {
 }
 
 delayPrompt () {
-    delay=$(echo -e "$(seq 1 10)" | roficmd -p "Choose Delay > ")
+    delay=$(echo -e "$(seq 1 10)" | _rofi -dmenu -p "Choose Delay > ")
     if [[ $delay == "" ]]; then
         exit
     fi
@@ -333,15 +341,6 @@ teiler - a rofi-driven screen{shot,cast} utility
 EOF
 }
 
-if [[ -z "$rofiopts" ]]; then
-    roficmd () {
-        rofi -dmenu "$@"
-    }
-else
-    roficmd () {
-        rofi -dmenu $(echo "$rofiopts") "$@"
-    }
-fi
 
 if [[ $1 == "--screenshot" ]]; then check_img_path; screenshotMenu
 elif [[ $1 == "--screencast" ]]; then check_vid_path; screencastMenu

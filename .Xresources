@@ -44,10 +44,10 @@ URxvt*fading: 30
 *.color15:      #f8f8f8
 
 
-URxvt.perl-ext-common:     resize-font
+URxvt.perl-ext-common:     resize-font,clipboard
 
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger:  C-Up
+URxvt.resize-font.smaller: C-minus
+URxvt.resize-font.bigger:  C-plus
 
 URxvt.url-launcher:        /lib/firefox/run-mozilla.sh
 URxvt.colorUL: #7780a1

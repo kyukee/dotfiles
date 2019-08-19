@@ -55,5 +55,38 @@ zip -r squash.zip dir1
 ## start a service
 systemctl start unit
 
-## enable a service at bootup and also start now
+## enable a service at bootup and also start immediatly
 systemctl enable --now unit
+
+## run a command in the background
+add '&' to the end of the command
+
+## start a ssh agent which stores rsa key passwords
+eval $(keychain --quiet --agents ssh --eval id_rsa)
+
+## check for errors and warnings in the script (can use bash instead of ksh)
+ksh -n myscript.sh
+
+## Disk usage analyzer with an ncurses interface
+sudo ncdu [directory]
+
+## output appended data as the file grows
+tail -f file.txt
+
+## print current terminal emulator
+ps -p $(ps -p $$ -o args,ppid | tail -1 | awk '{print $2}') -o args | tail -1
+
+## utility to list / change java environments, among other things
+archlinux-java
+
+## look at filesizes in current directory
+du -h -d1 .
+
+## select the 20 most recently synchronized HTTP or HTTPS mirrors, sort them by download speed, and overwrite the file /etc/pacman.d/mirrorlist
+sudo reflector --latest 20 --verbose --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+## list fonts
+convert -list font | awk -F: '/Font: / { print $2 }' | sort -du
+
+## run a program with a program with a certasin cpu priority (-19=highest, 19=lowest)
+nice -n 19 <command>

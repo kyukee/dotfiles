@@ -4,7 +4,7 @@ rofi.terminal: urxvt
 rofi.hide-scrollbar: true
 rofi.disable-history: true
 rofi.lines: 16
-rofi.padding: 710
+rofi.padding: 1440
 rofi.line-margin: 2
 
 ! border width
@@ -18,7 +18,7 @@ rofi.regex:	true
 rofi.eh: 1
 
 ! (0-100): percentage	(>100): pixel value
-rofi.width: 100
+rofi.width: -60
 
 
 ! note: another possibility for modi is window

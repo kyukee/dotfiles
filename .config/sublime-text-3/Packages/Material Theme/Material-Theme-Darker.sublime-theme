@@ -533,7 +533,7 @@
       "layer0.inner_margin": [0, 24, 12, 24],
       "content_margin": [0, 12, 0, 0],
       "layer1.tint": [0,0,0],
-      "layer1.opacity": 0.0
+      "layer1.opacity":  0.0
     },
     {
       "class": "sidebar_tree",
@@ -590,7 +590,8 @@
   
     {
       "class": "sidebar_label",
-      "color": [97, 97, 97],
+      // sidebar text color
+      "color": [137, 127, 137],
       "font.bold": false,
       "font.italic": false,
       "shadow_color": [255, 255, 255, 0],
@@ -3985,7 +3986,7 @@
       "settings": ["material_theme_accent_pink"],
       "layer0.texture": "Material Theme/assets/accent-pink/dirty_icon--hover.png",
     },
-  
+
     {
       "class": "sidebar_label",
       "settings": ["material_theme_accent_pink"],

@@ -1,6 +1,8 @@
 [user]
-	name = kyukee
-	email = iulian.p234@hotmail.com
+	#name = kyukee
+	#email = iulian.p234@hotmail.com
+	name = Iulian Puscasu
+	email = iulian.puscasu.mail@gmail.com
 
 [core]
 	editor = subl3
@@ -10,9 +12,10 @@
 	filemode= true
 	bare= false
 	logalrefupdates= true
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
-	ui = auto
+	ui = true
 
 [color "branch"]
 	current = yellow bold
@@ -35,3 +38,10 @@
 	ck = checkout
 [diff]
 	tool = vimdiff3
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pager]
+	show = diff-so-fancy | less --tabs=1,5 -RFX

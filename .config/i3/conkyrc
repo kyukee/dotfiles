@@ -31,34 +31,39 @@ TEXT
     {"full_text": "\ue9a4  ${mpd_smart}  ","color": "\#EEEECC", "separator": false },\
   ${endif} 
 
-  {"full_text": "\ue94e ${cpu}%  ","color": "\#EEEECC", "separator": false },
-  {"full_text": "\ue9e6${acpitemp}°C  ","color": "\#EEEECC", "separator": false, "min_width": 20 },
+  
+
+  ${if_match ${cpu} >= 80}
+    {"full_text": "\uec2f ${cpu}%  ","color": "\#F7155C", "separator": false },
+  ${else}
+    {"full_text": "\uec2f ${cpu}%  ","color": "\#EEEECC", "separator": false },
+  ${endif}
 
 
-
+  {"full_text": "\uf2c8${acpitemp}°C  ","color": "\#EEEECC", "separator": false, "min_width": 20 },
 
   ${if_up wlo1}
-    {"full_text": "\uea09 ${wireless_essid wlo1}  ","color": "\#EEEECC", "separator": false },\
+    {"full_text": "\uecec ${wireless_essid wlo1}  ","color": "\#EEEECC", "separator": false },\
   ${else}
     ${if_up wlan0}
-      {"full_text": "\uea09 ${wireless_essid wlan0}  ","color": "\#EEEECC", "separator": false },\
+      {"full_text": "\uecec ${wireless_essid wlan0}  ","color": "\#EEEECC", "separator": false },\
     ${else}
-      {"full_text": "\uea08 off  ","color": "\#EEEECC", "separator": false },\
+      {"full_text": "\ueceb off  ","color": "\#EEEECC", "separator": false },\
     ${endif}
   ${endif}
 
   
   ${if_up enp0s25}
-    {"full_text": "\uea09 wired  ","color": "\#EEEECC", "separator": false },\
+    {"full_text": "\uf1e6 wired  ","color": "\#EEEECC", "separator": false },\
   ${else}
-    {"full_text": "\uea08 no wired  ","color": "\#EEEECC", "separator": false },\
+    {"full_text": "\ueadc no wired  ","color": "\#EEEECC", "separator": false },\
   ${endif}
 
 
   ${if_match "${exec pacmd list-sinks 0 | grep muted | cut -d ' ' -f 2}" == "no"}
-    {"full_text": "\uea04 ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | sed 's/[][]//g'}  ","color": "\#EEEECC", "separator": false },
+    {"full_text": "\uece7 ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6 | sed 's/[][]//g'}  ","color": "\#EEEECC", "separator": false },
   ${else}
-    {"full_text": "\uea05 muted  ","color": "\#EEEECC", "separator": false },
+    {"full_text": "\uece8 muted  ","color": "\#EEEECC", "separator": false },
   ${endif}
 
 
@@ -85,8 +90,8 @@ TEXT
 
   #{"full_text": " ${execpi 60 python ~/bin/gmail.py}  ","color":"\#00FF00"},
 
-  {"full_text": "\u2800${time %Y-%m-%d } ","color": "\#EEEECC", "separator": false },
-  {"full_text": "\ue939 ${time %H:%M}  ","color": "\#F7155C", "separator": false }
+  {"full_text": "\uead7 ${time %Y-%m-%d }","color": "\#EEEECC", "separator": false },
+  {"full_text": "\uec18 ${time %H:%M}  ","color": "\#F7155C", "separator": false }
 
 #  temp  membar  wireless  network  mail  battery  date ♬ music  video \u2800 blank
 ]

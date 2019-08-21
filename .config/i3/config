@@ -64,21 +64,21 @@ font pango:Terminus (TTF) 14
 set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
-set $workspace4 "4 "
-set $workspace5 "5 "
-set $workspace6 "6 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
-set $workspace9 "9 "
-set $workspace0 "10 "
+set $workspace9 "9 "
+set $workspace0 "10 "
 
 
 ##### workspace assignment #####
 assign [class="firefox" instance="Navigator"] $workspace2
 assign [class="Subl3"] $workspace3
 assign [class="Thunar" title="File Manager"] $workspace4
-assign [class="Eclipse"] $workspace5
 assign [class="Zathura"] $workspace5
+assign [class="Eclipse"] $workspace6
 assign [class="libreoffice"] $workspace6
 assign [class="qBittorrent"] $workspace7
 assign [class="mpv"] $workspace8
@@ -100,6 +100,7 @@ exec --no-startup-id http-server ./.startpage -p 9000
 exec --no-startup-id mpd
 exec --no-startup-id "dunst -c ~/.config/dunst/dunstrc"
 exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
 exec --no-startup-id nice -n 19 /home/kyukee/Scripts/fmenu-rofi.sh -u
 
 
@@ -127,6 +128,7 @@ for_window [title="PlayOnLinux"] floating enable
 # use xrandr to know the names of your monitors
 # exec --no-startup-id xrandr --output HDMI2 --right-of eDP1 --auto
 # you can just use: 'mons -e top'
+
 
 set $firstMonitor eDP1
 set $secondMonitor DP2
@@ -331,6 +333,8 @@ bar {
                 inactive_workspace $bg-color          $bg-color          $white-light
                 urgent_workspace   $bg-color          $red-light         $white-light
         }
+        tray_output primary
+        tray_padding 2
 }
 
 

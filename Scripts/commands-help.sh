@@ -90,3 +90,12 @@ convert -list font | awk -F: '/Font: / { print $2 }' | sort -du
 
 ## run a program with a program with a certasin cpu priority (-19=highest, 19=lowest)
 nice -n 19 <command>
+
+## install micro text editor
+cd /usr/local/bin; curl https://getmic.ro | sudo bash
+
+## atom export packages
+apm list --installed --bare > atom-package-list.txt
+
+## atom import packages
+apm install --packages-file atom-package-list.txt

@@ -1,11 +1,10 @@
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-7': 'editor:toggle-line-comments'
+  'ctrl-enter': 'platformio-ide-terminal:toggle'
 '.platform-linux .github-FilePatchView atom-text-editor:not([mini])':
   'ctrl-7': 'github:toggle-patch-selection-mode'
 'atom-workspace atom-text-editor':
   'ctrl-shift-up': 'editor:move-line-up'
   'ctrl-shift-down': 'editor:move-line-down'
-'.platform-linux atom-workspace, .platform-win32 atom-workspace':
-  'ctrl-´': 'platformio-ide-terminal:toggle'
 'atom-text-editor':
   'ctrl-cmd-3': 'tab-length:tab-length-3'

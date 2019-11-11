@@ -96,8 +96,8 @@ export DISPLAY=:0
 export LANG=en_US.UTF-8
 export TERM='rxvt-unicode'
 export TERMINAL='urxvt'
-export EDITOR='subl3'
-export VISUAL='subl3'
+export EDITOR=micro
+export VISUAL=micro
 
 #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-12-jdk

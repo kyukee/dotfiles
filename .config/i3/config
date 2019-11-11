@@ -20,7 +20,8 @@ set $mod Mod4
 ##########################################################################
 
 
-##### colors #####
+# colors
+#-------------------------------------------------------------------------
 set $bg-color            #211B1C
 set $red                 #F7155C
 set $red-light           #822B45
@@ -30,17 +31,19 @@ set $white               #EEEECC
 set $white-light         #ADAD95
 
 
-##### keybinds #####
+# keybinds
+#-------------------------------------------------------------------------
 bindsym $mod+n exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
 bindsym $mod+t exec --no-startup-id thunar
 bindsym $mod+Shift+t exec --no-startup-id urxvt -name ranger -e ranger
 bindsym $mod+b exec --no-startup-id firefox
 bindsym $mod+u exec --no-startup-id subl3
 bindsym $mod+o exec --no-startup-id libreoffice
-bindsym $mod+l exec --no-startup-id i3lock -c 999999 --clock --timecolor=ffffffff --timesize=90 --datecolor=ffffffff --datesize=24
+bindsym $mod+l exec --no-startup-id i3lock -c 9999bb --clock --timecolor=ffffffff --timesize=90 --datecolor=ffffffff --datesize=24
 
 
-##### program launcher #####
+# program launcher
+#-------------------------------------------------------------------------
 # start dmenu (a program launcher)
 #bindsym $mod+p exec dmenu_run -i -fn 'Terminus (TTF)' -nb '$bg-color' -nf '$white-light' -sb '$red-light' -sf '$white' -h 24 -dim 0.35 -y 300 -l 15 -w 500 -x 710
 # '-dim opacity':  0 < opacity < 1  (higher value = darker screen)
@@ -50,7 +53,8 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec /home/kyukee/Scripts/fmenu-rofi.sh -f && rofi -show file
 
 
-##### font #####
+# font
+#-------------------------------------------------------------------------
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Terminus (TTF) 14
@@ -60,7 +64,8 @@ font pango:Terminus (TTF) 14
 #font pango:DejaVu Sans Mono 8
 
 
-##### workspace names #####
+# workspace names
+#-------------------------------------------------------------------------
 set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
@@ -73,7 +78,8 @@ set $workspace9 "9 "
 set $workspace0 "10 "
 
 
-##### workspace assignment #####
+# workspace assignment
+#-------------------------------------------------------------------------
 assign [class="firefox" instance="Navigator"] $workspace2
 assign [class="Subl3"] $workspace3
 assign [class="Thunar" title="File Manager"] $workspace4
@@ -81,18 +87,20 @@ assign [class="Zathura"] $workspace5
 assign [class="Eclipse"] $workspace6
 assign [class="libreoffice"] $workspace6
 assign [class="qBittorrent"] $workspace7
-assign [class="mpv"] $workspace8
+# assign [class="mpv"] $workspace8
 assign [class="VirtualBox Machine"] $workspace8
 assign [class="URxvt" instance="ncmpcpp"] $workspace9
 
 
-##### autostart #####
+# autostart
+#-------------------------------------------------------------------------
 #exec        - start on login
 #exec_always - start on i3 restart
 
 exec_always --no-startup-id feh --bg-fill /home/kyukee/Pictures/wallpapers/imageedit_8_8640256032.png
 exec_always --no-startup-id setxkbmap pt &
 exec_always --no-startup-id xrdb ~/.Xresources
+exec_always --no-startup-id bash /home/kyukee/Scripts/i3_dynamic_window_titles.sh
 exec --no-startup-id compton -f
 exec --no-startup-id xflux -l 38.7:-9.1 -k 4500
 exec --no-startup-id i3-msg 'workspace $workspace1; exec "sleep 1; urxvt"'
@@ -100,12 +108,16 @@ exec --no-startup-id http-server ./.startpage -p 9000
 exec --no-startup-id mpd
 exec --no-startup-id "dunst -c ~/.config/dunst/dunstrc"
 exec --no-startup-id nm-applet
+exec --no-startup-id blueberry-tray
 exec --no-startup-id volumeicon
+exec --no-startup-id volti
+exec --no-startup-id yad --notification --command='gsimplecal' --image='/usr/share/icons/clarity-albus/16x16/apps/calendar.png' --text='yad notification - Calendar'
 exec --no-startup-id nice -n 19 /home/kyukee/Scripts/fmenu-rofi.sh -u
 
 
 
-##### floating windows #####
+# floating windows
+#-------------------------------------------------------------------------
 for_window [class="URxvt" instance="ncmpcpp"] floating enable
 for_window [class="URxvt" instance="ranger"] floating enable
 for_window [class="ist-ac-simulador-application-AppSimulador"] floating enable
@@ -118,16 +130,19 @@ for_window [class="Firefox" instance="Toplevel"] floating enable
 for_window [class="Redshiftgui.elf"] floating enable
 for_window [class="Gcolor3"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [title="Android Emulator"] floating enable
 for_window [title="PlayOnLinux"] floating enable
+for_window [title="Blueberry.py"] floating enable
 #for_window [class="Ddd"] floating enable
 
 
 
-##### dual monitor #####
-
+# dual monitor
+#-------------------------------------------------------------------------
 # use xrandr to know the names of your monitors
 # exec --no-startup-id xrandr --output HDMI2 --right-of eDP1 --auto
-# you can just use: 'mons -e top'
+# or you can just use: 'mons -e top'
 
 
 set $firstMonitor eDP1
@@ -148,11 +163,12 @@ bindsym $mod+shift+apostrophe move workspace to output up
 
 
 
-##### default container layout #####
+# default container layout
+#-------------------------------------------------------------------------
 workspace_layout tabbed
 
-# maybe use | for unfocused and • for focused window
-for_window [class=".*"] title_format "<span foreground='$white' weight='bold'>•</span> <span foreground='$white'>%title</span>"
+# this following feature is now done at runtime, using a bash script subscribed to ipc events
+# for_window [class=".*"] title_format "<span foreground='$white' weight='bold'>•</span> <span foreground='$white'>%title</span>"
 
 
 
@@ -310,6 +326,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 ##### window border #####
 set $window_border 6
 new_window pixel $window_border
+
+
+##### rounded corners #####
+#border_radius 5
 
 
 ##### window colors #####

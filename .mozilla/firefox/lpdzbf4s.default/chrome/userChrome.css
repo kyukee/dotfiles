@@ -1,0 +1,405 @@
+
+@font-face {
+    font-family: "GohuFont";
+    src: url("/home/kyukee/.fonts/GohuFont-Medium.ttf");
+}
+
+* {
+    font-family: 'GohuFont';
+}
+
+@-moz-document url("chrome://browser/content/browser.xul") {
+
+	#urlbar .urlbar-input-box {
+		text-align: center !important;
+	}
+
+  /*
+   urlbar centered when not focused
+  #urlbar:not([focused]) .urlbar-input-box {
+    text-align:center;
+  }
+  */
+
+}
+
+
+/* AGENT_SHEET */
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* Colors */
+:root {
+  --bg-color: #211b1c;
+  --bg-color-light: #302728;
+  --text-color: #eeeecc;
+  --text-color-light: #adad95;
+}
+
+#TabsToolbar:not(:-moz-lwtheme)::after, 
+#TabsToolbar:not(:-moz-lwtheme)::before {
+  display: none !important;
+}
+
+#main-window:not([chromehidden*="toolbar"])[sizemode="normal"]
+{
+  /*mudar o valor de margin top para mover a barra azul para cima e baixo*/
+ margin-top:0px!important;
+ margin-left:0px!important;
+ margin-right:0px!important;
+ margin-bottom: 0px !important;
+}
+
+#main-window:not([chromehidden*="toolbar"])[sizemode="maximized"]
+{
+  /*change margin top value to make the colored bar go up and down*/
+ margin-top:0px!important;
+ margin-left:0px!important;
+ margin-right:0px!important;
+ margin-bottom:0px !important;
+}
+
+.tab-background-start, 
+.tab-background-end {
+  visibility: hidden !important;
+  box-shadow: none !important;
+}
+
+.tab-background-middle {
+  background: none !important;
+}
+
+#TabsToolbar, #TabsToolbar *{
+  clip-path: none !important;
+  max-height: 42px !important;
+}
+
+#TabsToolbar, 
+.tabbrowser-tab *, 
+.tabs-newtab-button,
+.toolbarbutton, 
+.tab-background *{
+  background-image: none !important;
+}
+
+.tab-background,
+.tab-background-middle,
+.tabbrowser-tab:after,
+.tabbrowser-tab:before,
+.tabbrowser-tab:after {
+  box-shadow: none !important;
+  background: none !important;
+}
+
+#browser-border-end,
+#browser-border-start {
+  display:none !important;
+}
+
+#main-window[sizemode=normal] #browser-bottombox {
+  display:none !important;
+}
+
+#nav-bar #PanelUI-menu-button {
+  padding: 0 !important;
+}
+
+#PanelUI-button {
+  background: none !important;
+}
+
+/*#main-menubar {
+  margin-bottom: 20px !important;
+}*/
+
+select > button,
+select > input {
+  opacity: 0 !important;
+}
+
+#content[disablehistory] {
+  background-color: #161616 !important;
+}
+
+#_dlbar_finTipContent {
+  background: #fafafa !important;
+  border: 1px solid gray !important;
+  border-radius: 0px !important
+}
+
+.browserContainer > findbar {
+  -moz-box-ordinal-group: 10 !important;
+}
+
+.findbar-closebutton {
+  -moz-box-ordinal-group: 0 !important;
+  margin-left: 10px !important;
+}
+
+.findbar-textbox {
+  width: 30em !important;
+}
+
+.findbar-case-sensitive {
+  margin-right: 1400px !important;
+}
+
+
+/*styling*/
+#searchbar > .searchbar-textbox,
+
+#urlbar {
+    border: 0px solid rgb(230,230,230) !important;
+    background: rgb(20,21,31) !important;
+    margin-top: 0px !important;
+    margin-left: 5px !important;
+    border-radius: 0px;
+    padding: 0px !important;
+    color: var(--text-color-light) !important;
+    height: 23px;
+    font-size: 20px;
+    background-color:transparent !important;
+}
+
+#tracking-protection-icon-container {display: none !important;}
+
+/*urlbar round corners*/
+#urlbar, .searchbar-textbox{ border-radius: 2em !important;}
+
+#urlbar-input{ text-align: center !important; }
+
+#nav-bar {
+    height: 40px; /*was 35*/
+    background-color: var(--bg-color-light) !important;
+    background-image:none !important;
+    border-color:transparent !important;
+   /* background-color:transparent !important; */
+    box-shadow:none !important;
+  
+   /* border-bottom: 1px solid #cdcdcd !important;
+  removed the line in the bottom of the bar*/
+   
+  /*border-top: 1px solid #cdcdcd !important;
+  removed the line separating url bar and tabs*/
+    margin-bottom: -1px !important;
+    margin-top: -1px !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+   /*move menu button to the left*/
+/*  #PanelUI-button, #customization-panel-container,
+  #customization-panelWrapper .panel-arrow,
+  #ctr_panelui-button,
+  #wrapper-ctr_panelui-button {
+
+    -moz-box-ordinal-group: 0
+
+  }*/
+
+
+#identity-box, #dropmarker-icon, #historydropmarker, #autocomplete-history-dropmarker, #urlbar-history-dropmarker, #dropmarker {
+    display: none !important;
+}
+
+/*this next command removes the reload page button*/
+#autocomplete-history-dropmarker, #urlbar-history-dropmarker, #urlbar-reload-button {
+    display: none !important;
+}
+
+
+/*this one removes the little arrow with websites*/
+/*
+.autocomplete-history-dropmarker.urlbar-history-dropmarker {
+    display: none !important;
+}
+*/
+
+#plugins-notification-icon, #notification-anchor-icon, #notification-popup-box {
+    display: none !important;
+    
+}
+
+/* remove tab scrolling */
+.scrollbutton-up, .scrollbutton-down {
+    display: none !important;
+}
+
+/* enable the 'list all tabs' button */
+#tabbrowser-tabs ~ #alltabs-button {
+	visibility:visible!important;
+}
+
+/* remove back/fwd */
+/*#nav-bar  #back-button > .toolbarbutton-icon {
+ display: none !important;
+}*/
+
+#forward-button {
+ display: none !important;
+}
+
+/* Remove back button circle */
+#back-button:not(:hover),
+#back-button:not(:hover) > .toolbarbutton-icon {
+background: transparent !important;
+border: none !important;
+box-shadow: none !important;
+}
+#back-button:hover,
+#back-button:hover > .toolbarbutton-icon {
+border: none !important;
+border-radius: 2px !important;
+}
+
+
+/*
+scrollbar[orient="vertical"] {
+  min-width: 16px !important;
+  max-width: 16px !important;
+  margin-left: -1px !important;
+}
+scrollbar[orient="horizontal"] {
+  min-height: 16px !important;
+  max-height: 16px !important;
+  margin-top: -1px !important;
+}
+*/
+
+#urlbar-reload-button,
+.urlbar-history-dropmarker,
+#star-button,
+#page-proxy-favicon,
+#go-button,
+#notification-popup-box,
+#tabbrowser-tabs .scrollbutton-up,
+#tabbrowser-tabs .scrollbutton-down,
+statusbarpanel,
+#identity-box,
+#urlbar-container dropmarker,
+toolbar#addon-bar toolbarbutton .toolbarbutton-menubutton-dropmarker,
+toolbar#addon-bar #addonbar-closebutton,
+#appmenu-button,
+#appmenu-toolbar-button,
+#reader-mode-button,
+#readinglist-addremove-button
+#lpt_lastpass-compact-btn {
+  display: none !important;
+}
+
+/*lower the top margin*/
+#TabsToolbar {
+  height: 40px;
+  margin-top: -2px !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+  border: none !important;
+}
+
+/*center text in tab*/
+.tab-label {
+  -moz-box-flex: 1 !important; text-align: center !important;
+}
+
+.tabbrowser-tabs:not([drag=detach]) > .tabbrowser-tab:not([pinned])[fadein] {
+min-width: 10px !important;
+max-width: 300px !important;
+}
+
+/*tab width*/
+/*.tabbrowser-tab:not([pinned]) {
+max-width: 300px !important;
+}
+*/
+
+/*remove icons*/
+.tabbrowser-tab:not([pinned]) .tab-throbber,
+
+/*next line removes close tab button */
+.tabbrowser-tab .tab-close-button,
+.tabbrowser-tab:not([pinned]) .tab-icon-image {
+   visibility: collapse !important;
+}
+
+/*remove zoom button*/
+#urlbar-zoom-button {
+  display:none!important
+}
+.text-link.bottom-link {
+  opacity: 0 !important;
+}
+
+/*fix auto click on right click menu*/
+#contentAreaContextMenu { margin: 10px 0px 0px 10px; }
+
+
+/****White background***/
+
+:root {
+/* TAB VARIABLES */
+ --bg-dark: #1D1E2A;
+}
+
+
+#TabsToolbar, #tabbrowser-tabs {
+background: var(--bg-color) !important;
+  color: var(--text-color-light) !important;
+}
+
+
+/***highlighting tabs and tab letter colors***/
+
+/*this changes the color of all other tabs*/
+#main-window .tabbrowser-tab:not(:-moz-lwtheme)  {
+  background-color: transparent !important;
+  box-shadow: inset 0 -5px 15px -15px rgba(0, 0, 0, 0.1) !important;
+  color: var(--text-color-light) !important;
+  /* #fcbdc1 is an alternative*/
+}
+
+/*this changes the color of the current tab*/
+#main-window .tabbrowser-tab[selected] {
+  background-color: var(--bg-color-light) !important;
+  box-shadow: none !important;
+  color: var(--text-color) !important;
+
+  height: 60px;
+  
+  /*font-size: 12px*/
+}
+
+.tab-line[selected="true"] {
+
+/*this sets the color of the line above the tab */
+  /*background-color : #f7155c !important;*/
+
+
+/* Hide blue stripe on active tab */
+  opacity: 0 !important;
+}
+
+  /*this adds a colored rectangle on top of the current tab*/
+/*border-top: solid #bababa !important;
+}*/
+
+
+/*the 6 numbers can be any color
+look at this site for colors:
+http://www.backgroundcolor.net/
+*/
+
+.urlabr-input-box, #url-display-box{
+  border-inline-start: none !important;
+}
+
+/*===============================================
+  only show tab close button on hover
+  ===============================================*/
+
+.tabbrowser-tabs tab .tab-close-button .toolbarbutton-icon,  .tabbrowser-tabs tab .tabs-closebutton .toolbarbutton-icon {
+	display: none !important;
+}
+
+.tabbrowser-tabs tab:hover .tab-close-button .toolbarbutton-icon,  .tabbrowser-tabs tab:hover .tabs-closebutton .toolbarbutton-icon {
+	display: -moz-box !important;
+}

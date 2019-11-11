@@ -1,0 +1,49 @@
+
+# options for the original recording
+border="-show_region 1"
+
+encopts="-r 30 \
+		 -s $res \
+		 -crf 10 \
+		 -vf "fps=30" \
+		 -vcodec libx264 \
+		 -movflags +faststart \
+		 -preset ultrafast \
+		 -crf 10 \
+		 -threads 4 "		 
+
+rect_encopts="-r 30 \
+			  -c:v libx264 \
+			  -preset slow \
+			  -crf 18 \
+			  -c:a libvorbis"
+
+ext="mkv"
+
+ffaudio=""
+
+
+# options for the converted recording
+options="-c:v libvpx \
+		 -map 0:v:0 \
+	     -qmin 5 \
+	     -qmax 25 \
+	     -threads 3 \
+	     -slices 1 \
+	     -g 7200 \
+	     -cpu-used 1 \
+	     -deadline good \
+	     -auto-alt-ref 1 \
+	     -lag-in-frames 20 \
+	     -b:v 1000K \
+	     -crf 5 \
+	     -an \
+	     -sn \
+	     -c:a libvorbis"
+
+
+webm_name=$(date +'%Y-%m-%d %R')
+
+ext2=".webm"
+
+# bitrate should be (24576/length in seconds)

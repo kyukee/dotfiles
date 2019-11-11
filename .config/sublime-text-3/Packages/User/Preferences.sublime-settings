@@ -24,5 +24,6 @@
 	"preview_on_click": true,
 	"tab_size": 3,
 	"theme": "Material-Theme-Darker.sublime-theme",
-	"update_check": false
+	"update_check": false,
+	"word_wrap": "false"
 }

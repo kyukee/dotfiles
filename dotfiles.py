@@ -6,6 +6,7 @@ import sys, shutil, os
 file_list = {
     '.config/dunst',
     '.config/git',
+    '.config/gsimplecal',
     '.config/i3',
     '.config/mpd/mpd.conf',
     '.config/mpv/scripts',
@@ -31,10 +32,12 @@ file_list = {
     'root/etc/default/grub',
     'root/etc/sddm.conf',
     'root/etc/systemd/journald.conf',
+    'root/etc/pulse/default.pa',
     'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
     'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
     'root/usr/share/sddm/faces',
     'root/usr/share/sddm/themes/deepin',
+    '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
     'Scripts',
     '.fonts',
     '.ncmpcpp/config',
@@ -57,6 +60,7 @@ path_alterations = {
 excluded_files = {
     '.config/sublime-text-3/Packages/User/Package Control.cache',
     '.config/sublime-text-3/Packages/User/Package Control.last-run',
+    '.config/micro/buffers',
     'Scripts/linux64',
     'dotfiles.py',
     'keymap.map',

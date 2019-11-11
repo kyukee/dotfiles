@@ -44,7 +44,11 @@ URxvt*fading: 30
 *.color15:      #f8f8f8
 
 
-URxvt.perl-ext-common:     resize-font,clipboard
+URxvt.perl-ext-common:     default,resize-font,clipboard,keyboard-select
+
+! here, M means alt. These are emacs style shortcuts.
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s:      perl:keyboard-select:search
 
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger:  C-plus

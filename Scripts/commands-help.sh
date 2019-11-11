@@ -99,3 +99,19 @@ apm list --installed --bare > atom-package-list.txt
 
 ## atom import packages
 apm install --packages-file atom-package-list.txt
+
+## reload dunstrc
+killall dunst;notify-send summary body
+
+## start dlna media server
+minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid
+
+## shutdown dlna media server
+pkill minidlnad
+
+## turn screen off
+xset dpms force off
+
+## multiplex subtitle file with video file (append as last track)
+mkvmerge -o ouput.mkv video.mkv --language "0:eng" --track-name "0:English Track" sub.srt
+

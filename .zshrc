@@ -98,6 +98,7 @@ export TERM='rxvt-unicode'
 export TERMINAL='urxvt'
 export EDITOR=micro
 export VISUAL=micro
+export PDFVIEWER=evince
 
 #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-12-jdk

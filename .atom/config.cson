@@ -17,7 +17,6 @@
     disabledPackages: [
       "linter-python"
       "linter-gcc"
-      "git-plus"
       "fonts"
       "linter"
     ]
@@ -45,11 +44,16 @@
   "goto-definition":
     performanceMode: true
   "ide-java":
-    javaHome: "/usr/lib/jvm/java-12-jdk"
+    errors:
+      incompleteClasspathSeverity: "ignore"
+    javaHome: "/usr/lib/jvm/default"
     virtualMachine: {}
   "java-generator":
     toggles:
       generateMethodComments: false
+  latex:
+    engine: "lualatex"
+    opener: "pdf-view"
   "linter-eslint":
     disabling:
       disableWhenNoEslintConfig: false
@@ -73,3 +77,6 @@
     showOnStartup: false
   whitespace:
     ensureSingleTrailingNewline: false
+".bibtex.text":
+  editor:
+    softWrap: true

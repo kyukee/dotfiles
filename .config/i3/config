@@ -80,7 +80,7 @@ set $workspace0 "10 "
 
 # workspace assignment
 #-------------------------------------------------------------------------
-assign [class="firefox" instance="Navigator"] $workspace2
+# assign [class="firefox" instance="Navigator"] $workspace2
 assign [class="Subl3"] $workspace3
 assign [class="Thunar" title="File Manager"] $workspace4
 assign [class="Zathura"] $workspace5

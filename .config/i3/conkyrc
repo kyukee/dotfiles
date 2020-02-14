@@ -28,7 +28,7 @@ TEXT
 #  ${endif}
   
   ${if_running ncmpcpp}
-    {"full_text": "\ue9a4  ${mpd_smart}  ","color": "\#EEEECC", "separator": false },\
+    {"full_text": "\uec99  ${mpd_smart}  ","color": "\#EEEECC", "separator": false },\
   ${endif} 
 
 

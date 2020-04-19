@@ -225,8 +225,12 @@ select > input {
 }
 
 /* enable the 'list all tabs' button */
-#tabbrowser-tabs ~ #alltabs-button {
-	visibility:visible!important;
+/*#tabbrowser-tabs ~ #alltabs-button {
+	visibility:visible !important;
+}*/
+
+#alltabs-button {
+  display: initial !important;
 }
 
 /* remove back/fwd */

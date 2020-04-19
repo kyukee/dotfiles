@@ -70,18 +70,20 @@ keycode  57 = space
 keycode  58 = Caps_Lock
 keycode  86 = less             greater          bar
 keycode  97 = Control
-keycode 105 = Left             Left             Left            
-	control	keycode 105 = Left            
-	altgr	control	keycode 105 = Left            
-	alt	keycode 105 = 0xbc6 
-	control	alt	keycode 105 = Left            
-keycode 106 = Right            Right            Right           
-	control	keycode 106 = Right           
-	altgr	control	keycode 106 = Right           
+
+keycode 105 = Left             Left             Left
+	control	keycode 105 = Left
+	altgr	control	keycode 105 = Left
+	alt	keycode 105 = 0xbc6
+	control	alt	keycode 105 = Left
+keycode 106 = Right            Right            Right
+	control	keycode 106 = Right
+	altgr	control	keycode 106 = Right
 	alt	keycode 106 = 0xbc6
-	control	alt	keycode 106 = Right           
-compose 'e' '=' to '¤'
-compose '-' 'e' to '¤'
-compose '-' 'E' to '¤'
-compose '=' 'E' to '¤'
+	control	alt	keycode 106 = Right
+	
+compose 'e' '=' to 'ï¿½'
+compose '-' 'e' to 'ï¿½'
+compose '-' 'E' to 'ï¿½'
+compose '=' 'E' to 'ï¿½'
 

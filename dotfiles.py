@@ -21,13 +21,23 @@ file_list = {
     '.config/teiler/profiles',
     '.config/compton.conf',
     '.config/teiler/config',
+    '.config/minidlna/minidlna.conf',
+    '.config/micro',
+
+    '.fonts',
+    '.ncmpcpp/config',
+    '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
+
     '.atom/config.cson',
     '.atom/atom-package-list.txt',
     '.atom/keymap.cson',
     '.atom/snippets.cson',
     '.atom/styles.less',
-    '.config/micro',
-    'Documents/icomoon-awesome-brankic-feather',
+
+    '.config/Code - OSS/User/keybindings.json',
+    '.config/Code - OSS/User/settings.json',
+    '.config/Code - OSS/User/tasks.json',
+
     'root/etc/acpi/actions',
     'root/etc/default/grub',
     'root/etc/sddm.conf',
@@ -37,10 +47,11 @@ file_list = {
     'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
     'root/usr/share/sddm/faces',
     'root/usr/share/sddm/themes/deepin',
-    '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
+
+    'Documents/icomoon-awesome-brankic-feather',
     'Scripts',
-    '.fonts',
-    '.ncmpcpp/config',
+    'Workspaces/VScode',
+    
     '.bash_aliases',
     '.bash_profile',
     '.bashrc',
@@ -48,15 +59,17 @@ file_list = {
     '.Xresources',
     '.zprofile',
     '.zsh',
-    '.zshrc',}
+    '.zshrc',
+}
 
 
 # for files that are not in $HOME
 path_alterations = {
-    'example.txt' : '/new/path/example.txt',}
+    'example.txt' : '/new/path/example.txt',
+}
 
 
-# the script doesn't do anything with these files
+# the script excludes these files
 excluded_files = {
     '.config/sublime-text-3/Packages/User/Package Control.cache',
     '.config/sublime-text-3/Packages/User/Package Control.last-run',
@@ -66,7 +79,8 @@ excluded_files = {
     'keymap.map',
     'README.md',
     '.git',
-    '.gitignore'}
+    '.gitignore'
+}
 
 
 # setup some variables

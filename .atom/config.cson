@@ -40,13 +40,14 @@
     fontFamily: "Iosevka"
   "git-plus":
     general: {}
-  github: {}
+  github:
+    remoteFetchProtocol: "ssh"
   "goto-definition":
     performanceMode: true
   "ide-java":
     errors:
       incompleteClasspathSeverity: "ignore"
-    javaHome: "/usr/lib/jvm/default"
+    javaHome: "/usr/lib/jvm/java-8-openjdk"
     virtualMachine: {}
   "java-generator":
     toggles:

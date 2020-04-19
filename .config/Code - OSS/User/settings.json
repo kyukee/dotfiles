@@ -1,0 +1,138 @@
+{
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.suggestSelection": "first",
+    "editor.fontFamily": "Fantasque Sans Mono",
+    "editor.fontSize": 17,
+    "editor.lineHeight": 20,
+    // "editor.fontWeight": "bold",
+    "editor.multiCursorPaste": "full",
+    "editor.formatOnPaste": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 7,
+    "editor.quickSuggestionsDelay": 150,
+    "editor.renderLineHighlight": "all",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.detectIndentation": false,
+    "java.showBuildStatusOnStart.enabled": true,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.maven.updateSnapshots": true,
+    "java.completion.maxResults": 30,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "maven.terminal.favorites": [
+        {
+            "alias": "install without tests",
+            "command": "clean install -DskipTests"
+        }
+    ],
+    "workbench.iconTheme": "city-lights-icons-vsc",
+    "terminal.external.linuxExec": "urxvt",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorCustomizations": {
+        // "editorBracketMatch.background": "#f008"
+        // "editorBracketMatch.foreground": "#ffffff"
+
+        "editorWhitespace.foreground": "#929292",
+
+        "editorIndentGuide.activeBackground": "#636363",
+        "editorIndentGuide.background": "#303030",
+
+        "statusBarItem.remoteBackground": "#464114",
+        "statusBarItem.remoteForeground": "#bbb",
+
+        // these colors should be the same for all relevant extensions
+        // error: #cc1c25
+        // warning: #c9a018
+        // info: #3f8996
+
+        "editorError.foreground": "#cc1c25",
+        "editorWarning.foreground": "#c9a018",
+        "editorInfo.foreground": "#3f8996",
+        "problemsErrorIcon.foreground": "#cc1c25",
+        "problemsWarningIcon.foreground": "#c9a018",
+        "problemsInfoIcon.foreground": "#3f8996",
+        // "inputOption.activeBackground": "#6b6b6b",
+        "inputOption.activeBorder": "#cccccc",
+
+    },
+    "errorLens.errorGutterIconColor": "#cc1c25", // only works for Circle icon set
+    "errorLens.warningGutterIconColor": "#c9a018",
+    "errorLens.infoGutterIconColor": "#208080",
+    "window.zoomLevel": 0,
+    "markdown.extension.toc.githubCompatibility": true,
+    "city-lights-icons-vsc.hidesExplorerArrows": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workspaceExplorer.workspaceStorageDirectory": "/home/kyukee/Workspaces/VScode",
+    "workspaceExplorer.enableCustomIconSearch": false,
+    "colorHelper.disableShadow": true,
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 12,
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.highlights.highlightDelay": 0,
+    "todo-tree.tree.grouped": true,
+    "todo-tree.tree.showBadges": false,
+    "todo-tree.tree.hideIconsWhenGroupedByTag": true,
+    "todo-tree.tree.showCountsInTree": true,
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "#32e2e2",
+        "background": "#4b818f",
+        "opacity": 25,
+        "iconColour": "#3f8996",
+        "hideFromStatusBar": true
+    },
+    "todo-tree.tree.flat": true,
+    "todo-tree.tree.showInExplorer": false,
+    "breadcrumbs.symbolPath": "off",
+    "breadcrumbs.icons": false,
+    "workbench.colorTheme": "Gruvbox Minor Dark Hard",
+    "colorHelper.disableGpu": 1,
+    "colorHelper.disableTransparent": true,
+    "todo-tree.general.revealBehaviour": "start of line",
+    "workbench.editor.showTabs": true,
+    "workbench.activityBar.visible": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "terraform.languageServer": {
+        "enabled": true,
+        "args": []
+    },
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "git.confirmSync": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "errorLens.addNumberOfDiagnostics": true,
+    "errorLens.followCursor": "activeLine",
+    "errorLens.gutterIconSet": "defaultOutline",
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning",
+        // "info",
+        // "hint"
+    ],
+    "errorLens.gutterIconSize": "75%",
+    "sshfs.configs": [
+    ],
+    "sync-rsync.notification": true,
+    "sync-rsync.flags": "avz",
+    "sync-rsync.executableShell": "/bin/bash",
+    "sync-rsync.exclude": [
+        "*.class",
+    ],
+    "editor.matchBrackets": "never",
+    "subtleBrackets.style": {
+        "color": "#ffffff",
+        "backgroundColor": "#5D564E",
+        "borderStyle": "none"
+    },
+    "errorLens.gutterIconsEnabled": true,
+    "workbench.sideBar.location": "left",
+}

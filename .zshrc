@@ -62,20 +62,22 @@ key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
 # setup key accordingly
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[PageUp]}"  ]]  && bindkey  "${key[PageUp]}"  up-line-or-history
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"     beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"      end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"   overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"   delete-char
+[[ -n "${key[PageUp]}"  ]]  && bindkey  "${key[PageUp]}"   up-line-or-history
 [[ -n "${key[PageDown]}" ]] && bindkey  "${key[PageDown]}" down-line-or-history
-[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      history-beginning-search-backward
-[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    history-beginning-search-forward
-[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"       history-beginning-search-backward
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"     history-beginning-search-forward
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"     backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"    forward-char
 
-bindkey "^[Od" backward-word     # ctrl+left
-bindkey "^[Oc" forward-word     # ctrl+right
+#bindkey "^[Od" backward-word     # ctrl+left
+#bindkey "^[Oc" forward-word      # ctrl+right
 
+bindkey "\e[1;5D" backward-word
+bindkey "\e[1;5C" forward-word
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.

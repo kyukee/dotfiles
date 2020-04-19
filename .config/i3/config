@@ -134,6 +134,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [title="Android Emulator"] floating enable
 for_window [title="PlayOnLinux"] floating enable
 for_window [title="Blueberry.py"] floating enable
+for_window [title="Zoom Group Chat"] floating enable
 #for_window [class="Ddd"] floating enable
 
 

@@ -74,12 +74,13 @@ excluded_files = {
     '.config/sublime-text-3/Packages/User/Package Control.cache',
     '.config/sublime-text-3/Packages/User/Package Control.last-run',
     '.config/micro/buffers',
+    '.config/micro/backups',
     'Scripts/linux64',
     'dotfiles.py',
     'keymap.map',
     'README.md',
     '.git',
-    '.gitignore'
+    '.gitignore',
 }
 
 

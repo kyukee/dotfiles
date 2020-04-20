@@ -1,0 +1,68 @@
+.android
+.AndroidStudio*
+.docker
+.electron
+.gem
+.gradle
+.ivy2
+.m2
+.PlayOnLinux
+.sbt
+.thumbnails
+.vagrant.d
+Android
+AndroidStudioProjects
+go
+node_modules
+.metadata
+.wine
+.atom
+sublime-text-3
+
+extensions
+Cache
+CachedData
+cache
+.cache
+
+.npm
+
+globalStorage
+workspaceStorage
+
+.local
+.shared_folder
+objects
+.netbeans
+storage
+
+.eclipse
+*.class
+*.jar
+
+papi-5.4.3
+Java/docs/
+Font-Awesome-4.6.3
+
+asset
+datareporting
+plugins
+dependencies
+nexus-2.14.13-01-bundle
+nexus-3.17.0-01
+eclipse\ 2019-03\ installation
+
+
+Applications\ and\ Services
+Big\ Data\ Platforms
+Concurrent\ Programming
+Mobile\ Cloud\ Computing
+Network\ Security
+
+Material\ de\ Estudo
+Trabalhos\ e\ projetos
+CG-IST
+
+adapta-gtk-theme-master
+adapta-gtk-theme(old-ver)
+

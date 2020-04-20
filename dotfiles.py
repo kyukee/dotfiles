@@ -55,6 +55,7 @@ file_list = {
     '.bash_aliases',
     '.bash_profile',
     '.bashrc',
+    '.fmenu-ignore',
     '.redshiftgrc',
     '.Xresources',
     '.zprofile',

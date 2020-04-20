@@ -49,7 +49,7 @@
     background-color:  @background;    
 }
 #mainbox {
-    background-color:            #211B1Ccf;
+    background-color:            #211B1Cda;
     border:  1;
     padding: 80 100;
 }

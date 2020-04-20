@@ -50,7 +50,7 @@ bindsym $mod+l exec --no-startup-id i3lock -c 9999bb --clock --timecolor=fffffff
 
 # start rofi (a dmenu replacement and more)
 bindsym $mod+d exec rofi -show combi
-bindsym $mod+Shift+d exec /home/kyukee/Scripts/fmenu-rofi.sh -f && rofi -show file
+bindsym $mod+Shift+d exec /home/kyukee/Scripts/fmenu-rofi.sh -f && rofi -show File
 
 
 # font

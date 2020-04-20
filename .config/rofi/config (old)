@@ -41,7 +41,7 @@ rofi.color-enabled: true
 ! State:           bg               border     separator
 rofi.color-window: argb:6e000000,   #ffffff,   argb:00000000
 
-! State:           bg         fg         bg-alt     sel-fg     sel-bg
+! State:           bg         fg         bg-alt     sel-bg     sel-fg
 rofi.color-normal: #211B1C,   #adad95,   #211B1C,   #822b45,   #eeeecc
 rofi.color-active: #211B1C,   #95a5c6,   #211B1C,   #7280af,   #eeeecc
 rofi.color-urgent: #211B1C,   #bf006c,   #211B1C,   #bf006c,   #eeeecc

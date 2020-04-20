@@ -14,12 +14,7 @@
 		text-align: center !important;
 	}
 
-  /*
-   urlbar centered when not focused
-  #urlbar:not([focused]) .urlbar-input-box {
-    text-align:center;
-  }
-  */
+
 
 }
 
@@ -35,7 +30,7 @@
   --text-color-light: #adad95;
 }
 
-#TabsToolbar:not(:-moz-lwtheme)::after, 
+#TabsToolbar:not(:-moz-lwtheme)::after,
 #TabsToolbar:not(:-moz-lwtheme)::before {
   display: none !important;
 }
@@ -58,7 +53,7 @@
  margin-bottom:0px !important;
 }
 
-.tab-background-start, 
+.tab-background-start,
 .tab-background-end {
   visibility: hidden !important;
   box-shadow: none !important;
@@ -73,10 +68,10 @@
   max-height: 42px !important;
 }
 
-#TabsToolbar, 
-.tabbrowser-tab *, 
+#TabsToolbar,
+.tabbrowser-tab *,
 .tabs-newtab-button,
-.toolbarbutton, 
+.toolbarbutton,
 .tab-background *{
   background-image: none !important;
 }
@@ -149,7 +144,7 @@ select > input {
 
 #urlbar {
     border: 0px solid rgb(230,230,230) !important;
-    background: rgb(20,21,31) !important;
+    background: var(--bg-color-light) !important;
     margin-top: 0px !important;
     margin-left: 5px !important;
     border-radius: 0px;
@@ -174,10 +169,10 @@ select > input {
     border-color:transparent !important;
    /* background-color:transparent !important; */
     box-shadow:none !important;
-  
+
    /* border-bottom: 1px solid #cdcdcd !important;
   removed the line in the bottom of the bar*/
-   
+
   /*border-top: 1px solid #cdcdcd !important;
   removed the line separating url bar and tabs*/
     margin-bottom: -1px !important;
@@ -216,7 +211,7 @@ select > input {
 
 #plugins-notification-icon, #notification-anchor-icon, #notification-popup-box {
     display: none !important;
-    
+
 }
 
 /* remove tab scrolling */
@@ -346,7 +341,7 @@ max-width: 300px !important;
 
 
 #TabsToolbar, #tabbrowser-tabs {
-background: var(--bg-color) !important;
+  background: var(--bg-color) !important;
   color: var(--text-color-light) !important;
 }
 
@@ -368,7 +363,7 @@ background: var(--bg-color) !important;
   color: var(--text-color) !important;
 
   height: 60px;
-  
+
   /*font-size: 12px*/
 }
 

@@ -127,6 +127,7 @@
     "sync-rsync.exclude": [
         "*.class",
     ],
+    "subtleBrackets.disableNative": false,
     "editor.matchBrackets": "never",
     "subtleBrackets.style": {
         "color": "#ffffff",

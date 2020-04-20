@@ -40,6 +40,10 @@ checkout -b first-deliver
 tag DELIVERY_1 
 push origin --tags first-deliver:first-deliver 
 
+# delete sensitive data from history
+filter-branch --force --index-filter "git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA" --prune-empty --tag-name-filter cat -- --all
+git push origin --force --all
+
 # push and pull
 pull 'label' 'repo branch'         pull current github repo to local repo
 push 'label' 'repo branch'         push local changes to github repo 

@@ -233,6 +233,12 @@ source <(kubectl completion zsh)
 #--------------------------------------------------
 
 precmd() {
+    # set window/tab title
+    #print -Pn "\e]2;%n@%M | %~\a"
+
+    # \e]2; and \a are escape codes. %2~ is the PWD, but with a limit size of the last 2 directorys
+    print -Pn "\e]2;urxvt - %2~ \a"
+
 	# Print a newline before the prompt, unless it's the
 	# first prompt in the process.
 	if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
@@ -265,3 +271,7 @@ source ~/.zsh/zshrc.sh
 
 # two line prompt
 PROMPT='%F{008}%K{green}%F{green}%K{008}%F{008}%K{magenta}%F{magenta}%K{008}%F{008}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status)'$'\n'' %F{red}$ %{$reset_color%}%f'
+
+# terminal title
+
+#printf "\033];%s\07\n" "hello world"

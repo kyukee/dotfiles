@@ -1,0 +1,47 @@
+
+rofi.font: Terminus (TTF) 13
+rofi.terminal: urxvt
+rofi.hide-scrollbar: true
+rofi.disable-history: true
+rofi.lines: 16
+rofi.padding: 1440
+rofi.line-margin: 2
+
+! border width
+rofi.bw: 0
+
+! matching algorithm (normal, regex, glob, fuzzy)
+rofi.matching: normal
+rofi.regex:	true
+
+! line height (has to be int)
+rofi.eh: 1
+
+! (0-100): percentage	(>100): pixel value
+rofi.width: -60
+
+
+! note: another possibility for modi is window
+rofi.modi: run,ssh,file:/home/kyukee/Scripts/fmenu-rofi.sh
+
+rofi.run-list-command: /home/kyukee/Scripts/rofi-alias.sh
+
+rofi.run-command: /bin/bash -c -i '{cmd}'
+
+rofi.no-sort: false
+rofi.levenshtein-sort: false
+
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+
+! State:           bg               border     separator
+rofi.color-window: argb:6e000000,   #ffffff,   argb:00000000
+
+! State:           bg         fg         bg-alt     sel-fg     sel-bg
+rofi.color-normal: #211B1C,   #adad95,   #211B1C,   #822b45,   #eeeecc
+rofi.color-active: #211B1C,   #95a5c6,   #211B1C,   #7280af,   #eeeecc
+rofi.color-urgent: #211B1C,   #bf006c,   #211B1C,   #bf006c,   #eeeecc

@@ -19,7 +19,7 @@ file_list = {
     '.config/sublime-text-3/Packages/Material Theme',
     '.config/sublime-text-3/Packages/User',
     '.config/teiler/profiles',
-    '.config/compton.conf',
+    '.config/picom/picom.conf',
     '.config/teiler/config',
     '.config/minidlna/minidlna.conf',
     '.config/micro',

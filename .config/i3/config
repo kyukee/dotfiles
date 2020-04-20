@@ -49,7 +49,7 @@ bindsym $mod+l exec --no-startup-id i3lock -c 9999bb --clock --timecolor=fffffff
 # '-dim opacity':  0 < opacity < 1  (higher value = darker screen)
 
 # start rofi (a dmenu replacement and more)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show combi
 bindsym $mod+Shift+d exec /home/kyukee/Scripts/fmenu-rofi.sh -f && rofi -show file
 
 
@@ -101,7 +101,7 @@ exec_always --no-startup-id feh --bg-fill /home/kyukee/Pictures/wallpapers/image
 exec_always --no-startup-id setxkbmap pt &
 exec_always --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id bash /home/kyukee/Scripts/i3_dynamic_window_titles.sh
-exec --no-startup-id compton -f
+exec --no-startup-id picom -b
 exec --no-startup-id xflux -l 38.7:-9.1 -k 4500
 exec --no-startup-id i3-msg 'workspace $workspace1; exec "sleep 1; urxvt"'
 exec --no-startup-id http-server ./.startpage -p 9000

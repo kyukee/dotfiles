@@ -88,6 +88,9 @@ sudo reflector --latest 20 --verbose --protocol http --protocol https --sort rat
 ## list font familys
 convert -list font | awk -F: '/family: / { print $2 }' | sort -du
 
+## list all font files
+fc-list | sed -n -e 's/.*: \(.*\):.*/\1/p' | sort --unique
+
 ## run a program with a program with a certasin cpu priority (-19=highest, 19=lowest)
 nice -n 19 <command>
 
@@ -126,3 +129,15 @@ java package.name.Class ../inputs/file.txt
 
 ## count number of characters in a pdf
 pdftotext document.pdf -enc UTF-8 - | wc -m
+
+## start a nested Xorg server for testing purposes
+Xephyr -br -ac -noreset -screen 800x600 :1
+
+## run an application in the nested Xorg server
+DISPLAY=:1 dwm
+
+## Check for remaining cache versions of uninstalled packages
+paccache -dvuk0
+
+## remove pacman cache for uninstalled packages
+paccache -rvu

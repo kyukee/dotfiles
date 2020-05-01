@@ -11,5 +11,9 @@
     {
         "key": "ctrl+[Minus]",
         "command": "workbench.action.quickOpenRecent"
+    },
+    {
+        "key": "ctrl+k f3",
+        "command": "merge-conflict.next"
     }
 ]

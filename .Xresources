@@ -4,6 +4,9 @@ URxvt.scrollBar: false
 
 URxvt*fading: 30
 
+! 0-7  = normal colours -> darker
+! 8-15 = bright colours -> lighter
+
 ! special
 *.foreground:   #eeeecc
 *.background:   #211b1c
@@ -50,19 +53,44 @@ URxvt.perl-ext-common:     default,resize-font,clipboard,keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s:      perl:keyboard-select:search
 
+Urxvt*iso14755: False
+Urxvt*iso14755_52: False
+! Urxvt.keysym.C.C: perl:clipboard:copy
+! Urxvt.keysym.C.V: perl:clipboard:paste
+
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger:  C-plus
 
 URxvt.url-launcher:        /lib/firefox/run-mozilla.sh
-URxvt.colorUL: #7780a1
+URxvt.colorURL: #7780a1
 
-!Xterm escapes, word by word movement
-URxvt.keysym.Control-Left:    \033[1;5D
-URxvt.keysym.Shift-Control-Left:    \033[1;6D
-URxvt.keysym.Control-Right:    \033[1;5C
-URxvt.keysym.Shift-Control-Right:    \033[1;6C
-URxvt.keysym.Control-Up:    \033[1;5A
-URxvt.keysym.Shift-Control-Up:    \033[1;6A
-URxvt.keysym.Control-Down:    \033[1;5B
-URxvt.keysym.Shift-Control-Down:    \033[1;6B
+!Xterm escape sequences for micro
+URxvt.keysym.Control-Left:         \033[1;5D
+URxvt.keysym.Shift-Control-Left:   \033[1;6D
+URxvt.keysym.Control-Right:        \033[1;5C
+URxvt.keysym.Shift-Control-Right:  \033[1;6C
+URxvt.keysym.Control-Up:           \033[1;5A
+URxvt.keysym.Shift-Control-Up:     \033[1;6A
+URxvt.keysym.Control-Down:         \033[1;5B
+URxvt.keysym.Shift-Control-Down:   \033[1;6B
+!URxvt.keysym.Home:                 \033OH
+!URxvt.keysym.End:                  \033OF
+!URxvt.keysym.Shift-Home:           \033[1;2H
+!URxvt.keysym.Shift-End:            \033[1;2F
 
+!URxvt*keysym.Home:            \033OH
+!URxvt*keysym.End:             \033OF
+!URxvt*keysym.S-Home:          \033[1;2H
+!URxvt*keysym.S-End:           \033[1;2F
+!URxvt*keysym.M-Home:          \033[1;3H
+!URxvt*keysym.M-End:           \033[1;3F
+!URxvt*keysym.S-M-Home:        \033[1;4H
+!URxvt*keysym.S-M-End:         \033[1;4F
+!URxvt*keysym.C-Home:          \033[1;5H
+!URxvt*keysym.C-End:           \033[1;5F
+!URxvt*keysym.S-C-Home:        \033[1;6H
+!URxvt*keysym.S-C-End:         \033[1;6F
+!URxvt*keysym.M-C-Home:        \033[1;7H
+!URxvt*keysym.M-C-End:         \033[1;7F
+!URxvt*keysym.S-M-C-Home:      \033[1;8H
+!URxvt*keysym.S-M-C-End:       \033[1;8F

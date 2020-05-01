@@ -44,6 +44,10 @@ push origin --tags first-deliver:first-deliver
 filter-branch --force --index-filter "git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA" --prune-empty --tag-name-filter cat -- --all
 git push origin --force --all
 
+# squash last N commits into one
+git reset --soft HEAD~3            this is an example for the last three commits
+git commit
+
 # push and pull
 pull 'label' 'repo branch'         pull current github repo to local repo
 push 'label' 'repo branch'         push local changes to github repo 

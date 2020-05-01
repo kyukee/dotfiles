@@ -149,7 +149,19 @@
             "**/*.msix": true,
             "**/*.msm": true,
             "**/*.msp": true,
-            "**/*.lnk": true
+            "**/*.lnk": true,
+            "**/*.log": true,
+            "**/target/": true,
+            "**/pom.xml.tag": true,
+            "**/pom.xml.releaseBackup": true,
+            "**/pom.xml.versionsBackup": true,
+            "**/pom.xml.next": true,
+            "**/release.properties": true,
+            "**/dependency-reduced-pom.xml": true,
+            "**/buildNumber.properties": true,
+            ".mvn/timing.properties": true,
+            ".mvn/wrapper/maven-wrapper.jar": true,
+            "**/.flattened-pom.xml": true
         }
     }
 }

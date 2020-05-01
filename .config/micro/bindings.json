@@ -3,7 +3,7 @@
     "F3":          "FindNext",
     "MouseMiddle": "None",
     
-    "\u001b[1;5D": "WordLeft",    // ctrl-left
-    "\u001b[1;5C": "WordRight",   // ctrl-right
-
+    "\u001b[7~": "StartOfText",    // ctrl-left
+    "\u001b[8~": "EndOfLine",   // ctrl-right
+    
 }

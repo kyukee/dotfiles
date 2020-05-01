@@ -27,7 +27,6 @@ fi
 eval $(keychain --quiet --agents ssh --eval id_rsa_no_pass)
 
 
-
 # fix crlf instead of lf in the enter key
 stty icrnl
 
@@ -44,9 +43,12 @@ recovery-yay() {
 #    --overwrite       \
 
 
+# profiling tool for zshrc
+zmodload zsh/zprof
+
 
 #--------------------------------------------------
-# Remap Keybindings
+# Remap Keybindings for urxvt
 #--------------------------------------------------
 typeset -A key
 
@@ -56,12 +58,12 @@ key[Insert]=${terminfo[kich1]}
 key[Delete]=${terminfo[kdch1]}
 key[Up]=${terminfo[kcuu1]}
 key[Down]=${terminfo[kcud1]}
-key[Left]=${terminfo[kcub1]}
-key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
+key[Left]=${terminfo[kcub1]}
+key[Right]=${terminfo[kcuf1]}
 
-# setup key accordingly
+#setup key accordingly
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"   overwrite-mode
@@ -73,9 +75,7 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"     backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"    forward-char
 
-#bindkey "^[Od" backward-word     # ctrl+left
-#bindkey "^[Oc" forward-word      # ctrl+right
-
+# ctrl + arrow keys
 bindkey "\e[1;5D" backward-word
 bindkey "\e[1;5C" forward-word
 
@@ -88,7 +88,7 @@ function zle-line-finish () {
     echoti rmkx
 }
 zle -N zle-line-init
-zle -N zle-line-finish 
+zle -N zle-line-finish
 
 
 #--------------------------------------------------
@@ -96,8 +96,9 @@ zle -N zle-line-finish
 #--------------------------------------------------
 export DISPLAY=:0
 export LANG=en_US.UTF-8
-export TERM='rxvt-unicode'
-export TERMINAL='urxvt'
+export LC_ALL=en_US.UTF-8
+export TERM='xterm-kitty'
+export TERMINAL='kitty'
 export EDITOR=micro
 export VISUAL=micro
 export PDFVIEWER=evince
@@ -225,8 +226,9 @@ unset highlights
 # change folders color
 #zstyle ':completion:*:local-directories' list-colors '=*=0;34'
 
-# add completion to kubernetes
-source <(kubectl completion zsh)
+# add completion to kubernetes (its a bit slow, so better keep it disabled unless necessary)
+#source <(kubectl completion zsh)
+
 
 #--------------------------------------------------
 # prompt settings
@@ -251,10 +253,10 @@ precmd() {
 # prompts to choose from:
 
 # colored path
-#PROMPT='%F{008}%K{green}%F{green}%K{008}%F{008}%K{magenta}%F{magenta}%K{008}%F{008}%K{red}%F{black}%K{red} %~ %F{red}%K{none}$ %{$reset_color%}'
+#PROMPT='%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{red}%F{black}%K{red} %~ %F{red}%K{none}$ %{$reset_color%}'
 
 # not colored path
-#PROMPT='%F{008}%K{green}%F{green}%K{008}%F{008}%K{magenta}%F{magenta}%K{008}%F{008}%K{008}%F{white}%K{008}[%~]$(git_super_status)$ %{$reset_color%}'
+#PROMPT='%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{000}%F{white}%K{000}[%~]$(git_super_status)$ %{$reset_color%}'
 
 # original prompt from a theme
 #PROMPT="%F{000}%K{002} %T %F{002}%K{006}%F{000}%K{006} %F{006}%K{001}%F{000}%K{001} %~ %F{001}%K{000}"$'\n'"%F{000}%K{003} %n ➜ %F{003}%K{000} %F{015}"
@@ -270,7 +272,7 @@ source ~/.zsh/zshrc.sh
 #PROMPT='%F{red}>>> %f[%~ ]$(git_super_status)$ '
 
 # two line prompt
-PROMPT='%F{008}%K{green}%F{green}%K{008}%F{008}%K{magenta}%F{magenta}%K{008}%F{008}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status)'$'\n'' %F{red}$ %{$reset_color%}%f'
+PROMPT='%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status)'$'\n'' %F{red}$ %{$reset_color%}%f'
 
 # terminal title
 

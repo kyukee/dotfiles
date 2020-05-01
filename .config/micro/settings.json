@@ -6,7 +6,7 @@
     "backup": true,
     "basename": false,
     "colorcolumn": 0,
-    "colorscheme": "railscast",
+    "colorscheme": "darcula",
     "comment": true,
     "cursorline": true,
     "diff": true,
@@ -20,7 +20,7 @@
     "hidehelp": false,
     "ignorecase": false,
     "indentchar": " ",
-    "infobar": true,
+    "infobar": false,
     "keepautoindent": false,
     "keymenu": false,
     "linter": true,
@@ -58,5 +58,5 @@
     "tabstospaces": true,
     "termtitle": false,
     "useprimary": true,
-    "xterm": false
+    "xterm": true
 }

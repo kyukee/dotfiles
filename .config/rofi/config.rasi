@@ -28,7 +28,7 @@ configuration {
 	disable-history: true;
 /*	ignored-prefixes: "";*/
     // sort is very slow with the file list. works well with other stuff.
-	sort: false;
+	sort: true;
 	sorting-method: "fzf";
 /*	case-sensitive: false;*/
 /*	cycle: true;*/

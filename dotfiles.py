@@ -23,6 +23,7 @@ file_list = {
     '.config/teiler/config',
     '.config/minidlna/minidlna.conf',
     '.config/micro',
+    '.config/kitty/kitty.conf',
 
     '.fonts',
     '.ncmpcpp/config',
@@ -51,7 +52,7 @@ file_list = {
     'Documents/icomoon-awesome-brankic-feather',
     'Scripts',
     'Workspaces/VScode',
-    
+
     '.bash_aliases',
     '.bash_profile',
     '.bashrc',
@@ -114,13 +115,13 @@ def copy_file(src, dest):
     if not os.path.exists(dirname):
         os.makedirs(dirname)
         print( 'copying ', src, 'to ',  dest)
-        shutil.copy2(src, dest) 
+        shutil.copy2(src, dest)
 
     else:
 
         if os.path.exists(dest):
             # check time of last modification
-            if ((os.stat(src).st_mtime - os.stat(dest).st_mtime) < 1): 
+            if ((os.stat(src).st_mtime - os.stat(dest).st_mtime) < 1):
                 return
 
         print( 'copying ', src, 'to ',  dest)
@@ -145,7 +146,7 @@ def copy_folder(src, dest):
 
         if os.path.isdir(s):
             copy_folder(s, d)
-        else:            
+        else:
             copy_file(s, d)
 
 

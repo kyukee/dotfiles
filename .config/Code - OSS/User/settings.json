@@ -40,6 +40,12 @@
         "statusBarItem.remoteBackground": "#464114",
         "statusBarItem.remoteForeground": "#bbb",
 
+        // "editor.selectionBackground": "#e788ff40",
+        "editor.selectionHighlightBackground": "#e788ff34",
+        // "editor.selectionHighlightBackground": "#7070702f",
+        // "editor.findMatchBackground": "#00cc44a8",
+        // "editor.findMatchHighlightBackground": "#ff7b00a1",
+
         // these colors should be the same for all relevant extensions
         // error: #cc1c25
         // warning: #c9a018
@@ -136,4 +142,24 @@
     },
     "errorLens.gutterIconsEnabled": true,
     "workbench.sideBar.location": "left",
+    "partialDiff.enableTelemetry": false,
+    "partialDiff.commandsOnContextMenu": {
+        "markSection1": false,
+        "markSection2AndTakeDiff": false,
+        "diffSelectionWithClipboard": true,
+        "diffVisibleEditors": false,
+        "togglePreComparisonTextNormalizationRules": false
+    },
+    "git.enableSmartCommit": true,
+    "spellright.notificationClass": "warning",
+    "spellright.language": [
+        "en_US"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.enabled": false
 }

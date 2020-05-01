@@ -1,5 +1,5 @@
 [
-	{ "keys": ["ctrl+7"], "command": "toggle_comment", "args": { "block": false } },
+	{ "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": false } },
 	// { "keys": ["ctrl+enter"], "command": "terminal_view_open", "args": {"title": "Terminal (Zsh)", "cmd": "/bin/zsh -l"} }
 	{ "keys": ["ctrl+enter"], "command": "open_terminal" },
 	

@@ -1,0 +1,3 @@
+# launch vim with environment variables
+
+launch env FOO=BAR vim

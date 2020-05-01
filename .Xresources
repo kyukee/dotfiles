@@ -13,8 +13,8 @@ URxvt*fading: 30
 *.cursorColor:  #deded6
 
 ! black
-*.color0:       #33303b
-*.color8:       #211b1c
+*.color0:       #211b1c
+*.color8:       #33303b
 
 !#4f4b58 for actual black in color 8
 

@@ -141,3 +141,12 @@ paccache -dvuk0
 
 ## remove pacman cache for uninstalled packages
 paccache -rvu
+
+## edit PKGBUILD files when installing packages from AUR with yay
+yay --editmenu <search term>
+
+## directory for thunar custom launchers
+$HOME/.local/share/applications/
+
+## enable zsh profiling
+add 'zmodload zsh/zprof' to the top and zprof to the bottom of your ~/.zshrc.

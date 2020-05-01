@@ -23,7 +23,7 @@ file_list = {
     '.config/teiler/config',
     '.config/minidlna/minidlna.conf',
     '.config/micro',
-    '.config/kitty/kitty.conf',
+    '.config/kitty',
 
     '.fonts',
     '.ncmpcpp/config',

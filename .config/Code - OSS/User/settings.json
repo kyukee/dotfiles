@@ -25,7 +25,7 @@
         }
     ],
     "workbench.iconTheme": "city-lights-icons-vsc",
-    "terminal.external.linuxExec": "urxvt",
+    "terminal.external.linuxExec": "kitty",
     "terminal.integrated.shell.linux": "/bin/bash",
     "window.menuBarVisibility": "toggle",
     "workbench.colorCustomizations": {
@@ -67,7 +67,7 @@
     "window.zoomLevel": 0,
     "markdown.extension.toc.githubCompatibility": true,
     "city-lights-icons-vsc.hidesExplorerArrows": false,
-    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.ignoreTrimWhitespace": true,
     "workspaceExplorer.workspaceStorageDirectory": "/home/kyukee/Workspaces/VScode",
     "workspaceExplorer.enableCustomIconSearch": false,
     "colorHelper.disableShadow": true,

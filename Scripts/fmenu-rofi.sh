@@ -80,7 +80,7 @@ done
 function index_files {
     # find "$INPUT" \( ! -regex "$EXCLUDE" \) | sed 's/ /\\ /g' | sort -f > "$INDEX"
 
-    fd -H . "$HOME" --ignore-file .fmenu-ignore | sed 's/ /\\ /g' | sort -f > "$INDEX"
+    fd -H . "$HOME" --ignore-file "$HOME/.fmenu-ignore" | sed 's/ /\\ /g' | sort -f > "$INDEX"
 }
 
 # if [[ ! -a "$INDEX" ]] ||  ( test `find $INDEX -mmin $TIME` ) || ($FORCE)

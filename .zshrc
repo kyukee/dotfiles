@@ -48,7 +48,7 @@ zmodload zsh/zprof
 
 
 #--------------------------------------------------
-# Remap Keybindings for urxvt
+# Remap Keybindings
 #--------------------------------------------------
 typeset -A key
 
@@ -104,12 +104,10 @@ export VISUAL=micro
 export MICRO_TRUECOLOR=1
 export PDFVIEWER=evince
 
-#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-export JAVA_HOME=/usr/lib/jvm/java-12-jdk
+export JAVA_HOME=/usr/lib/jvm/default # use archlinux-java to set value
 export MYSQL_HOME=/usr/bin/mysql
 export M2_HOME=/usr/bin/mvn
 export ECLIPSE_HOME=/usr/bin/eclipse
-
 
 # add a directory to $path
 # but only if it doesn't exist already
@@ -247,8 +245,12 @@ precmd() {
     # set window/tab title
     #print -Pn "\e]2;%n@%M | %~\a"
 
-    # \e]2; and \a are escape codes. %2~ is the PWD, but with a limit size of the last 2 directorys
-    print -Pn "\e]2;${TERMINAL_EMULATOR:-unknown} - %2~ \a"
+    if [[ ! "$TMUX" ]]; then
+      # \e]2; and \a are escape codes. %2~ is the PWD, but with a limit size of the last 2 directorys
+      print -Pn "\e]2;${TERMINAL_EMULATOR:-unknown} - %2~\a"
+    else
+      print -Pn "\e]2; %2~ \a"
+    fi
 
 	# Print a newline before the prompt, unless it's the
 	# first prompt in the process.
@@ -257,6 +259,10 @@ precmd() {
 	elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
 	  printf "\n"
 	fi
+}
+
+settitle() {
+    printf "\033k$1\033\\"
 }
 
 # prompts to choose from:

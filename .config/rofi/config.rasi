@@ -13,7 +13,7 @@ configuration {
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 	show-icons: true;
-	terminal: "urxvt";
+	terminal: "kitty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 	run-command: "/bin/bash -c -i '{cmd}'";

@@ -7,12 +7,12 @@
     "settings": {
 
         // ec2-user
-        // ec2-54-81-187-76.compute-1.amazonaws.com
+        // ec2-34-230-9-87.compute-1.amazonaws.com
         // .aws/CNV-2020-project-educate.pem
 
         "sshfs.configs": [
             {
-                "host": "ec2-54-81-187-76.compute-1.amazonaws.com",
+                "host": "ec2-34-230-9-87.compute-1.amazonaws.com",
                 "name": "aws-instance",
                 "privateKeyPath": "$HOME/.aws/CNV-2020-project-educate.pem",
                 "root": "~",
@@ -22,12 +22,27 @@
         "sync-rsync.sites": [
             {
                 "localPath": "${workspaceFolder}/instrumentation",
-                "remotePath": "ec2-user@ec2-54-81-187-76.compute-1.amazonaws.com:~/instrumentation",
+                "remotePath": "ec2-user@ec2-34-230-9-87.compute-1.amazonaws.com:~/instrumentation",
                 "shell": "ssh -i ~/.aws/CNV-2020-project-educate.pem",
             },
             {
                 "localPath": "${workspaceFolder}/webserver",
-                "remotePath": "ec2-user@ec2-54-81-187-76.compute-1.amazonaws.com:~/webserver",
+                "remotePath": "ec2-user@ec2-34-230-9-87.compute-1.amazonaws.com:~/webserver",
+                "shell": "ssh -i ~/.aws/CNV-2020-project-educate.pem",
+            },
+            {
+                "localPath": "${workspaceFolder}/loadbalancer",
+                "remotePath": "ec2-user@ec2-34-230-9-87.compute-1.amazonaws.com:~/loadbalancer",
+                "shell": "ssh -i ~/.aws/CNV-2020-project-educate.pem",
+            },
+            {
+                "localPath": "${workspaceFolder}/database-client",
+                "remotePath": "ec2-user@ec2-34-230-9-87.compute-1.amazonaws.com:~/database-client",
+                "shell": "ssh -i ~/.aws/CNV-2020-project-educate.pem",
+            },
+            {
+                "localPath": "${workspaceFolder}/autoscaler",
+                "remotePath": "ec2-user@ec2-34-230-9-87.compute-1.amazonaws.com:~/autoscaler",
                 "shell": "ssh -i ~/.aws/CNV-2020-project-educate.pem",
             }
         ],

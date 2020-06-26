@@ -21,7 +21,7 @@ mpd_music_dir = "/home/kyukee/Music"
 #
 ## delay after playlist highlighting will be disabled (0 = don't disable)
 #
-#playlist_disable_highlight_delay = "5"
+playlist_disable_highlight_delay = 0
 #
 ## defines how long various messages are supposed to be visible
 #
@@ -69,7 +69,7 @@ mpd_music_dir = "/home/kyukee/Music"
 ## Note: colors can be nested.
 ##
 #
-song_list_format = {%a - }{%t}|{$8%f$9} {$3(%l)$9}
+#song_list_format = {%a - }{$8%f$9} {$3(%l)$9}
 #
 #song_library_format = "{%n - }{%t}|{%f}"
 #
@@ -100,7 +100,7 @@ song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 ## - color is optional (if you want the default one, type [])
 ##
 #
-#song_columns_list_format = "(7)[green]{l} (28)[cyan]{a} (28)[]{b} (50)[red]{t}"
+song_columns_list_format = "(5)[green]{l} (45)[white]{f} (15)[cyan]{a} (25)[blue]{t} (10)[]{b}"
 #
 ##### various settings #####
 #
@@ -160,7 +160,7 @@ song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 #
 #color2 = "green"
 #
-#main_window_highlight_color = "yellow"
+main_window_highlight_color = "yellow"
 #
 #progressbar_color = "default"
 #

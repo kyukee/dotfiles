@@ -1,7 +1,6 @@
 {
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.suggestSelection": "first",
-    "editor.fontFamily": "Fantasque Sans Mono",
     "editor.fontSize": 17,
     "editor.lineHeight": 20,
     // "editor.fontWeight": "bold",
@@ -34,17 +33,17 @@
 
         "editorWhitespace.foreground": "#929292",
 
-        "editorIndentGuide.activeBackground": "#636363",
-        "editorIndentGuide.background": "#303030",
+        "editorIndentGuide.activeBackground": "#6b6b6b",
+        "editorIndentGuide.background": "#363636",
 
         "statusBarItem.remoteBackground": "#464114",
         "statusBarItem.remoteForeground": "#bbb",
 
         // "editor.selectionBackground": "#e788ff40",
-        "editor.selectionHighlightBackground": "#e788ff34",
+        "editor.selectionHighlightBackground": "#60dfca3d",
         // "editor.selectionHighlightBackground": "#7070702f",
-        // "editor.findMatchBackground": "#00cc44a8",
-        // "editor.findMatchHighlightBackground": "#ff7b00a1",
+        "editor.findMatchBackground": "#232b96a4",
+        "editor.findMatchHighlightBackground": "#5b23b67e",
 
         // these colors should be the same for all relevant extensions
         // error: #cc1c25
@@ -101,8 +100,10 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "terraform.languageServer": {
-        "enabled": true,
-        "args": []
+        "external": true,
+        "args": [
+            "serve"
+        ]
     },
     "terraform.indexing": {
         "enabled": false,
@@ -161,5 +162,41 @@
         "plaintext"
     ],
     "editor.minimap.renderCharacters": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "java.semanticHighlighting.enabled": true,
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "--shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "--shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "editor.fontFamily": "Fantasque Sans Mono"
 }

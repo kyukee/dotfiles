@@ -1,4 +1,3 @@
-
 # aliases
 alias ls='ls --color=auto'
 alias ll='ls -al'
@@ -13,4 +12,7 @@ alias diff='colordiff'
 alias calc='gnome-calculator'
 alias i3lock-fancy='i3lock-fancy -b=20x10'
 alias open='xdg-open'
-# alias micro='env TERM=xterm-256color micro'
+alias surfd='surf duckduckgo.com'
+
+# functions
+fzf-edit() { fzf | xargs -r $EDITOR ;}

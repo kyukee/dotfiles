@@ -1,6 +1,7 @@
 code --install-extension adamsome.vscode-theme-gruvbox-minor
 code --install-extension alefragnani.project-manager
 code --install-extension anseki.vscode-color
+code --install-extension ban.spellright
 code --install-extension be5invis.vscode-icontheme-nomo-dark
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension donjayamanne.githistory
@@ -10,6 +11,7 @@ code --install-extension gebilaoxiong.vscode-flatland-icon-theme
 code --install-extension GracefulPotato.gruvbox-ish
 code --install-extension Gruntfuggly.todo-tree
 code --install-extension gsakkas.gruvbox-mix
+code --install-extension hashicorp.terraform
 code --install-extension James-Yu.latex-workshop
 code --install-extension jdinhlife.gruvbox
 code --install-extension jolaleye.horizon-theme-vscode
@@ -17,7 +19,6 @@ code --install-extension kangping.protobuf
 code --install-extension Kelvin.vscode-sshfs
 code --install-extension konradkeska.subliminal-next
 code --install-extension lkytal.FlatUI
-code --install-extension mauve.terraform
 code --install-extension michelemelluso.gitignore
 code --install-extension Miglisoft.dark-pastel-theme
 code --install-extension ms-vscode.sublime-keybindings
@@ -27,6 +28,7 @@ code --install-extension patbenatar.advanced-new-file
 code --install-extension piotrpalarz.vscode-gitignore-generator
 code --install-extension rafamel.subtle-brackets
 code --install-extension redhat.java
+code --install-extension ryu1kn.partial-diff
 code --install-extension sainnhe.gruvbox-material
 code --install-extension sohibe.java-generate-setters-getters
 code --install-extension spikespaz.vscode-smoothtype

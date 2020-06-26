@@ -1,9 +1,11 @@
 #/usr/bin/python
-import sys, shutil, os
+import sys, shutil, os, subprocess
 
 
 # by default, these are all preceded by $HOME
 file_list = {
+
+    # ~/.config
     '.config/dunst',
     '.config/git',
     '.config/gsimplecal',
@@ -24,35 +26,14 @@ file_list = {
     '.config/minidlna/minidlna.conf',
     '.config/micro',
     '.config/kitty',
+    '.config/dwm/fixed_patch_diffs',
 
-    '.fonts',
+    # ~ - other config directories
     '.ncmpcpp/config',
     '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
+    '.byobu',
 
-    '.atom/config.cson',
-    '.atom/atom-package-list.txt',
-    '.atom/keymap.cson',
-    '.atom/snippets.cson',
-    '.atom/styles.less',
-
-    '.config/Code - OSS/User/keybindings.json',
-    '.config/Code - OSS/User/settings.json',
-    '.config/Code - OSS/User/tasks.json',
-
-    'root/etc/acpi/actions',
-    'root/etc/default/grub',
-    'root/etc/sddm.conf',
-    'root/etc/systemd/journald.conf',
-    'root/etc/pulse/default.pa',
-    'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
-    'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
-    'root/usr/share/sddm/faces',
-    'root/usr/share/sddm/themes/deepin',
-
-    'Documents/icomoon-awesome-brankic-feather',
-    'Scripts',
-    'Workspaces/VScode',
-
+    # ~ - files
     '.bash_aliases',
     '.bash_profile',
     '.bashrc',
@@ -62,6 +43,35 @@ file_list = {
     '.zprofile',
     '.zsh',
     '.zshrc',
+
+    # Atom
+    '.atom/config.cson',
+    '.atom/atom-package-list.txt',
+    '.atom/keymap.cson',
+    '.atom/snippets.cson',
+    '.atom/styles.less',
+
+    # VS Code
+    '.config/Code - OSS/User/keybindings.json',
+    '.config/Code - OSS/User/settings.json',
+    '.config/Code - OSS/User/tasks.json',
+
+    # root folders and files
+    'root/etc/acpi/actions',
+    'root/etc/default/grub',
+    'root/etc/systemd/journald.conf',
+    'root/etc/pulse/default.pa',
+    'root/etc/sddm.conf',
+    'root/usr/share/sddm/faces',
+    'root/usr/share/sddm/themes/deepin',
+    'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
+    'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
+
+    # file backups
+    '.fonts',
+    'Documents/icomoon-awesome-brankic-feather',
+    'Scripts',
+    'Workspaces/VScode',
 }
 
 
@@ -83,7 +93,23 @@ excluded_files = {
     'README.md',
     '.git',
     '.gitignore',
+    '.byobu/.ssh-agent',
 }
+
+
+# list of packages and editor extensions to install
+vs_code_extension_list_update = 'provision/vscode-extensions-update-list.sh'
+package_list_update = 'provision/pacman-packages-update-list.sh'
+
+
+'''
+    backup the list of pacman packages and vscode extensions
+'''
+def backup_packages():
+    os.system('bash ' + vs_code_extension_list_update)
+    os.system('bash ' + package_list_update)
+    # subprocess.call(['./provision/vscode-extensions-update-list.sh'])
+    # subprocess.call(['./provision/pacman-packages-update-list.sh'])
 
 
 # setup some variables
@@ -173,10 +199,13 @@ def help():
 
 ### main code ###
 
-# sys.argv[0] is the filename
+# sys.argv[0] is the filename and anything else is arguments
 if len(sys.argv) > 1:
 
     if sys.argv[1] == 'install':
+
+        # could have an install_packages() method here, but its probably safer not to do that
+
         for item in file_list:
             src = thisDir + '/' + item
 
@@ -192,6 +221,9 @@ if len(sys.argv) > 1:
             copyItem(src, dest)
 
     elif sys.argv[1] == 'backup':
+
+        backup_packages()
+
         for item in file_list:
             dest = thisDir + '/' + item
 

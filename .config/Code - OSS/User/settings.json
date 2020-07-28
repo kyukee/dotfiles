@@ -198,5 +198,6 @@
             ]
         }
     ],
-    "editor.fontFamily": "Fantasque Sans Mono"
+    "editor.fontFamily": "Fantasque Sans Mono",
+    "code-runner.enableAppInsights": false
 }

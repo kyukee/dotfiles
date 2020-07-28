@@ -257,6 +257,7 @@ swi-prolog
 switchboard-plug-online-accounts
 tbclock
 tcsh
+teams
 terminus-font
 terminus-font-ttf
 terraform
@@ -279,6 +280,7 @@ ttf-fantasque-sans-mono
 ttf-fira-code
 ttf-ibm-plex
 ttf-iosevka
+ttf-migu
 ttf-ricty
 ttf-vlgothic
 tuxracer

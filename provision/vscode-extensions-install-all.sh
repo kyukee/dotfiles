@@ -1,4 +1,5 @@
 code --install-extension adamsome.vscode-theme-gruvbox-minor
+code --install-extension alefragnani.Bookmarks
 code --install-extension alefragnani.project-manager
 code --install-extension anseki.vscode-color
 code --install-extension ban.spellright
@@ -7,6 +8,7 @@ code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension donjayamanne.githistory
 code --install-extension eamodio.toggle-excluded-files
 code --install-extension ephoton.indent-switcher
+code --install-extension formulahendry.code-runner
 code --install-extension gebilaoxiong.vscode-flatland-icon-theme
 code --install-extension GracefulPotato.gruvbox-ish
 code --install-extension Gruntfuggly.todo-tree

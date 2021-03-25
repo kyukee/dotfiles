@@ -116,7 +116,7 @@
 + **youtube+ settings**  just import it to easily customiza all settings
 
 ## notes
-Consider this my checklist of things that i want when installing a new os.  
-dotfiles.py can be used to install all the necesssary config files in their directories or to make a backup of the config files.  
-Run it by using _python dotfiles.py arg_, where arg can be _install_ or _backup_.  
+Consider this my checklist of things that i want when installing a new os.
+dotfiles.py can be used to install all the necesssary config files in their directories or to make a backup of the config files.
+Run it by using _python dotfiles.py arg_, where arg can be _install_ or _backup_.
 There's also a list for excluded files, among others. Look at the code for more info.

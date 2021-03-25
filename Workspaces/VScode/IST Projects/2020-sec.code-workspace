@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "/home/kyukee/Development/git/sec-ist-2020"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive",
+		"git.decorations.enabled": false
+	}
+}

@@ -30,10 +30,12 @@ diff HEAD                          see differences since last commit
 log                                show commit history
 
 # working with branches
+branch                             list local branches
 checkout -b 'new branch'           create new branch
 checkout 'branch name'             switch to a different branch
 checkout -b 'remote branch' 'name of remote'/'remote branch'            check out a remote branch (remote should be 'origin')
 checkout -t 'name of remote'/'remote branch'                            shorter alternative
+branch -d 'branch'                 delete branch (locally)
 
 # create a tag
 checkout -b first-deliver

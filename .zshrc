@@ -43,6 +43,13 @@ recovery-yay() {
 #    --overwrite       \
 
 
+
+# start emacs in background instead of the default foreground execution
+emacs () {
+  /usr/bin/emacs "$@" &
+}
+
+
 # profiling tool for zshrc
 zmodload zsh/zprof
 
@@ -119,8 +126,9 @@ add_to_path_if_not_exists(){
 }
 
 add_to_path_if_not_exists "$HOME/Scripts"
-add_to_path_if_not_exists "$HOME/Scripts/linux64"
 add_to_path_if_not_exists "$JAVA_HOME/bin"
+add_to_path_if_not_exists "$HOME/.npm-global/bin"
+add_to_path_if_not_exists "$HOME/.local/bin"
 
 export PATH
 
@@ -157,7 +165,7 @@ setopt autocd
 #--------------------------------------------------
 # ASCII escape sequences - Colors
 #--------------------------------------------------
-# Syntax: [attribute;foreground;background m  
+# Syntax: [attribute;foreground;background m
 
 # Text attributes
 # 0 All attributes off
@@ -166,7 +174,7 @@ setopt autocd
 # 5 Blink on
 # 7 Reverse video on
 # 8 Concealed on
- 
+
 # Foreground colors
 # 30  Black
 # 31  Red
@@ -176,7 +184,7 @@ setopt autocd
 # 35  Magenta
 # 36  Cyan
 # 37  White
- 
+
 # Background colors
 # 40  Black
 # 41  Red
@@ -185,7 +193,7 @@ setopt autocd
 # 44  Blue
 # 45  Magenta
 # 46  Cyan
-# 47  White 
+# 47  White
 
 
 #--------------------------------------------------
@@ -239,7 +247,8 @@ zstyle ':completion:*:local-directories' list-colors '=*=0;34'
 #--------------------------------------------------
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 
-export TERMINAL_EMULATOR=$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))
+# export TERMINAL_EMULATOR=$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* [\d:]* //' | awk '{print $2}'))
+export TERMINAL_EMULATOR="term"
 
 precmd() {
     # set window/tab title
@@ -288,6 +297,7 @@ source ~/.zsh/zshrc.sh
 
 # two line prompt
 PROMPT='%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status)%{$reset_color%}'$'\n'' %F{red}$ %{$reset_color%}%k%f'
+
 
 # terminal title
 

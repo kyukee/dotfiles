@@ -12,13 +12,13 @@
     blue:                        #7280af;
     lightbg:                     rgba ( 238, 232, 213, 100 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    
+
     normal-background:           @transparent;
     alternate-normal-background: @transparent;
     alternate-normal-foreground: @foreground;
     selected-normal-background:  #822b45;
     selected-normal-foreground:  @selected-fg;
-    
+
     urgent-background:           @transparent;
     alternate-urgent-background: @transparent;
     alternate-urgent-foreground: @urgent-foreground;
@@ -35,7 +35,7 @@
     separatorcolor:              #eeeecc;
     border-color:                @foreground;
     normal-foreground:           @foreground;
-    
+
     background:                  #211B1Caa;
     background-color:            rgba ( 0, 0, 0, 0 % );
 }
@@ -44,9 +44,9 @@
     width:  1920;
 
     // vertical, horizontal (4 is also possible)
-    padding:           250 550;
+    padding:           250 500;
 
-    background-color:  @background;    
+    background-color:  @background;
 }
 #mainbox {
     background-color:            #211B1Cda;
@@ -114,7 +114,7 @@
     //handle-width: 8px ;
     width:        0px ;
     handle-width: 0px ;
-    
+
     border:       0;
     padding:      0;
 }

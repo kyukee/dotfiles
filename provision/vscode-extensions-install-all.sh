@@ -16,11 +16,14 @@ code --install-extension gsakkas.gruvbox-mix
 code --install-extension hashicorp.terraform
 code --install-extension James-Yu.latex-workshop
 code --install-extension jdinhlife.gruvbox
+code --install-extension jmfirth.vsc-space-block-jumper
 code --install-extension jolaleye.horizon-theme-vscode
 code --install-extension kangping.protobuf
 code --install-extension Kelvin.vscode-sshfs
 code --install-extension konradkeska.subliminal-next
 code --install-extension lkytal.FlatUI
+code --install-extension marcostazi.VS-code-vagrantfile
+code --install-extension mattn.Lisp
 code --install-extension michelemelluso.gitignore
 code --install-extension Miglisoft.dark-pastel-theme
 code --install-extension ms-vscode.sublime-keybindings
@@ -28,8 +31,10 @@ code --install-extension npxms.hide-gitignored
 code --install-extension ow.vscode-subword-navigation
 code --install-extension patbenatar.advanced-new-file
 code --install-extension piotrpalarz.vscode-gitignore-generator
+code --install-extension radiolevity.neofloss
 code --install-extension rafamel.subtle-brackets
 code --install-extension redhat.java
+code --install-extension RobbOwen.synthwave-vscode
 code --install-extension ryu1kn.partial-diff
 code --install-extension sainnhe.gruvbox-material
 code --install-extension sohibe.java-generate-setters-getters
@@ -37,7 +42,10 @@ code --install-extension spikespaz.vscode-smoothtype
 code --install-extension techer.open-in-browser
 code --install-extension tomoki1207.pdf
 code --install-extension tomsaunders.vscode-workspace-explorer
+code --install-extension tomWritesCode.raspberrycandy
+code --install-extension tootone.org-mode
 code --install-extension usernamehw.errorlens
+code --install-extension victoriadrake.kabukicho
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension vscjava.vscode-java-debug
 code --install-extension vscjava.vscode-java-dependency

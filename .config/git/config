@@ -42,3 +42,5 @@
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [merge]
 	conflictstyle = diff3
+[credential]
+	helper = cache --timeout=86400

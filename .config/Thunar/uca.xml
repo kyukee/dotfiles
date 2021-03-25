@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1474230049836911-1</unique-id>
+	<command>kitty --directory %f</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>gnome-panel-notification-area</icon>
+	<name>metadata</name>
+	<unique-id>1486666419292130-3</unique-id>
+	<command>/usr/bin/hachoir-metadata-gtk %f</command>
+	<description>view file metadata</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>emblem-personal</icon>
+	<name>Edit as root</name>
+	<unique-id>1491655251111933-6</unique-id>
+	<command>gksu subl3 %f</command>
+	<description>Open a text file as root</description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>emblem-personal</icon>
+	<name>Open as root</name>
+	<unique-id>1491823997072737-2</unique-id>
+	<command>gksu thunar %f</command>
+	<description>Open this folder as root</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>ksnip</icon>
+	<name>Annotate image</name>
+	<unique-id>1616202367504045-1</unique-id>
+	<command>ksnip %f</command>
+	<description>Annotate image</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+</actions>

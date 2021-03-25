@@ -199,5 +199,13 @@
         }
     ],
     "editor.fontFamily": "Fantasque Sans Mono",
-    "code-runner.enableAppInsights": false
+    "code-runner.enableAppInsights": false,
+    "projectManager.git.baseFolders": [
+        "/home/kyukee/Development/git"
+    ],
+	"editor.insertSpaces": false,
+	"advancedNewFile.exclude": {
+		"node_modules": true,
+	},
+	"editor.wordWrap": "on"
 }

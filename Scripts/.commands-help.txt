@@ -156,3 +156,42 @@ add 'zmodload zsh/zprof' to the top and zprof to the bottom of your ~/.zshrc.
 
 ## temporarily resize tmpfs without the need to reboot (to install large packages)
 sudo mount -o remount,size=6G,noatime /tmp
+
+## list fonts available for kitty terminal
+kitty list-fonts
+
+## how to look at fonts and unicode
+font-manager
+
+## how to show icon for unicode and find font conflicts (-t for ascii preview, -p to open in browser)
+forfont -t U+E926
+
+## setup nodejs (npm) as a non root user
+npm config set prefix '~/.npm-global'
+
+## configure touchpad sensitivity (get id with 'xinput list'; range=[-1,1])
+xinput --set-prop <device id> 'libinput Accel Speed' <acceleration factor>
+
+## copy into X clipboard
+echo "test" | xclip -selection clipboard
+
+## paste from X clipboard
+xclip -selection clipboard -o
+
+## Remove unused docker images, containers and networks (add --volumes to also prune volumes)
+docker system prune
+
+## prevent laptop sleep
+caffeine-ng
+
+## extract zip to directory
+unzip archive.zip -d /tmp/unziped
+
+## extract 7z to directory
+7z x archive.7z -o/path/to/dir
+
+## create tar.xz
+tar -cvJf archive.tar.xz files
+
+## add public ssh key to remote server
+ssh-copy-id -i ~/.ssh/id_ed25519.pub username@remote-server.org

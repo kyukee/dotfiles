@@ -13,6 +13,7 @@ file_list = {
     '.config/mpd/mpd.conf',
     '.config/mpv/scripts',
     '.config/mpv/mpv.conf',
+    '.config/mpv/input.conf',
     '.config/neofetch',
     '.config/rofi',
     '.config/yay/',
@@ -21,17 +22,25 @@ file_list = {
     '.config/sublime-text-3/Packages/Material Theme',
     '.config/sublime-text-3/Packages/User',
     '.config/teiler/profiles',
-    '.config/picom/picom.conf',
+    '.config/picom',
     '.config/teiler/config',
     '.config/minidlna/minidlna.conf',
     '.config/micro',
     '.config/kitty',
     '.config/dwm/fixed_patch_diffs',
+    '.config/fd',
+    '.config/parcittox',
+    '.config/Thunar/uca.xml',
+    '.config/volumeicon/volumeicon',
+    '.config/mimeapps.list',
 
     # ~ - other config directories
     '.ncmpcpp/config',
     '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
     '.byobu',
+    '.aws/config',
+    '.ssh/config',
+    '.zsh',
 
     # ~ - files
     '.bash_aliases',
@@ -41,8 +50,9 @@ file_list = {
     '.redshiftgrc',
     '.Xresources',
     '.zprofile',
-    '.zsh',
     '.zshrc',
+    '.fehbg',
+    '.npmrc',
 
     # Atom
     '.atom/config.cson',
@@ -66,6 +76,7 @@ file_list = {
     'root/usr/share/sddm/themes/deepin',
     'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
     'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
+    'root/etc/fstab',
 
     # file backups
     '.fonts',

@@ -33,6 +33,7 @@ file_list = {
     '.config/Thunar/uca.xml',
     '.config/volumeicon/volumeicon',
     '.config/mimeapps.list',
+    '.config/VirtualBox/VirtualBox.xml',
 
     # ~ - other config directories
     '.ncmpcpp/config',

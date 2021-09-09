@@ -14,6 +14,7 @@ alias calc='rofi -show calc -modi calc -no-show-match -no-sort'
 alias i3lock-fancy='i3lock-fancy -b=20x10'
 alias open='xdg-open'
 alias surfd='surf duckduckgo.com'
+alias webm-converter='boram'
 
 # functions
 fzf-edit() { fzf | xargs -r $EDITOR ;}

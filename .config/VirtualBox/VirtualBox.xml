@@ -12,10 +12,10 @@
       <ExtraDataItem name="GUI/GroupDefinitions/" value="n=GLOBAL,m=e1ef552b-0d79-4eed-8906-94d73be3fc3e,m=2ee805c3-6ce1-42a0-9da8-add8c28773ae,m=c551dca8-c3a4-4bbb-8af0-347413f18178"/>
       <ExtraDataItem name="GUI/Input/AutoCapture" value="false"/>
       <ExtraDataItem name="GUI/LastItemSelected" value="m=ADSI_2020"/>
-      <ExtraDataItem name="GUI/LastWindowPosition" value="0,22,1920,1036"/>
+      <ExtraDataItem name="GUI/LastWindowPosition" value="15,37,1138,1006"/>
       <ExtraDataItem name="GUI/RecentFolderHD" value="/home/kyukee/Development/CNV/lab pc VM"/>
       <ExtraDataItem name="GUI/RecentListHD" value="/home/kyukee/Development/CNV/lab pc VM/rnlvm.vdi"/>
-      <ExtraDataItem name="GUI/SplitterSizes" value="570,1349"/>
+      <ExtraDataItem name="GUI/SplitterSizes" value="338,799"/>
       <ExtraDataItem name="GUI/Statusbar" value="false"/>
       <ExtraDataItem name="GUI/SuppressMessages" value="all"/>
       <ExtraDataItem name="GUI/Toolbar" value="false"/>
@@ -41,7 +41,7 @@
         <DHCPServer networkName="HostInterfaceNetworking-vboxnet2" IPAddress="192.168.99.21" networkMask="255.255.255.0" lowerIP="192.168.99.100" upperIP="192.168.99.254" enabled="1"/>
       </DHCPServers>
     </NetserviceRegistry>
-    <SystemProperties defaultMachineFolder="/home/kyukee/Virtual Machines" defaultHardDiskFormat="VDI" VRDEAuthLibrary="VBoxAuth" webServiceAuthLibrary="VBoxAuth" LogHistoryCount="3" proxyMode="0" exclusiveHwVirt="true"/>
+    <SystemProperties defaultMachineFolder="/home/kyukee/VirtualBox VMs" defaultHardDiskFormat="VDI" VRDEAuthLibrary="VBoxAuth" webServiceAuthLibrary="VBoxAuth" LogHistoryCount="3" proxyMode="0" exclusiveHwVirt="true"/>
     <USBDeviceFilters/>
   </Global>
 </VirtualBox>

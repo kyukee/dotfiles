@@ -80,7 +80,9 @@ done
 function index_files {
     # find "$INPUT" \( ! -regex "$EXCLUDE" \) | sed 's/ /\\ /g' | sort -f > "$INDEX"
 
-    fd -H . "$HOME" --ignore-file "$HOME/.fmenu-ignore" | sed 's/ /\\ /g' | sort -f > "$INDEX"
+    # first sed expression escapes spaces
+    # second sed expression is to replace /home/user with ~ in file paths
+    fd -H . "$HOME" --ignore-file "$HOME/.fmenu-ignore" | sed 's/ /\\ /g' | sed 's/\/[a-z]*\/[a-z]*\//~\//' | sort -f > "$INDEX"
 }
 
 # if [[ ! -a "$INDEX" ]] ||  ( test `find $INDEX -mmin $TIME` ) || ($FORCE)
@@ -95,6 +97,6 @@ then
     then
         cat "$INDEX"
     else
-        xdg-open $@ > /dev/null &
+        xdg-open "$HOME/$@" > /dev/null &
     fi
 fi

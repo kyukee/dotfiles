@@ -43,7 +43,6 @@ recovery-yay() {
 #    --overwrite       \
 
 
-
 # start emacs in background instead of the default foreground execution
 emacs () {
   /usr/bin/emacs "$@" &
@@ -52,6 +51,14 @@ emacs () {
 
 # profiling tool for zshrc
 zmodload zsh/zprof
+
+
+# By default, Ctrl+G is assigned to launching navi
+eval "$(navi widget zsh)"
+
+
+# Setting fd as the default source for fzf (respects .gitignore)
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 
 #--------------------------------------------------
@@ -101,7 +108,7 @@ zle -N zle-line-finish
 #--------------------------------------------------
 # environment variables
 #--------------------------------------------------
-export DISPLAY=:0
+export DISPLAY=:1
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM='xterm-kitty'
@@ -110,6 +117,7 @@ export EDITOR=micro
 export VISUAL=micro
 export MICRO_TRUECOLOR=1
 export PDFVIEWER=evince
+export CHEATSHEETS_PATH="$HOME/Development/git/cheatsheets"
 
 export JAVA_HOME=/usr/lib/jvm/default # use archlinux-java to set value
 export MYSQL_HOME=/usr/bin/mysql

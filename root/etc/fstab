@@ -10,8 +10,11 @@ UUID=904095bb-cfc0-486b-b8f3-efc26f5daa9c          /home                      ex
 # /dev/sda2
 UUID=8b654580-5d1a-4700-a38a-f6359dfe322e          none                       swap            defaults                                0 0
 
-# Samba Network Share EG-R1
-//192.168.1.80/C                                   /media/Network\040Drive    cifs            vers=1.0,noauto,_netdev,username=username,password=password,rw,user,uid=1000,gid=100,forceuid,forcegid      0 0
+# Samba - Network Media Tank EG-R1
+//192.168.1.80/C                                   /media/Media\040Drive      cifs            vers=1.0,noauto,_netdev,username=username,password=password,rw,user,uid=1000,gid=100,forceuid,forcegid      0 0
+
+# Samba - Windows Desktop
+//DESKTOP/Anime                                    /media/Windows\040Desktop  cifs            noauto,_netdev,username=username,password=password,rw,user,uid=1000,gid=100,forceuid,forcegid      0 0
 
 # vers=1.0,username=root,password=root,noauto,user,_netdev
 # guest,uid=myuser,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm

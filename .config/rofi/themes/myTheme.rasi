@@ -40,11 +40,12 @@
     background-color:            rgba ( 0, 0, 0, 0 % );
 }
 #window {
-    height: 1080;
-    width:  1920;
+    height: 1440;
+    width:  2560;
 
-    // vertical, horizontal (4 is also possible)
-    padding:           250 500;
+    // padding:        vertical, horizontal
+    // using 4 numbers is also possible
+    padding:           410 740;
 
     background-color:  @background;
 }

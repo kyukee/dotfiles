@@ -34,6 +34,8 @@ file_list = {
     '.config/volumeicon/volumeicon',
     '.config/mimeapps.list',
     '.config/VirtualBox/VirtualBox.xml',
+    '.config/autorandr',
+    '.config/flashfocus',
 
     # ~ - other config directories
     '.ncmpcpp/config',
@@ -42,6 +44,8 @@ file_list = {
     '.aws/config',
     '.ssh/config',
     '.zsh',
+    '.local/share/nemo/actions',
+    '.local/share/applications/emacs.desktop',
 
     # ~ - files
     '.bash_aliases',
@@ -73,11 +77,15 @@ file_list = {
     'root/etc/systemd/journald.conf',
     'root/etc/pulse/default.pa',
     'root/etc/sddm.conf',
+    'root/etc/fstab',
+    'root/etc/tlp.conf',
+    'root/etc/vconsole.conf',
+    'root/etc/systemd/system.conf.d/faster-timeout.conf',
+    'root/etc/X11/xorg.conf.d',
     'root/usr/share/sddm/faces',
     'root/usr/share/sddm/themes/deepin',
     'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
     'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
-    'root/etc/fstab',
 
     # file backups
     '.fonts',

@@ -1,4 +1,5 @@
 
+/*
 @font-face {
     font-family: "GohuFont";
     src: url("/home/kyukee/.fonts/GohuFont-Medium.ttf");
@@ -7,14 +8,13 @@
 * {
     font-family: 'GohuFont';
 }
+*/
 
 @-moz-document url("chrome://browser/content/browser.xul") {
 
 	#urlbar .urlbar-input-box {
 		text-align: center !important;
 	}
-
-
 
 }
 
@@ -68,6 +68,7 @@
   max-height: 42px !important;
 }
 
+/*
 #TabsToolbar,
 .tabbrowser-tab *,
 .tabs-newtab-button,
@@ -75,6 +76,7 @@
 .tab-background *{
   background-image: none !important;
 }
+*/
 
 .tab-background,
 .tab-background-middle,
@@ -192,10 +194,6 @@ select > input {
   }*/
 
 
-#identity-box, #dropmarker-icon, #historydropmarker, #autocomplete-history-dropmarker, #urlbar-history-dropmarker, #dropmarker {
-    display: none !important;
-}
-
 /*this next command removes the reload page button*/
 #autocomplete-history-dropmarker, #urlbar-history-dropmarker, #urlbar-reload-button {
     display: none !important;
@@ -209,10 +207,11 @@ select > input {
 }
 */
 
+/*
 #plugins-notification-icon, #notification-anchor-icon, #notification-popup-box {
     display: none !important;
-
 }
+*/
 
 /* remove tab scrolling */
 .scrollbutton-up, .scrollbutton-down {
@@ -269,11 +268,10 @@ scrollbar[orient="horizontal"] {
 #star-button,
 #page-proxy-favicon,
 #go-button,
-#notification-popup-box,
+/*#notification-popup-box,*/
 #tabbrowser-tabs .scrollbutton-up,
 #tabbrowser-tabs .scrollbutton-down,
 statusbarpanel,
-#identity-box,
 #urlbar-container dropmarker,
 toolbar#addon-bar toolbarbutton .toolbarbutton-menubutton-dropmarker,
 toolbar#addon-bar #addonbar-closebutton,
@@ -310,9 +308,6 @@ max-width: 300px !important;
 max-width: 300px !important;
 }
 */
-
-/*remove icons*/
-.tabbrowser-tab:not([pinned]) .tab-throbber,
 
 /*next line removes close tab button */
 .tabbrowser-tab .tab-close-button,
@@ -409,3 +404,31 @@ http://www.backgroundcolor.net/
     border: none !important;
 }
 
+/* disable favicons for non-pinned tabs */
+.tabbrowser-tab:not([pinned]) .tab-icon-image {
+  display: none !important;
+}
+
+/* Page Actions Menu (three dots) */
+#pageActionButton {
+  margin-right: 15px !important;
+}
+
+/* disable "page actions" divider icon */
+#pageActionSeparator{
+  display: none !important;
+}
+
+/* identity box (address bar) */
+#identity-box {
+  -moz-box-ordinal-group:1;
+  color: #eeeecc7a !important;
+  margin-left: 15px !important;
+}
+
+/* page actions (address bar) */
+#page-action-buttons {
+  /*-moz-box-ordinal-group:2;*/
+  color: #eeeecc7a !important;
+  margin-right: 15px !important;
+}

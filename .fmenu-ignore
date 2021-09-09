@@ -1,5 +1,7 @@
-.android
-.AndroidStudio*
+# Home directory
+# --------------
+Downloads
+Development
 .docker
 .electron
 .gem
@@ -10,66 +12,84 @@
 .sbt
 .thumbnails
 .vagrant.d
-Android
-AndroidStudioProjects
-go
-node_modules
-.metadata
 .wine
 .atom
-sublime-text-3
-
-extensions
-Cache
-CachedData
-cache
-.cache
-
+.cargo
+.nuget
 .npm
-
-globalStorage
-workspaceStorage
-
+.npm-global
+.opam
 .local
 .shared_folder
-objects
 .netbeans
-storage
-
 .eclipse
+.cache
+.kodi
+
+# Config directory
+# ----------------
+**/.config/sublime-text-3
+**/.config/google-chrome
+**/.config/chromium
+
+# Git Repositories
+# ----------------
+.git
+node_modules
+protoc-dependencies
+
+# Java projects
+# -------------
 *.class
 *.jar
 
-papi-5.4.3
-Java/docs/
-Font-Awesome-4.6.3
-
+# Misc unwanted files
+# -------------------
+.metadata
+Code\ Cache
+Cache
+CachedData
+CacheStorage
+cache
+storage
 asset
-datareporting
 plugins
-dependencies
-nexus-2.14.13-01-bundle
-nexus-3.17.0-01
-eclipse\ 2019-03\ installation
 
+# VSCode
+# ------
+extensions
+globalStorage
+workspaceStorage
 
-Applications\ and\ Services
-Big\ Data\ Platforms
-Concurrent\ Programming
-Mobile\ Cloud\ Computing
-Network\ Security
+# Firefox
+# -------
+datareporting
 
-Material\ de\ Estudo
-Trabalhos\ e\ projetos
-CG-IST
-android-kotlin-notifications-fcm-master
-
-adapta-gtk-theme-master
-adapta-gtk-theme(old-ver)
-
-
+# Syncthing
+# ---------
 .stversions
 
+# Doom Emacs
+# ----------
+**/.emacs.d*/**/modules
 
-Downloads
-Development
+# Other large folders
+# -------------
+**/OC*/**/papi-5.4.3*
+
+**/Aalto/Applications\ and\ Services
+**/Aalto/Big\ Data\ Platforms
+**/Aalto/Concurrent\ Programming
+**/Aalto/Mobile\ Cloud\ Computing
+**/Aalto/Network\ Security
+
+**/IST/**/FP*/**/projects*
+**/IST/**/IAED*/**/projects*
+**/IST/**/IAED*/**/__MACOSX*
+**/IST/**/PO*/**/project*
+**/IST/**/ASA*/**/project*
+**/IST/**/CG*/**/labs*
+**/IST/**/COM*/**/*project*
+**/IST/**/ES*/**/project*
+**/IST/**/SD*/**/labs*
+**/IST/**/PCM*/**/Labs*

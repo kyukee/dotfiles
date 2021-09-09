@@ -4,5 +4,7 @@
     "Alt-/": "lua:comment.comment",
     "CtrlUnderscore": "lua:comment.comment",
     "F3": "FindNext",
-    "MouseMiddle": "None"
+    "MouseMiddle": "None",
+    "CtrlShiftRight": "SelectWordRight",
+    "CtrlShiftLeft":  "SelectWordLeft"
 }

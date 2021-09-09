@@ -32,7 +32,7 @@ paste_ul=ix
 # Resolution to change to when recording in fullscreen
 res=800x600
 
-# If you use a custom rate for X, set it here. 
+# If you use a custom rate for X, set it here.
 # rate=120
 
 # Profile to use for screencasts
@@ -59,7 +59,7 @@ clip="Alt+4"
 # Normally you don't want to change anything here!
 SCREENCAST_PIDFILE=/tmp/$USER-teiler-screencast.pid
 namekey=teiler
-random_string=$(date +'%Y-%m-%d %T')
+random_string=$(date +'%Y-%m-%d %H_%M_%S')
 img_filemask=$random_string.png
 #img_filemask=$random_string' scrot'.png
 paste_filemask=txt-$random_string.txt

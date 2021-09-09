@@ -14,7 +14,7 @@
 	<icon>gnome-panel-notification-area</icon>
 	<name>metadata</name>
 	<unique-id>1486666419292130-3</unique-id>
-	<command>/usr/bin/hachoir-metadata-gtk %f</command>
+	<command>/usr/bin/mediainfo-gui %f</command>
 	<description>view file metadata</description>
 	<patterns>*</patterns>
 	<audio-files/>

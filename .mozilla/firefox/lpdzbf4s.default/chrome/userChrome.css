@@ -432,3 +432,7 @@ http://www.backgroundcolor.net/
   color: #eeeecc7a !important;
   margin-right: 15px !important;
 }
+
+#identity-box {
+  display: none !important;
+}

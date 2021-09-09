@@ -80,23 +80,35 @@ done
 function index_files {
     # find "$INPUT" \( ! -regex "$EXCLUDE" \) | sed 's/ /\\ /g' | sort -f > "$INDEX"
 
-    # first sed expression escapes spaces
-    # second sed expression is to replace /home/user with ~ in file paths
-    fd -H . "$HOME" --ignore-file "$HOME/.fmenu-ignore" | sed 's/ /\\ /g' | sed 's/\/[a-z]*\/[a-z]*\//~\//' | sort -f > "$INDEX"
+    # sed 's/ /\\ /g' - escapes spaces
+    # sed 's/\/[a-z]*\/[a-z]*\//~\//' -  replace /home/user with ~ in file paths
+    # sed 's/$/\\0icon\\x1ffolder/' - add a folder icon to beginning of line
+
+    # this is for directories
+    fd -H . "$HOME" --ignore-file "$HOME/.fmenu-ignore" --type=d | sed 's/\/[a-z]*\/[a-z]*\//~\//' | sed 's/$/\\0icon\\x1ffolder/' > "$INDEX"
+
+    # this is for files
+    fd -H . "$HOME" --ignore-file "$HOME/.fmenu-ignore" --type=f | sed 's/\/[a-z]*\/[a-z]*\//~\//' >> "$INDEX"
+
+    # both results are joined together
+    sort -o "$INDEX" "$INDEX"
 }
 
 # if [[ ! -a "$INDEX" ]] ||  ( test `find $INDEX -mmin $TIME` ) || ($FORCE)
 if [[ ! -a "$INDEX" ]] || ($FORCE)
 then
-    index_files
+    time index_files
+    notify-send "Index Reloaded" "fmenu.sh forced index reload finished." --app-name="fmenu" -t 3000
+    exit
 fi
 
 if ( ! $DRY )
 then
-    if [ -z $@ ]
+    if [[ -z $@ ]]
     then
-        cat "$INDEX"
+        # cat "$INDEX"
+        echo -e "$(<$INDEX)"
     else
-        xdg-open "$HOME/$@" > /dev/null &
+        xdg-open "$(echo "$HOME/$@" | sed 's/~\///')" > /dev/null &
     fi
 fi

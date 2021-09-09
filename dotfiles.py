@@ -36,9 +36,9 @@ file_list = {
     '.config/VirtualBox/VirtualBox.xml',
     '.config/autorandr',
     '.config/flashfocus',
+    '.config/ncmpcpp',
 
     # ~ - other config directories
-    '.ncmpcpp/config',
     '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
     '.byobu',
     '.aws/config',
@@ -56,15 +56,7 @@ file_list = {
     '.Xresources',
     '.zprofile',
     '.zshrc',
-    '.fehbg',
     '.npmrc',
-
-    # Atom
-    '.atom/config.cson',
-    '.atom/atom-package-list.txt',
-    '.atom/keymap.cson',
-    '.atom/snippets.cson',
-    '.atom/styles.less',
 
     # VS Code
     '.config/Code - OSS/User/keybindings.json',
@@ -91,7 +83,6 @@ file_list = {
     '.fonts',
     'Documents/icomoon-awesome-brankic-feather',
     'Scripts',
-    'Workspaces/VScode',
 }
 
 
@@ -118,8 +109,8 @@ excluded_files = {
 
 
 # list of packages and editor extensions to install
-vs_code_extension_list_update = 'provision/vscode-extensions-update-list.sh'
-package_list_update = 'provision/pacman-packages-update-list.sh'
+vs_code_extension_list_update = 'provision/vscode-extensions-list-update.sh'
+package_list_update = 'provision/pacman-packages-list-update.sh'
 
 
 '''
@@ -128,8 +119,8 @@ package_list_update = 'provision/pacman-packages-update-list.sh'
 def backup_packages():
     os.system('bash ' + vs_code_extension_list_update)
     os.system('bash ' + package_list_update)
-    # subprocess.call(['./provision/vscode-extensions-update-list.sh'])
-    # subprocess.call(['./provision/pacman-packages-update-list.sh'])
+    # subprocess.call(['./provision/vscode-extensions-list-update.sh'])
+    # subprocess.call(['./provision/pacman-packages-list-update.sh'])
 
 
 # setup some variables

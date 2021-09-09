@@ -1,0 +1,3 @@
+#!/bin/bash -x
+
+feh --bg-fill /home/kyukee/Pictures/wallpapers/imageedit_8_8640256032.png

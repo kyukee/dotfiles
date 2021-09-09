@@ -5,8 +5,8 @@
 #--------------------------------------------------
 # history settings
 #--------------------------------------------------
-HISTFILE=~/.histfile
-HISTSIZE=500
+HISTFILE=~/.zsh_history
+HISTSIZE=1500
 SAVEHIST=$HISTSIZE
 
 
@@ -32,7 +32,7 @@ stty icrnl
 
 
 # used to recover pacman local database restore
-recovery-yay() {
+recovery-yay () {
     yay "$@"  \
     --dbonly          \
     --nodeps          \
@@ -43,12 +43,6 @@ recovery-yay() {
 #    --overwrite       \
 
 
-# start emacs in background instead of the default foreground execution
-emacs () {
-  /usr/bin/emacs "$@" &
-}
-
-
 # profiling tool for zshrc
 zmodload zsh/zprof
 
@@ -57,9 +51,8 @@ zmodload zsh/zprof
 eval "$(navi widget zsh)"
 
 
-# Setting fd as the default source for fzf (respects .gitignore)
-export FZF_DEFAULT_COMMAND='fd --type f'
-
+# Setting fd as the default source for fzf (respects .gitignore by default)
+export FZF_DEFAULT_COMMAND='fd --type "file" --hidden --ignore-case --no-ignore-vcs --exclude ".git/*/*"'
 
 #--------------------------------------------------
 # Remap Keybindings
@@ -123,10 +116,11 @@ export JAVA_HOME=/usr/lib/jvm/default # use archlinux-java to set value
 export MYSQL_HOME=/usr/bin/mysql
 export M2_HOME=/usr/bin/mvn
 export ECLIPSE_HOME=/usr/bin/eclipse
+export GOPATH="$HOME/.go"
 
 # add a directory to $path
 # but only if it doesn't exist already
-add_to_path_if_not_exists(){
+add_to_path_if_not_exists () {
 	case ":${PATH}:" in
 	  *:${1}:*) ;;
 	  *) PATH=${PATH}:${1} ;;
@@ -137,6 +131,7 @@ add_to_path_if_not_exists "$HOME/Scripts"
 add_to_path_if_not_exists "$JAVA_HOME/bin"
 add_to_path_if_not_exists "$HOME/.npm-global/bin"
 add_to_path_if_not_exists "$HOME/.local/bin"
+add_to_path_if_not_exists "$HOME/.config/composer/vendor/bin"
 
 export PATH
 

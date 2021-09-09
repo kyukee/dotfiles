@@ -1,6 +1,6 @@
 configuration {
-    theme: "themes/myTheme";
-	modi: "combi,ssh,File:/home/kyukee/Scripts/fmenu-rofi.sh";
+	theme: "themes/myTheme";
+	modi: "combi,ssh,Open file:/home/kyukee/Scripts/fmenu-rofi.sh,window";
 	// width: (0-100): percentage	(>100): pixel value
 	width: -70;
 	lines: 16;
@@ -37,7 +37,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 	parse-known-hosts: false;
-	combi-modi: "run,drun";
+	combi-modi: "drun,window,Open file,run";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -64,12 +64,12 @@ configuration {
 /*	matching-negate-char: '-' /* unsupported */;*/
 /*	cache-dir: ;*/
 /*	pid: "/run/user/1000/rofi.pid";*/
-/*	display-window: ;*/
+	display-window: "Switch to window";
+	display-ssh: "Connect to SSH target";
+	display-combi: "Command / File / Window";
 /*	display-windowcd: ;*/
 /*	display-run: ;*/
-	display-ssh: "SSH Target";
 /*	display-drun: ;*/
-	display-combi: "Command";
 /*	display-keys: ;*/
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/
 /*	kb-secondary-paste: "Control+v,Insert";*/

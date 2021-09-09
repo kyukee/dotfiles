@@ -1,36 +1,42 @@
 # Home directory
 # --------------
-Downloads
-Development
-.docker
-.electron
-.gem
-.gradle
-.ivy2
-.m2
-.PlayOnLinux
-.sbt
-.thumbnails
-.vagrant.d
-.wine
-.atom
-.cargo
-.nuget
-.npm
-.npm-global
-.opam
-.local
-.shared_folder
-.netbeans
-.eclipse
-.cache
-.kodi
+/home/kyukee/Downloads/*/*
+/home/kyukee/Development/*/*
+/home/kyukee/.docker
+/home/kyukee/.electron
+/home/kyukee/.gem
+/home/kyukee/.gradle
+/home/kyukee/.ivy2
+/home/kyukee/.m2
+/home/kyukee/.PlayOnLinux
+/home/kyukee/.sbt
+/home/kyukee/.thumbnails
+/home/kyukee/.vagrant.d
+/home/kyukee/.wine
+/home/kyukee/.atom
+/home/kyukee/.cargo
+/home/kyukee/.nuget
+/home/kyukee/.npm
+/home/kyukee/.npm-global
+/home/kyukee/.opam
+/home/kyukee/.local
+/home/kyukee/.shared_folder
+/home/kyukee/.netbeans
+/home/kyukee/.eclipse
+/home/kyukee/.cache
+/home/kyukee/.kodi
+/home/kyukee/.go
+/home/kyukee/.flashpoint
 
 # Config directory
 # ----------------
-**/.config/sublime-text-3
-**/.config/google-chrome
-**/.config/chromium
+/home/kyukee/.config/sublime-text-3
+/home/kyukee/.config/google-chrome
+/home/kyukee/.config/chromium
+
+# Doom Emacs
+# ----------
+/home/kyukee/.emacs.d*/**/modules
 
 # Git Repositories
 # ----------------
@@ -69,10 +75,6 @@ datareporting
 # ---------
 .stversions
 
-# Doom Emacs
-# ----------
-**/.emacs.d*/**/modules
-
 # Other large folders
 # -------------
 **/OC*/**/papi-5.4.3*
@@ -85,7 +87,6 @@ datareporting
 
 **/IST/**/FP*/**/projects*
 **/IST/**/IAED*/**/projects*
-**/IST/**/IAED*/**/__MACOSX*
 **/IST/**/PO*/**/project*
 **/IST/**/ASA*/**/project*
 **/IST/**/CG*/**/labs*

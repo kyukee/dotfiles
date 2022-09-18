@@ -13,6 +13,7 @@ SAVEHIST=$HISTSIZE
 #--------------------------------------------------
 # Essentials
 #--------------------------------------------------
+
 # import aliases
 source ~/.bash_aliases
 
@@ -53,6 +54,20 @@ eval "$(navi widget zsh)"
 
 # Setting fd as the default source for fzf (respects .gitignore by default)
 export FZF_DEFAULT_COMMAND='fd --type "file" --hidden --ignore-case --no-ignore-vcs --exclude ".git/*/*"'
+
+
+# update mirrorlist
+upp() {
+  for i in 1 3 6; do
+    if reflector -c PT -a $i -p https -l 5 --sort score --save /etc/pacman.d/mirrorlist.reflector 2>/dev/null; then
+      cat /etc/pacman.d/mirrorlist.reflector
+      pacman -Syu
+      return 0
+    fi
+  done
+  echo "--> cannot find a single mirror with sync time in the last 6 hours"
+  return 1
+}
 
 #--------------------------------------------------
 # Remap Keybindings
@@ -244,6 +259,9 @@ zstyle ':completion:*:local-directories' list-colors '=*=0;34'
 # add completion to kubernetes (its a bit slow, so better keep it disabled unless necessary)
 #source <(kubectl completion zsh)
 
+# flatpak completion
+source ~/.zsh/flatpak-zsh-completion/flatpak.plugin.zsh
+
 
 #--------------------------------------------------
 # prompt settings
@@ -289,19 +307,131 @@ settitle() {
 #PROMPT="%F{000}%K{002} %T %F{002}%K{006}%F{000}%K{006} %F{006}%K{001}%F{000}%K{001} %~ %F{001}%K{000}"$'\n'"%F{000}%K{003} %n ➜ %F{003}%K{000} %F{015}"
 
 # enable git status in prompt
-source ~/.zsh/zshrc.sh
+# source ~/.zsh/zsh-git-prompt/zshrc.sh
+source ~/.zsh/git-prompt.zsh/git-prompt.zsh
 
-# git package prompt script
-# source /usr/share/git/completion/git-prompt.sh
-# PROMPT='%F{red}>>> %f[%~ ]$(__git_ps1 " (%s)")$ '
+# get background color
+BG_COL="$(cat ~/.config/kitty/kitty.conf | grep background | awk '{print $2}')"
 
 # same prompt as bash
 #PROMPT='%F{red}>>> %f[%~ ]$(git_super_status)$ '
 
-# two line prompt
-PROMPT='%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status)%{$reset_color%}'$'\n'' %F{red}$ %{$reset_color%}%k%f'
+# two line prompt (git_super_status)
+# PROMPT='%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}$(git_super_status) %{$reset_color%}'$'\n'' %F{red}$ %{$reset_color%}%k%f'
+
+# two line prompt (with separate async git)
+PROMPT='%F{$BG_COL}%K{green}%F{green}%K{$BG_COL}%F{$BG_COL}%K{magenta}%F{magenta}%K{$BG_COL}%F{$BG_COL}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}'$'\n'' %F{red}$ %{$reset_color%}%k%f'
+
+# local _lineup=$'\e[1A'
+# local _linedown=$'\e[1B'
+# RPROMPT=%{${_lineup}%}'$(gitprompt)'%{${_linerestore}%}
+
+RPROMPT='$(gitprompt)'
+
+# local _lineright=$'\e[5G'
+# RPROMPT='$(gitprompt)'%{${_lineright}%}
+
 
 
 # terminal title
-
 #printf "\033];%s\07\n" "hello world"
+
+
+
+# powerline symbols
+# airline_left_sep = ''
+# airline_left_alt_sep = ''
+# airline_right_sep = ''
+# airline_right_alt_sep = ''
+# airline_symbols.branch = ''
+# airline_symbols.readonly = ''
+# airline_symbols.linenr = '☰'
+# airline_symbols.maxlinenr = ''
+
+
+
+# # Usage: prompt-length TEXT [COLUMNS]
+# #
+# # If you run `print -P TEXT`, how many characters will be printed
+# # on the last line?
+# #
+# # Or, equivalently, if you set PROMPT=TEXT with prompt_subst
+# # option unset, on which column will the cursor be?
+# #
+# # The second argument specifies terminal width. Defaults to the
+# # real terminal width.
+# #
+# # The result is stored in REPLY.
+# #
+# # Assumes that `%{%}` and `%G` don't lie.
+# #
+# # Examples:
+# #
+# #   prompt-length ''            => 0
+# #   prompt-length 'abc'         => 3
+# #   prompt-length $'abc\nxy'    => 2
+# #   prompt-length '❎'          => 2
+# #   prompt-length $'\t'         => 8
+# #   prompt-length $'\u274E'     => 2
+# #   prompt-length '%F{red}abc'  => 3
+# #   prompt-length $'%{a\b%Gb%}' => 1
+# #   prompt-length '%D'          => 8
+# #   prompt-length '%1(l..ab)'   => 2
+# #   prompt-length '%(!.a.)'     => 1 if root, 0 if not
+# function prompt-length() {
+#   emulate -L zsh
+#   local -i COLUMNS=${2:-COLUMNS}
+#   local -i x y=${#1} m
+#   if (( y )); then
+#     while (( ${${(%):-$1%$y(l.1.0)}[-1]} )); do
+#       x=y
+#       (( y *= 2 ))
+#     done
+#     while (( y > x + 1 )); do
+#       (( m = x + (y - x) / 2 ))
+#       (( ${${(%):-$1%$m(l.x.y)}[-1]} = m ))
+#     done
+#   fi
+#   typeset -g REPLY=$x
+# }
+#
+# # Usage: fill-line LEFT RIGHT
+# #
+# # Sets REPLY to LEFT<spaces>RIGHT with enough spaces in
+# # the middle to fill a terminal line.
+# function fill-line() {
+#   emulate -L zsh
+#   prompt-length $1
+#   local -i left_len=REPLY
+#   prompt-length $2 9999
+#   local -i right_len=REPLY
+#   local -i pad_len=$((COLUMNS - left_len - right_len - ${ZLE_RPROMPT_INDENT:-1}))
+#   if (( pad_len < 1 )); then
+#     # Not enough space for the right part. Drop it.
+#     typeset -g REPLY=$1
+#   else
+#     local pad=${(pl.$pad_len.. .)}  # pad_len spaces
+#     typeset -g REPLY=${1}${pad}${2}
+#   fi
+# }
+#
+# # Sets PROMPT and RPROMPT.
+# #
+# # Requires: prompt_percent and no_prompt_subst.
+# function set-prompt() {
+#   emulate -L zsh
+#
+#   local top_left="%F{000}%K{green}%F{green}%K{000}%F{000}%K{magenta}%F{magenta}%K{000}%F{000}%K{cyan}%F{black}%K{cyan} %f%~ %F{cyan}%K{none} %{$reset_color%}"
+#   local top_right="$(gitprompt)"
+#   local bottom_left=" %F{red}$ %{$reset_color%}%k%f"
+#   local bottom_right=''
+#
+#   local REPLY
+#   fill-line "$top_left" "$top_right"
+#   PROMPT=$REPLY$'\n'$bottom_left
+#   RPROMPT=$bottom_right
+# }
+#
+# setopt no_prompt_{bang,subst} prompt_{cr,percent,sp}
+# autoload -Uz add-zsh-hook
+# add-zsh-hook precmd set-prompt

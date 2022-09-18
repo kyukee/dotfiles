@@ -1,0 +1,24 @@
+# This .editorconfig file should live outside of all repositories (and thus not be committed to source control) in
+# a parent directory, as it includes personal preference presentation settings, like a tab's `indent_size`.
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{html,xml,config,json}]
+indent_style = tab
+indent_size = 2
+
+[*.{md,yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.{py,el}]
+indent_style = space
+indent_size = 4

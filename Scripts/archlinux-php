@@ -1,0 +1,48 @@
+#!/bin/sh
+[ "$#" -lt "1" ] && {
+  echo "Configure current shell to use a specific major PHP version.
+
+USAGE:
+	archlinux-php <COMMAND>
+
+COMMAND:
+	status		List installed PHP environments and enabled one
+	get		Return the short name of the PHP environment set as default
+	set <PHP_ENV>	Force <PHP_ENV> as default
+"
+  exit 0
+}
+
+while true; do
+    case "$1" in
+        "status")
+            echo "Available PHP binaries:"
+            ls /usr/bin | awk '/php[0-9]+$/{ print "  "$0 }'
+            inUse=$(php -nr "echo phpversion();")
+            echo -e "\nShell configured to use PHP ${inUse}."
+            exit 0
+            ;;
+        "get")
+            inUse=$(php -nr "echo phpversion();")
+            echo -e "\nShell configured to use PHP ${inUse}."
+            exit 0
+            ;;
+        "set")
+            binary="php${2}"
+            wanted="/usr/bin/${binary}"
+            [ ! -f "${wanted}" ] && {
+                echo "'${binary}' not found. Exiting."
+                exit 1
+            }
+            sudo rm "/usr/bin/php"
+            sudo ln -sf "${wanted}" "/usr/bin/php"
+            inUse=$(php -nr "echo phpversion();")
+            echo -e "\nShell configured to use PHP ${inUse}."
+            exit 0
+            ;;
+        *)
+            echo "Specified option is not available" >&2
+            exit 1
+            ;;
+    esac
+done

@@ -37,6 +37,7 @@ file_list = {
     '.config/autorandr',
     '.config/flashfocus',
     '.config/ncmpcpp',
+    '.config/jellyfin-mpv-shim/conf.json',
 
     # ~ - other config directories
     '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
@@ -57,6 +58,7 @@ file_list = {
     '.zprofile',
     '.zshrc',
     '.npmrc',
+    '.editorconfig',
 
     # VS Code
     '.config/Code - OSS/User/keybindings.json',
@@ -74,6 +76,8 @@ file_list = {
     'root/etc/vconsole.conf',
     'root/etc/systemd/system.conf.d/faster-timeout.conf',
     'root/etc/X11/xorg.conf.d',
+    'root/etc/sysctl.d/99-swappiness.conf',
+    'root/etc/makepkg.conf',
     'root/usr/share/sddm/faces',
     'root/usr/share/sddm/themes/deepin',
     'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',

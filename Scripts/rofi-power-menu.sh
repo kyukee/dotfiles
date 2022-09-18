@@ -13,17 +13,18 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown reboot suspend hibernate logout lockscreen)
+all=(shutdown reboot suspend hibernate lockscreen screenoff)
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
 
 declare -A texts
+# texts[switchuser]="switch user"
+# texts[logout]="log out"
+texts[screenoff]="turn screen off"
 texts[lockscreen]="lock screen"
-texts[switchuser]="switch user"
-texts[logout]="log out"
-texts[suspend]="suspend"
 texts[hibernate]="hibernate"
+texts[suspend]="suspend"
 texts[reboot]="reboot"
 texts[shutdown]="shut down"
 
@@ -36,9 +37,11 @@ declare -A icons
 # icons[reboot]="\ufc07"
 # icons[shutdown]="\uf011"
 # icons[cancel]="\u00d7"
+
+# icons[switchuser]=""
+# icons[logout]=""
+icons[screenoff]=""
 icons[lockscreen]=""
-icons[switchuser]=""
-icons[logout]=""
 icons[suspend]=""
 icons[hibernate]=""
 icons[reboot]=""
@@ -46,8 +49,9 @@ icons[shutdown]=""
 icons[cancel]=""
 
 declare -A actions
+actions[screenoff]="xset dpms force off"
 actions[lockscreen]="i3lock --blur=10 --composite --clock --timecolor=ffffffff --timesize=90 --datecolor=ffffffff --datesize=24"
-#actions[switchuser]="???"
+# actions[switchuser]="???"
 # actions[logout]="loginctl terminate-session $XDG_SESSION_ID"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"

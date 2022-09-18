@@ -1,0 +1,296 @@
+#!/bin/sh
+#
+# Rofi wrapper for cuff. Use the Jackett search API to find torrents.
+# Requires cuff, jq, rofi, webtorrent (optional)
+
+err_msg_exit() {
+    # Print an error to stderr and exit.
+    printf "%s\n" "$*" >&2
+    exit 1
+}
+
+# Check dependencies
+type cuff >/dev/null || err_msg_exit "'cuff' not found."
+type jq >/dev/null || err_msg_exit "'jq' not found."
+type rofi >/dev/null || err_msg_exit "'rofi' not found."
+
+# User prompt commands
+declare -a INPUT_CMD=(rofi -dmenu -show -p "Search" -l 0 -i)
+declare -a MENU_CMD=(rofi -dmenu -show -p "Select" -i)
+
+# Figure out which actions are available
+# Note: please feel free to open a PR to add common use cases.
+# https://github.com/loiccoyle/rofi-cuff
+URL_OPENER="${BROWSER:-${OPENER:-xdg-open}}"
+TORRENT_OPENER="${OPENER:-xdg-open}"
+declare -a ACTIONS=()
+type "$TORRENT_OPENER" >/dev/null 2>&1 && ACTIONS+=("download")
+type "$URL_OPENER" >/dev/null 2>&1 && ACTIONS+=("open")
+type webtorrent >/dev/null 2>&1 && ACTIONS+=("stream")
+
+[ "${#ACTIONS[@]}" = 0 ] && err_msg_exit "No actions."
+
+# Action definitions
+download() {
+    # Download the torrent.
+    local identifier
+    identifier="$(get_torrent_identifier "$1")"
+    "$TORRENT_OPENER" "$identifier" &
+}
+
+open() {
+    # Open the torrent's web page.
+    local url
+    url="$(printf "%s" "$1" | jq -r ".Guid//.Details")"
+    if [ "$url" = "null" ]; then
+        printf "Could not get link." >&2
+    else
+        "$URL_OPENER" "$url" &
+    fi
+}
+
+stream() {
+    # Stream the torrent with webtorrent.
+    # https://github.com/webtorrent/webtorrent-cli
+    local identifier
+    local player
+    declare -a webtorrent_args
+
+    identifier="$(get_torrent_identifier "$1")"
+    if [ -n "$ROFI_CUFF_WEBTORRENT_PLAYER" ]; then
+        player="$ROFI_CUFF_WEBTORRENT_PLAYER"
+    else
+        declare -a all_players
+        declare -i n_players=2
+        declare -a players=()
+        # from webtorrent --help
+        all_players=("dlna" "mplayer" "mpv" "omx" "vlc" "iina" "smplayer" "xbmc")
+        # only show players which are installed
+        for player in "${all_players[@]}"; do
+            if type "$player" >/dev/null 2>&1; then
+                players+=("$player")
+                n_players=$((n_players + 1))
+            fi
+        done
+        # and also these
+        players+=("airplay" "chromecast")
+        player="$(printf "%s\n" "${players[@]}" |
+            "${MENU_CMD[@]}" -l "$n_players" -mesg "Set <b>ROFI_CUFF_WEBTORRENT_PLAYER</b> env variable to skip.")" ||
+            exit
+    fi
+    webtorrent_args=("$identifier" "--$player" "--playlist")
+    # TODO: terminals have different syntaxes for the -e option
+    "$TERMINAL" --hold -e webtorrent "${webtorrent_args[@]}" &
+}
+
+
+get_torrent_identifier(){
+    # Parse the json to extract the torrent identifier, which could be a magnet link
+    # or the url of a .torrent file.
+    local json_response
+    json_response="$1"
+    local identifier
+    identifier="$(printf "%s" "$json_response" | jq -r ".MagnetUri")"
+    if [ "$identifier" = "null" ]; then
+        local link
+        link="$(printf "%s" "$json_response" | jq -r ".Link")"
+        identifier="$(curl "$link" -si | grep Location)"
+        identifier=${identifier#"Location: "}
+    fi
+    printf "%s" "$identifier"
+}
+
+SUBMENU=("Search" "Restrict to trackers" "Restrict to categories")
+# Submenus
+trackers() {
+    # Restrict search to provided trackers.
+    local IFS
+    local trackers
+    local indexers
+    IFS=$'\n'
+    indexers="$(cuff ${CUFF_ARGS[@]} indexers)" || exit
+    trackers=($(printf "%s" "$indexers" | "${MENU_CMD[@]}" -multi-select -mesg '<b>ESC</b> to clear'))
+
+    [ "${#trackers[@]}" -gt 0 ] && TRACKER_ARGS=("$(printf -- "-t %s " "${trackers[@]}")") || TRACKER_ARGS=()
+}
+
+categories() {
+    # Restrict search to provided categories.
+    local IFS
+    local categories
+    IFS=$'\n'
+    categories=($(cuff categories | "${MENU_CMD[@]}" -multi-select -mesg '<b>ESC</b> to clear'))
+    [ "${#categories[@]}" -gt 0 ] && CATEGORY_ARGS=("$(printf -- "-c %s " "${categories[@]}")") || CATEGORY_ARGS=()
+}
+
+search() {
+    # Get search query, create menu and run actions.
+    local results
+    if [ -n "$STDIN" ]; then
+        # Results from stdin
+        results="$(cat)"
+    else
+        # Prompt for search
+        local query
+        query="$(echo | "${INPUT_CMD[@]}")" || exit
+        results="$(
+            cuff ${CUFF_ARGS[@]} search -s "Seeders" ${TRACKER_ARGS[@]} ${CATEGORY_ARGS[@]} "$query"
+        )" || exit
+    fi
+
+    local IFS
+    declare -a results_table
+    local selected_indices
+    IFS=$'\n'
+    results_table=($(
+        printf "%s" "$results" |
+            jq -r '.[] | "\(.Title[:60])\t\(.TrackerId)\t\(.Size)\t▼\(.Seeders)\t▲\(.Peers)\t\(.PublishDate[:10])"' |
+            numfmt --field 3 --to=iec -d$'\t' --invalid=ignore |
+            column --table --separator=$'\t'
+    ))
+
+    if [ "${#results_table[@]}" = "0" ]; then
+        local error_msg
+        if [ -n "$query" ]; then
+            error_msg="No results found for search query: \"$query\""
+        else
+            error_msg="No results found."
+        fi
+        rofi -e "$error_msg"
+        if [ -n "$STDIN" ]; then
+            exit
+        fi
+        search
+    fi
+
+    selected_indices="$(
+        printf "%s\n" "${results_table[@]}" |
+            "${MENU_CMD[@]}" -format 'i' -multi-select -mesg "Shift+Enter: Multiple select"
+    )" || exit
+
+    # Iterate over selected torrents and run the selected action.
+    for index in $selected_indices; do
+        local selected_torrent
+        local selected_torrent_string
+        selected_torrent="$(printf "%s" "$results" | jq ".[$index]")"
+        selected_torrent_string="${results_table[$index]}"
+        case "$(printf "%s\n" "${ACTIONS[@]}" | "${MENU_CMD[@]}" -no-custom -l ${#ACTIONS[@]} -mesg "$selected_torrent_string")" in
+        "download")
+            download "$selected_torrent"
+            ;;
+        "open")
+            open "$selected_torrent"
+            ;;
+        "stream")
+            stream "$selected_torrent"
+            ;;
+        esac
+    done
+}
+
+has_jackett() {
+    # Check to see if the jackett service file is installed.
+    systemctl list-unit-files jackett.service >/dev/null
+}
+
+check_jackett() {
+    # Check if the Jackett service is active.
+    systemctl is-active jackett.service >/dev/null
+}
+
+stop_jackett() {
+    # Stop the jackett service if it is running.
+    check_jackett && sudo systemctl stop jackett.service >/dev/null
+}
+
+wait_jackett() {
+    # If we started the server, wait until Jackett is responsive. Max of 5s.
+    if [ -n "$START" ]; then
+        for ((i = 0; i < 10; i++)); do
+            { cuff ${CUFF_ARGS[@]} config >/dev/null 2>&1 && break; } || sleep 0.5
+        done
+    fi
+}
+
+# Defaults
+declare -a TRACKER_ARGS=()
+declare -a CATEGORY_ARGS=()
+STDIN=""
+declare -a CUFF_ARGS=()
+
+# Handle the starting and stopping ourselves as it is more responsive to do it the background now than later
+START=""
+while getopts ":hsk" opt; do
+    case $opt in
+    "h")
+        CMD_NAME="$(basename "$0")"
+        # Stop execution early if help msg is requested.
+        # Just show the help msg for the main cuff cmd.
+        printf "\
+Use \"-\" to read the json Jackett response from stdin e.g.:\n\n\
+$ cuff search big buck bunny | %s -\n\n\
+Otherwise, %s passes any provided options to the cuff command:\n\n" "$CMD_NAME" "$CMD_NAME"
+        cuff -h | head -n12
+        exit 0
+        ;;
+    "s")
+        # Start the jackett service in the background
+        if has_jackett; then
+            check_jackett || sudo systemctl start jackett.service >/dev/null &
+            START=1
+        else
+            err_msg_exit "Jackett service file not found."
+        fi
+        ;;
+    "k")
+        # Add a trap on exit to kill jackett service
+        { has_jackett && trap stop_jackett EXIT; } || err_msg_exit "Jackett service file not found."
+        ;;
+    *) ;;
+    esac
+done
+
+# Strip the k and s args from the args passed to the base cuff command
+CUFF_ARGS=("$@")
+CUFF_ARGS=("${CUFF_ARGS[@]/-s/}")
+CUFF_ARGS=("${CUFF_ARGS[@]/-k/}")
+
+# Pipe a cuff search json output straight to rofi-cuff
+# e.g. $ cuff search big buck bunny | rofi-cuff -
+if [ "$1" = "-" ]; then
+    STDIN=1
+    search
+    exit
+fi
+
+# Main loop
+DONE=""
+while [ -z "$DONE" ]; do
+    # Add a msg to the main menu to indicate the selected trackers/categories
+    declare -a MESG
+    if [ "${#TRACKER_ARGS[@]}" -gt 0 ] || [ "${#CATEGORY_ARGS[@]}" -gt 0 ]; then
+        MESG=(-mesg "Cuff search args: ${TRACKER_ARGS[*]}${CATEGORY_ARGS[*]}")
+    else
+        MESG=()
+    fi
+
+    SELECTION="$(
+        printf "%s\n" "${SUBMENU[@]}" |
+            "${MENU_CMD[@]}" -no-custom -l ${#SUBMENU[@]} "${MESG[@]}"
+    )" || exit $?
+
+    case "$SELECTION" in
+    "Restrict to trackers")
+        wait_jackett
+        trackers
+        ;;
+    "Restrict to categories")
+        categories
+        ;;
+    "Search")
+        wait_jackett
+        search
+        DONE=1
+        ;;
+    esac
+done

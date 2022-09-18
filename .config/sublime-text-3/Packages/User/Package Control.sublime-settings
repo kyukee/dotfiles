@@ -2,6 +2,11 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"FileDiffs",
+		"GitGutter",
+		"MarkdownPreview",
+		"SideBarEnhancements",
+		"SublimeLinter"
 	],
 	"installed_packages":
 	[

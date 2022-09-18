@@ -2,6 +2,6 @@
 Active=true
 Name=Annotate image
 Comment=Add text, shapes, highlight an image, and more
-Exec=ksnip %f
+Exec=ksnip %F
 Selection=S
 Mimetypes=image/*;

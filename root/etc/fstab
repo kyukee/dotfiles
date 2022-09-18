@@ -1,28 +1,32 @@
-# /dev/sda1 LABEL=Linux\134x20Root
-UUID=6355d4e4-b05d-4a40-8a5a-22b242843667          /                          ext4            rw,relatime                             0 1
+# <file system>                                    <dir>                     <type>           <options>                               <dump> <pass>
 
-# /dev/sda3 LABEL=shared
+# /dev/sda1 LABEL=Linux\134x20Root
+UUID=6355d4e4-b05d-4a40-8a5a-22b242843667          /                          ext4            rw,noatime                              0 1
+
+# /dev/sda3 LABEL=OS\134x20Share
 UUID=650B2CBB7DDB5E58                              /media/shared              ntfs-3g         defaults,big_writes.windows_names       0 0
 
 # /dev/sda4 LABEL=Linux\134x20Home
-UUID=904095bb-cfc0-486b-b8f3-efc26f5daa9c          /home                      ext4            rw,relatime                             0 2
+UUID=904095bb-cfc0-486b-b8f3-efc26f5daa9c          /home                      ext4            rw,noatime                              0 2
 
-# /dev/sda2
+# /dev/sda2 LABEL=swap
 UUID=8b654580-5d1a-4700-a38a-f6359dfe322e          none                       swap            defaults                                0 0
 
 
+# -- Remote devices --
 
-# Samba - Network Media Tank EG-R1
-//192.168.1.80/C         /media/Network\040-\040Media          cifs    vers=1.0,noauto,_netdev,username=username,password=password,rw,user,uid=1000,gid=100,forceuid,forcegid    0 0
+# Network Media Tank EG-R1 (Samba)
+# //192.168.1.80/C         /media/Network\040-\040Media          cifs    noauto,_netdev,username=user,password=pass,rw,user,uid=1000,gid=100,forceuid,forcegid,vers=1.0         0 0
+# //192.168.1.80/hdd1      /media/Network\040-\040Media          cifs    noauto,noperm,_netdev,user,guest,vers=1.0                                                              0 0
 
-# Samba - Windows Desktop
-//DESKTOP/Anime          /media/Desktop\040-\040Anime          cifs    noauto,_netdev,username=username,password=password,rw,user,uid=1000,gid=100,forceuid,forcegid             0 0
+# Intel NUC MiniPC (Samba)
+# //192.168.1.83/Media     /media/MiniPC\040-\040Media           cifs    noauto,noperm,_netdev,rw,user,guest                                                    0 0
 
-# Samba - Windows Desktop (Other Directory)
-//DESKTOP/Tv\040Shows    /media/Desktop\040-\040TV\040Shows    cifs    noauto,_netdev,username=username,password=password,rw,user,uid=1000,gid=100,forceuid,forcegid             0 0
+# Intel NUC MiniPC (NFS)
+192.168.1.83:/Archive    /media/MiniPC\040-\040Archive         nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
+192.168.1.83:/Backup     /media/MiniPC\040-\040Backup          nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
+192.168.1.83:/Media      /media/MiniPC\040-\040Media           nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
 
-
-
-# vers=1.0,username=root,password=root,noauto,user,_netdev
-# guest,uid=myuser,iocharset=utf8,file_mode=0777,dir_mode=0777,noperm
-# rw,nounix,forceuid,forcegid
+# Windows Desktop folders (Samba)
+# //DESKTOP/Anime          /media/Desktop\040-\040Anime          cifs    noauto,_netdev,username=Guest\040User,password=,rw,user,uid=1000,gid=100,forceuid,forcegid             0 0
+# //DESKTOP/Tv\040Shows    /media/Desktop\040-\040TV\040Shows    cifs    noauto,_netdev,username=Guest\040User,password=,rw,user,uid=1000,gid=100,forceuid,forcegid             0 0

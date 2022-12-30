@@ -1,0 +1,10 @@
+
+#statuspanel #statuspanel-label {
+  color: var(--toolbar-color)!important;
+  border-color: rgba(115,115,115,0.5)!important;
+  border-top-right-radius: 10px!important;
+}
+
+:root:not([lwtheme-image]) #statuspanel #statuspanel-label{
+  background-color: var(--lwt-accent-color)  !important;
+}

@@ -40,7 +40,9 @@ file_list = {
     '.config/jellyfin-mpv-shim/conf.json',
 
     # ~ - other config directories
-    '.mozilla/firefox/lpdzbf4s.default/chrome/userChrome.css',
+    '.mozilla/firefox/lpdzbf4s.default/chrome',
+    '.mozilla/firefox/profile-01G6NH96556JTZZWDX4P919GC9/chrome',
+    '.mozilla/extensions/treestyletabs',
     '.byobu',
     '.aws/config',
     '.ssh/config',
@@ -81,6 +83,8 @@ file_list = {
     'root/usr/share/sddm/faces',
     'root/usr/share/sddm/themes/deepin',
     'root/usr/share/kbd/keymaps/i386/qwerty/pt-latin9.map',
+    'root/usr/lib/firefox/config.js',
+    'root/usr/lib/firefox/browser/defaults/preferences/config-prefs.js',
     'root/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness',
 
     # file backups

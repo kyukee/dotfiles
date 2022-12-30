@@ -1,0 +1,122 @@
+:root {
+    --sm-tab-width: 70px;
+}
+
+#SM_toolbox {
+    opacity: 1!important;
+    background-color: var(--toolbar-bgcolor, --toolbar-non-lwt-bgcolor);
+    margin-right: -6px!important;
+    z-index: 1!important;
+    margin-top: -1px!important;
+}
+/*Splitter -resizer style*/
+#SM_splitter {
+    background-color: rgba(0, 0, 0, 0) !important;
+    margin-top: 0px;
+    z-index: 9999;
+    position: absolute!important;
+    margin-top: -40px!important;
+    border-color: transparent!important;
+}
+#SM_tabs {
+    border-color: var(--arrowpanel-border-color);
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
+/*GRAB theme background image*/
+#SM_tabpanels {
+    background: var(--toolbar-bgimage);
+    background: var(--browser-bg-url);
+    background: var(--lwt-header-image);
+    background: var(--lwt-additional-images);
+    background-color: var(--lwt-sidebar-background-color);
+    background-color: var(--lwt-accent-color)!important;
+    appearance: unset;
+    background-size: cover;
+}
+#SM_Button:-moz-lwtheme-brighttext {
+    background: transparent!important;
+}
+/*Firefox forced light colors fix*/
+tabpanels {
+    color-scheme: unset!important;
+}
+tab {
+    color-scheme: unset!important;
+}
+ 
+ /*ADD ICONS instead of text on tabs*/
+ .SM_tab {
+    -moz-context-properties: fill!important;
+    font-size: 0px!important;
+    width: 42px!important;
+    filter: saturate(0.6)!important;
+    opacity: 0.7!important;
+    margin-top: -12px!important;
+    padding-bottom: 6px!important;
+    padding-top: 6px!important;
+}
+.SM_tab[selected="true"] {
+    opacity: 1!important;
+    filter: saturate(1)!important;
+    padding: 1px 4px 2px!important;
+
+}
+#SM_tab0 {
+    list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg")!important;
+    fill: red!important;
+}
+.SM_tab>hbox>image {
+    margin-left: 6px!important;
+    min-width: 18px!important;
+}
+#nav_button_container {
+    width: 40px!important;
+}
+#SM_tab0 {
+    list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg")!important;
+    fill: rgb(180, 180, 50)!important;
+}
+#SM_tab1 {
+    list-style-image: url("chrome://browser/skin/downloads/downloads.svg")!important;
+    fill: rgb(255, 170, 170)!important;
+    opacity: 0!important;
+}
+#SM_tab1[selected="true"] {
+    opacity: 0!important;
+}
+#SM_tabs #downloads-button {
+    fill: rgb(170, 40, 40)!important;
+    pointer-events: none!important;
+    transform: scale(1.1)!important;
+}
+#SM_tabbox[selectedIndex="1"] #SM_tabs #downloads-button {
+    opacity: 1!important;
+    fill: rgb(220, 60, 60)!important;
+}
+#SM_tab2 {
+    list-style-image: url("chrome://browser/skin/history.svg");
+    fill: rgb(120, 150, 160)!important;
+}
+#SM_tab3 {
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
+    fill: rgb(180, 50, 230)!important;
+}
+#SV_tab0 {
+    list-style-image: url("chrome://browser/skin/window.svg");
+    fill: rgb(100, 100, 200)!important;
+}
+#SM_tab4 {
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+    fill: rgb(190, 90, 40)!important;
+}
+#SM_tab5 {
+    list-style-image: url("chrome://global/skin/icons/info.svg");
+    fill: rgb(30, 160, 200)!important;
+}
+#SM_tabs #downloads-button {
+    --download-progress-pcent: 0%;
+    margin-left: -201px!important;
+    margin-top: -10px!important;
+}

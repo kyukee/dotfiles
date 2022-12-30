@@ -1,0 +1,31 @@
+{
+  "__ConfigsMigration__userValeusSameToDefaultAreCleared": true,
+  "autoAttachOnNewTabCommand": 2,
+  "cachedExternalAddons": [
+    "tst-colored-tabs@murz"
+  ],
+  "chunkedUserStyleRules0": "LyogU2hvdyB0aXRsZSBvZiB1bnJlYWQgdGFicyB3aXRoIHJlZCBhbmQgaXRhbGljIGZvbnQgKi8KLyoKOnJvb3Quc2lkZWJhciB0YWItaXRlbS51bnJlYWQgLmxhYmVsLWNvbnRlbnQgewogIGNvbG9yOiByZWQgIWltcG9ydGFudDsKICBmb250LXN0eWxlOiBpdGFsaWMgIWltcG9ydGFudDsKfQoqLwoKLyogQWRkIHByaXZhdGUgYnJvd3NpbmcgaW5kaWNhdG9yIHBlciB0YWIgKi8KLyoKOnJvb3Quc2lkZWJhciB0YWItaXRlbS5wcml2YXRlLWJyb3dzaW5nIHRhYi1sYWJlbDpiZWZvcmUgewogIGNvbnRlbnQ6ICLwn5W2IjsKfQoqLwoK",
+  "configsVersion": 26,
+  "context_collapseAll": false,
+  "context_expandAll": false,
+  "labelOverflowStyle": "crop",
+  "notifiedFeaturesVersion": 9,
+  "optionsExpandedSections": [
+    "section-addons",
+    "section-debug"
+  ],
+  "shiftTabsForScrollbarDistance": "0em",
+  "shiftTabsForScrollbarOnlyOnHover": false,
+  "showExpertOptions": true,
+  "sidebarPosition": 1,
+  "syncDevices": {
+    "device-1672400616456-49561": {
+      "id": "device-1672400616456-49561",
+      "name": "Firefox on Linux",
+      "icon": "device-desktop",
+      "timestamp": 1672410588174
+    }
+  },
+  "userStyleRules": "",
+  "userStyleRulesFieldHeight": "166.66665649414062px"
+}

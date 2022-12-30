@@ -15,6 +15,8 @@ arandr
 arandr-indicator-git
 artwiz-fonts
 asciidoc
+asciiquarium
+asciiquarium-lock
 aspell-en
 aspell-pt
 aurvote
@@ -57,6 +59,7 @@ byobu
 ca-certificates
 caddy
 caffeine-ng
+calf
 calibre
 cassandra
 ccache
@@ -104,7 +107,7 @@ ecm-tools
 electron
 electron16
 elfutils
-emacs28-git
+emacs-pgtk-native-comp-git
 envypn-font
 eog
 epiphany
@@ -195,6 +198,7 @@ grub
 grub-customizer
 gsimplecal
 gsmartcontrol
+gstreamer0.10-good-plugins
 gtk2
 gtk3
 gvfs-afc
@@ -269,6 +273,7 @@ logrotate
 lsd
 lsdesktopf
 lsof
+lsp-plugins
 lua
 lxappearance
 lxqt-config
@@ -372,7 +377,7 @@ proj
 pugixml
 pulseaudio
 pulseaudio-bluetooth
-pulseaudio-equalizer
+pulseeffects-legacy
 pyneighborhood
 python
 python2-pycparser
@@ -389,6 +394,7 @@ qbittorrent-qt5
 qemu-desktop
 qimgv-git
 qlipper
+qmk
 qt5ct
 qt5-styleplugins
 qt6ct
@@ -429,6 +435,7 @@ slack-desktop
 smb4k
 socat
 sqlcipher
+srandrd
 st
 sublime-text-3
 surf
@@ -582,6 +589,7 @@ youtube-dl
 youtube-music-bin
 yq
 yt-dlp
+zam-plugins
 zathura
 zathura-pdf-mupdf
 zip

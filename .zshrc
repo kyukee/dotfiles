@@ -116,7 +116,7 @@ zle -N zle-line-finish
 #--------------------------------------------------
 # environment variables
 #--------------------------------------------------
-export DISPLAY=:1
+export DISPLAY=:0
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM='xterm-kitty'

@@ -30,7 +30,7 @@ print_info() {
 
     # avoid showing currently used memory
     mem_kb=$(cat /proc/meminfo | grep MemTotal | awk '{print $2}')
-    mem_gb="$((mem_kb / 1000 / 1000))"
+    mem_gb=$(echo "scale=1;$mem_kb / 1024 / 1024" | bc)
     prin "$(color 2)├$(color 6) Memory" "${mem_gb} GB"
 
     info "$(color 2)└$(color 6) Resolution" resolution

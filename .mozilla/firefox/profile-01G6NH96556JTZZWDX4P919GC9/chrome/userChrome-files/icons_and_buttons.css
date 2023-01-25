@@ -29,14 +29,14 @@
     display: none!important;
 }
 
-#page-action-buttons {
-    display: none!important;
-}
+/* #page-action-buttons { */
+/*     display: none!important; */
+/* } */
 
 
-#pageActionSeparator {
-    display: none!important;
-}
+/* #pageActionSeparator { */
+/*     display: none!important; */
+/* } */
 
 /*Restyle identity icon*/
 #identity-icon {

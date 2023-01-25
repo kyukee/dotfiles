@@ -23,10 +23,17 @@ UUID=8b654580-5d1a-4700-a38a-f6359dfe322e          none                       sw
 # //192.168.1.83/Media     /media/MiniPC\040-\040Media           cifs    noauto,noperm,_netdev,rw,user,guest                                                    0 0
 
 # Intel NUC MiniPC (NFS)
-192.168.1.83:/Archive    /media/MiniPC\040-\040Archive         nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
-192.168.1.83:/Backup     /media/MiniPC\040-\040Backup          nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
-192.168.1.83:/Media      /media/MiniPC\040-\040Media           nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
+# 192.168.1.83:/Archive    /media/MiniPC\040-\040Archive         nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
+# 192.168.1.83:/Backup     /media/MiniPC\040-\040Backup          nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
+# 192.168.1.83:/Media      /media/MiniPC\040-\040Media           nfs     defaults,noauto,_netdev,user,rsize=32768,wsize=32768,intr,noatime                      0 0
 
 # Windows Desktop folders (Samba)
 # //DESKTOP/Anime          /media/Desktop\040-\040Anime          cifs    noauto,_netdev,username=Guest\040User,password=,rw,user,uid=1000,gid=100,forceuid,forcegid             0 0
 # //DESKTOP/Tv\040Shows    /media/Desktop\040-\040TV\040Shows    cifs    noauto,_netdev,username=Guest\040User,password=,rw,user,uid=1000,gid=100,forceuid,forcegid             0 0
+
+# MiniPC Homelab (SMB)
+# //192.168.1.84/Media     /media/Homelab\040-\040Media           cifs    noauto,noperm,_netdev,rw,user,credentials=/home/kyukee/.smb_credentials/homelab_puiu                    0 0
+
+# MiniPC Homelab (NFS)
+192.168.1.84:/mnt/tank1/Media    /media/Homelab\040-\040Media         nfs     defaults,noauto,_netdev,user,nfsvers=4.2,intr,noatime                      0 0
+192.168.1.84:/mnt/tank1/Archive  /media/Homelab\040-\040Archive       nfs     defaults,noauto,_netdev,user,nfsvers=4.2,intr,noatime                      0 0

@@ -107,10 +107,11 @@ ecm-tools
 electron
 electron16
 elfutils
-emacs-pgtk-native-comp-git
+emacs-nativecomp
 envypn-font
 eog
 epiphany
+etcher-bin
 ethtool
 evince
 evopop-icon-theme
@@ -189,6 +190,7 @@ gobject-introspection
 goclockify
 gohufont
 google-cloud-sdk
+gpart
 gparted
 gperf
 gpointing-device-settings
@@ -218,11 +220,11 @@ hping
 htop
 humanity-icon-theme
 hunspell-en_us
-i3-gaps
 i3lock-color
 i3lock-fancy-multimonitor
 i3status
 i3title
+i3-wm
 icon-slicer
 idnkit
 imagemagick
@@ -368,6 +370,7 @@ php-redis
 php-sodium
 picom
 plugin-autenticacao-gov-pt
+polkit-gnome
 pop-gtk-theme-git
 pop-icon-theme-git
 postgresql
@@ -503,6 +506,7 @@ unzip
 upx
 urxvt-perls
 urxvt-resize-font-git
+usb-creator
 usbview
 vagrant
 vala
@@ -527,7 +531,7 @@ wine-gecko
 wine-mono
 winetricks
 wireshark-qt
-woeusb
+woeusb-ng
 wpa_supplicant
 x3270
 xautoclick

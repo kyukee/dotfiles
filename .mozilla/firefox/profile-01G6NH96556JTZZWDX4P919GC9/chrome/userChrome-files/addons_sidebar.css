@@ -106,17 +106,17 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     :root {
         --in-content-category-background-selected: rgba(1, 1, 1, 0) !important;
     }
-    
+
     /*Addon card styling and margin fit*/
     .addon-name {
-        font-size: 13px !important;
+        font-size: 14px !important;
         font-weight: 600 !important;
         line-height: 24px !important;
         margin-inline-end: auto !important;
         max-width: 50vw!important;
     }
-    .card { 
-        -moz-padding-start: 10px  !important; 
+    .card {
+        -moz-padding-start: 10px  !important;
         margin: 3px !important;
         /*only for light mode change bacrkound*/
         background: rgba(182, 166, 176, 0.3) !important;
@@ -150,7 +150,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     }
 
     /*Make the toggle button bigger */
-    
+
     input[type="checkbox"].toggle-button{
         width: 37px!important;
         height: 19px!important;
@@ -169,7 +169,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         border-color: rgb( 50,50,50)!important;
         background-color: rgb(100,80,90)!important;
     }
-    
+
     /*hide badge*/
     .addon-badge {
         display: none !important;
@@ -195,7 +195,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     recommended-themes-section, recommended-extensions-section {
         display: none  !important;
     }
-     
+
     /*Dark mode color adjustments*/
     @media (prefers-color-scheme: dark) {
         :root {

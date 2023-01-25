@@ -101,6 +101,10 @@ key[Right]=${terminfo[kcuf1]}
 bindkey "\e[1;5D" backward-word
 bindkey "\e[1;5C" forward-word
 
+# Delete word backward and forward (C-w and C-k)
+bindkey "^W" backward-kill-word
+bindkey "^K" kill-word
+
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 function zle-line-init () {

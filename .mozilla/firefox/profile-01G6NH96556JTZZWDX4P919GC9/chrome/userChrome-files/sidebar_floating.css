@@ -1,5 +1,5 @@
 @-moz-document url-prefix("chrome://browser/content/places/bookmarksSidebar.xhtml"), url-prefix("chrome://browser/content/downloads/contentAreaDownloadsView.xhtml"), url-prefix("chrome://browser/content/places/historySidebar.xhtml") {
-    
+
         :root {
             --sidebar-left-margin: 14px!important;
             --sidebar-right-margin: 14px!important;
@@ -7,7 +7,7 @@
             --sidepanel_border-radius: 16px!important;
 
         }
-    
+
     @media (prefers-color-scheme: dark) {
         :root {
             --sidepanel-background: rgba(60, 60, 60, 0.0)!important;
@@ -33,7 +33,7 @@
 .sidebar-placesTree {
     -moz-appearance: none!important;
     color: var(--panel-description-color,--lwt-sidebar-text-color)!important;
-    font-size: 13px!important;
+    font-size: 14px!important;
 /*    font-family: arial!important;*/
      font-family: liberation mono!important;
 
@@ -52,7 +52,7 @@
 .sidebar-placesTree treechildren::-moz-tree-row {
     min-height: 21px !important;
     height: 21px !important;
-    
+
 }
 
 #bookmarks-view-children:-moz-tree-image {
@@ -108,7 +108,7 @@
         #search-box {
             background-color: rgba(1, 1, 1, 0) !important;
             background: none!important;
-            
+
         }
         #bookmarksPanel {
             background: none!important;
@@ -130,11 +130,11 @@
             outline:none !important;
             background:none!important;
         }
-        
+
        treechildren::-moz-tree-separator {
             border-top: 1px solid rgb(60,60,60)!important;
             border-bottom: 1px solid rgb(120,120,120)!important;
-        }  
+        }
     }
 }
 /*History sidebar*/
@@ -209,7 +209,7 @@
 /*Downloads sidebar*/
 
 @-moz-document url-prefix("chrome://browser/content/downloads/contentAreaDownloadsView.xhtml") {
-    
+
     #contentAreaDownloadsView {
         padding: 18px!important;
         padding-left: calc( var( --sidebar-left-margin) )!important;
@@ -223,7 +223,7 @@
         border: 1px solid var(--in-content-box-border-color)!important;
 
     }
-    
+
     richlistitem {
         order: none!important;
     }
@@ -237,7 +237,7 @@
             background-color: var(--sidepanel-background)!important;
             background-image: var(--sidebar-background-image)!important;
             background-size: cover!important;
-            
+
         }
         #downloadsListBox {
             background: var(--float-box-background)!important;

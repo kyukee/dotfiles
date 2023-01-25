@@ -201,9 +201,9 @@
 /* Hide close button  on Sound playing tab ,
 they close only with right click menu  option
 or middle click */
-    tab-item:not(collapsed).sound-playing tab-closebox, tab-item:not(collapsed).has-sound-playing-member.subtree-collapsed[data-child-ids] tab-closebox, tab-item:not(collapsed).muted tab-closebox, tab-item:not(collapsed).has-muted-member.subtree-collapsed[data-child-ids] tab-closebox {
-        display: none!important;
-    }
+    /* tab-item:not(collapsed).sound-playing tab-closebox, tab-item:not(collapsed).has-sound-playing-member.subtree-collapsed[data-child-ids] tab-closebox, tab-item:not(collapsed).muted tab-closebox, tab-item:not(collapsed).has-muted-member.subtree-collapsed[data-child-ids] tab-closebox { */
+    /*     display: none!important; */
+    /* } */
 /**/
 
 /* Display container line as a thin line on top */

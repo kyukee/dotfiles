@@ -70,18 +70,17 @@ See the above repository for full license text. */
     margin-top: -10px;
 
 }
-  
-:root[customizing][sizemode="maximized"] 
+
+:root[customizing][sizemode="maximized"]
     #zoom-controls {
         margin-top: 0px!important;
         margin-left:-45px!important;
         margin-bottom: 40px!important;
-}    
+}
 
 
 #main-window[sizemode="maximized"] #zoom-controls[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
     transform: rotate(180deg)!important;
-    font-size: 15px!important;
+    font-size: 16px!important;
     font-family: serif!important;
 }
-

@@ -13,7 +13,7 @@
     appearance: none!important;
 }
 :root[sizemode="normal"] #nav-bar {
-    z-index: 1!important;
+    z-index: 2222!important;
 }
 :root[sizemode="normal"]  #navigator-toolbox #toolbar-menubar {
     -moz-box-ordinal-group: 1 !important;
@@ -22,7 +22,7 @@
     -moz-box-ordinal-group: 2 !important;
 }
 :root[sizemode="normal"] .titlebar-buttonbox-container {
-    z-index: 2!important;
+    z-index: 3333!important;
     position: absolute!important;
 }
 :root[sizemode="normal"] toolbarspring {
@@ -137,7 +137,7 @@
 }
 :root[sizemode="normal"] #zoom-controls[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
     transform: rotate(180deg)!important;
-    font-size: 15px!important;
+    font-size: 16px!important;
     font-family: serif!important;
 }
 /* Sidebar min and max width removal */

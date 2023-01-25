@@ -115,3 +115,4 @@ application/json=emacs.desktop;
 image/webp=qimgv.desktop
 inode/x-empty=emacs.desktop;
 application/sql=emacs.desktop
+x-scheme-handler/etcher=balena-etcher.desktop

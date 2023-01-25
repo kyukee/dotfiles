@@ -2,13 +2,13 @@
     --titlebar-hide: 30px!important;
     --sideheader-margin: 37px!important;
     --sidebar-padding: -38px;
-    --tst-roots-gap: 3px!important;
-    --tst-border-rad: 6px!important;
+    --tst-roots-gap: 2px!important;
+    --tst-border-rad: 5px!important;
     --tst-height: 34px!important;
     --tst-default-color: rgba(1, 41, 41, 1)!important;
-    --tst-font-size: 13px!important;
+    --tst-font-size: 14px!important;
     --urlbar-foucs-width: 630px!important;
-    --urlbar_font_size: 15px!important;
+    --urlbar_font_size: 16px!important;
 }
 :root:not([customizing])[sizemode="normal"] {
     --navbar-transition-delay: 0.1s!important;

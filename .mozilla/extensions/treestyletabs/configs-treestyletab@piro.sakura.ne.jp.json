@@ -1,24 +1,61 @@
 {
   "__ConfigsMigration__userValeusSameToDefaultAreCleared": true,
+  "animation": false,
+  "animationForce": true,
   "autoAttachOnNewTabCommand": 2,
   "cachedExternalAddons": [
     "tst-colored-tabs@murz"
   ],
-  "chunkedUserStyleRules0": "LyogU2hvdyB0aXRsZSBvZiB1bnJlYWQgdGFicyB3aXRoIHJlZCBhbmQgaXRhbGljIGZvbnQgKi8KLyoKOnJvb3Quc2lkZWJhciB0YWItaXRlbS51bnJlYWQgLmxhYmVsLWNvbnRlbnQgewogIGNvbG9yOiByZWQgIWltcG9ydGFudDsKICBmb250LXN0eWxlOiBpdGFsaWMgIWltcG9ydGFudDsKfQoqLwoKLyogQWRkIHByaXZhdGUgYnJvd3NpbmcgaW5kaWNhdG9yIHBlciB0YWIgKi8KLyoKOnJvb3Quc2lkZWJhciB0YWItaXRlbS5wcml2YXRlLWJyb3dzaW5nIHRhYi1sYWJlbDpiZWZvcmUgewogIGNvbnRlbnQ6ICLwn5W2IjsKfQoqLwoK",
+  "chunkedUserStyleRules0": "LyogU2hvdyB0aXRsZSBvZiB1bnJlYWQgdGFicyB3aXRoIHJlZCBhbmQgaXRhbGljIGZvbnQgKi8KLyoKOnJvb3Quc2lkZWJhciB0YWItaXRlbS51bnJlYWQgLmxhYmVsLWNvbnRlbnQgewogIGNvbG9yOiByZWQgIWltcG9ydGFudDsKICBmb250LXN0eWxlOiBpdGFsaWMgIWltcG9ydGFudDsKfQoqLwoKLyogQWRkIHByaXZhdGUgYnJvd3NpbmcgaW5kaWNhdG9yIHBlciB0YWIgKi8KLyoKOnJvb3Quc2lkZWJhciB0YWItaXRlbS5wcml2YXRlLWJyb3dzaW5nIHRhYi1sYWJlbDpiZWZvcmUgewogIGNvbnRlbnQ6ICLwn5W2IjsKfQoqLwoKCi5sYWJlbCB7Zm9udC1zaXplOiAxNHB4fQoKLm5ld3RhYi1idXR0b24tYm94IHsKICBkaXNwbGF5OiBub25lOwp9CiN0YWJiYXIgewogIGJvdHRvbTogMCAhaW1wb3J0YW50OyAvKiBFbGltaW5hdGUgZGVhZCBzcGFjZSBvbiBib3R0b20gKi8KfQoKOnJvb3QubGVmdCAjdGFiYmFyIHsKICBkaXJlY3Rpb246IGx0cjsKICBvdmVyZmxvdy14OiBoaWRkZW47Cn0KCiN0YWJiYXIgdGFiLWl0ZW0gdGFiLWl0ZW0tc3Vic3RhbmNlOm5vdCg6aG92ZXIpIHRhYi1jbG9zZWJveCB7CiAgZGlzcGxheTogbm9uZTsKfQoKdGFiLWl0ZW0uYWN0aXZlIHRhYi10d2lzdHksCnRhYi1pdGVtLmFjdGl2ZSAubGFiZWwtY29udGVudCwKdGFiLWl0ZW0uYWN0aXZlIHRhYi1jb3VudGVyIHsKICBjb2xvcjogI2ZmZjsKfQ==",
   "configsVersion": 26,
   "context_collapseAll": false,
   "context_expandAll": false,
+  "grantedRemovingTabIds": [
+    85,
+    91,
+    92,
+    94,
+    95,
+    93,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111
+  ],
   "labelOverflowStyle": "crop",
   "notifiedFeaturesVersion": 9,
   "optionsExpandedSections": [
+    "section-drag",
+    "section-appearance",
+    "section-treeBehavior",
+    "section-advanced",
     "section-addons",
-    "section-debug"
+    "section-debug",
+    "section-contextMenu",
+    "section-newTabWithOwner",
+    "section-newTab"
   ],
-  "shiftTabsForScrollbarDistance": "0em",
-  "shiftTabsForScrollbarOnlyOnHover": false,
   "showExpertOptions": true,
   "sidebarPosition": 1,
   "syncDevices": {
+    "device-1672411317194-13018": {
+      "id": "device-1672411317194-13018",
+      "name": "Firefox on Linux",
+      "icon": "device-desktop",
+      "timestamp": 1672417170714
+    },
     "device-1672400616456-49561": {
       "id": "device-1672400616456-49561",
       "name": "Firefox on Linux",
@@ -26,6 +63,8 @@
       "timestamp": 1672410588174
     }
   },
+  "tabDragBehavior": 11,
   "userStyleRules": "",
-  "userStyleRulesFieldHeight": "166.66665649414062px"
+  "userStyleRulesFieldHeight": "166.66665649414062px",
+  "workaroundForBug1548949DroppedTabs": "1672417168903-56282/113"
 }

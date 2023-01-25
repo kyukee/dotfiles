@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #warningScreen {
-    font-size: 15px;
+    font-size: 16px;
     padding-top: 0;
     padding-bottom: 0;
     padding-inline-start: calc(48px + 4.6em);
